@@ -4,158 +4,226 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../output.css" />
 </head>
-<body>
-    <nav
-    class="bg-white   font-inter font-normal dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-    <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="./assets/logo.svg" class="h-[6rem] w-[12rem] " alt="Barnass Logo">
-        </a>
-        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button type="button"
-                class="  h-[3rem] hidden lg:block text-lg uppercase w-[10rem] rounded-sm ring-1 ring-[#0C274C]  text-[#0C274C]  border-red-300">Login</button>
-            <button data-collapse-toggle="navbar-sticky" type="button"
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                aria-controls="navbar-sticky" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M1 1h15M1 7h15M1 13h15" />
-                </svg>
-            </button>
-        </div>
-        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-            <ul
-                class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                    <a href="/"
-                        class="block uppercase py-2 px-3 text-xl text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                        aria-current="page">Online Courses</a>
-                </li>
-                <li>
-                    <a href="./Gallery/Gallery.html"
-                        class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Gallery</a>
-                </li>
-                <li>
-                    <a href="./Instructor/Instructor.html"
-                        class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Become
-                        an Instructor</a>
-                </li>
-                <li>
-                    <a href="./Blog/Blog.html"
-                        class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Blog
-                    </a>
-                </li>
-                <li>
-                    <a href="./About//About.html"
-                        class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About
-                        Us </a>
-                </li>
-                <li>
-                    <a href="./Contacts/Contact.html"
-                        class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact
-                    </a>
-                </li>
-            </ul>
-        </div>
+<body class="flex flex-col items-center justify-center gap-[3rem]">
+<nav
+class="bg-white   font-inter font-normal dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+<div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="../assets/logo.svg" class="h-[6rem] w-[12rem] " alt="Barnass Logo">
+    </a>
+    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <button type="button"
+            class="  h-[3rem] hidden lg:block text-lg uppercase w-[10rem] rounded-sm ring-1 ring-[#0C274C]  text-[#0C274C]  border-red-300">Login</button>
+        <button data-collapse-toggle="navbar-sticky" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-sticky" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+        </button>
     </div>
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+        <ul
+            class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+                <a href="../Courses/Courses.html"
+                    class="block uppercase py-2 px-3 text-xl text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                    aria-current="page">Online Courses</a>
+            </li>
+            <li>
+                <a href="../Gallery/Gallery.html"
+                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Gallery</a>
+            </li>
+            <li>
+                <a href="../Instructor/Instructor.html"
+                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Become
+                    an Instructor</a>
+            </li>
+            <li>
+                <a href="../Blog/Blog.html"
+                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Blog
+                </a>
+            </li>
+            <li>
+                <a href="../About/About.html"
+                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About
+                    Us </a>
+            </li>
+            <li>
+                <a href="../Contacts/Contact.html"
+                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
 </nav>
 
+
+<section
+class=" w-full flex items-center justify-center font-poppins bg-center h-[60rem] bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-[#0C274C] bg-blend-multiply">
+<div class="flex flex-col h-[45%]  items-center justify-center">
+    <div
+        class="  flex items-center justify-center gap-[3rem] h-full  flex-col  max-w-screen-2xl   text-center ">
+        <div class="flex flex-col sm:w-full items-center justify-center gap-[2rem] ">
+            <h1
+                class=" uppercase leading-[5rem] mb-4 text-4xl font-extrabold tracking-normal text-white md:text-5xl lg:text-6xl">
+               Welcome To
+                <br /><span class="mt-8">Barnass Gallery</span>
+            </h1>
+            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Immerse yourself in a curated collection of technological wonders, from robotics and artificial intelligence 
+                to virtual reality and beyond. Our exhibits showcase the forefront of innovation, providing a glimpse 
+                into the technologies that will shape the world of tomorrow.</p>
+        </div>
+    </div>
+
+   
+</div>
+</section>
+
+
+<section class=" w-full bg-green-500 flex items-center justify-center flex-col">
+    <div class="font-poppins flex flex-col h-[20rem] gap-3 bg-blue-500 max-w-screen-2xl items-center justify-center ">
+       <h1 class=" text-4xl font-semibold tracking-wide "> Our Portfolio  </h1>
+       <p> Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id 
+        orci porta dapibus. Curabitur arcu erat </p>
+    </div>
+    <div class="w-full flex items-center justify-center ">
+
+
+        <div class="text-sm w-[80%] bg-red-500 font-medium flex items-center justify-center text-center text-gray-500  dark:text-gray-400 ">
+            <ul class="flex font poppins font-normal text-lg w-full items-center justify-around flex-wrap -mb-px">
+                <li class="me-2">
+                    <a href="#" class="inline-block  font-semibold p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">All</a>
+                </li>
+                <li class="me-2">
+                    <a href="#" class="inline-block p-4 font-semibold  text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="Robotics">Dashboard</a>
+                </li>
+                <li class="me-2">
+                    <a href="#" class="inline-block p-4  font-semibold border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Artificial Intelligence</a>
+                </li>
+                <li class="me-2">
+                    <a href="#" class="inline-block p-4 font-semibold  border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Images</a>
+                </li>
+                <li class="me-2">
+                    <a href="#" class="inline-block font-semibold  p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Events</a>
+                </li>
+                <li class="me-2">
+                    <a href="#" class="inline-block font-semibold  p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Videos</a>
+                </li>
+
+              
+            </ul>
+        </div>
+        
+    </div>
+
+    
+
+<div class="flex items-center justify-center"></div>
+<div class="">
+
+</div>
+</section>
+
 <footer class=" lg:h-[30rem] flex items-center justify-center  bg-[#0C274C] text-white sm:p-6 w-full dark:bg-gray-800">
-    <div class=" h-full  grid grid-cols-12 items-center  max-w-screen-2xl font-inter">
-     <div class="col-span-12 grid h-full  grid-cols-12">
-        <div class="md:flex md:justify-between col-span-12 flex flex-col gap-8 lg:col-span-4">
-            <div class="mb-6 md:mb-0">
-                <div class="flex flex-col gap-4">
-                    <h1 class="text-4xl uppercase tracking-wide">
-                        Experience Tomorrow Today!
-                    </h1>
-                    <p class="leading-[2rem]">
-                        Whether you're a tech aficionado, a curious mind, or an
-                        industry professional, BARNASS LTD invites you to be
-                        part of the future. Join us in exploring the endless
-                        possibilities of technology, where innovation knows
-                        no bounds. The experience awaits—step into the
-                        future with us!
-                    </p>
-                </div>
-            </div>
-           
-        </div>
-
-
-        <div class=" h-full   text-white place-items-end place-content-end  col-span-12 lg:col-span-8 grid grid-cols-12  ">
-            <div class=" bg-blue-500 items-start justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
-                <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Company</h2>
-                <ul class=" text-white flex flex-col gap-4 dark:text-gray-400">
-                    <li class="">
-                        <a href="./Gallery/Gallery.html" class="hover:underline">Gallery</a>
-                    </li>
-                    <li>
-                        <a href="./Blog/Blog.html" class="hover:underline">Blog</a>
-                    </li>
-                    <li>
-                        <a href="./Contacts/Contact.html" class="hover:underline">Contact us</a>
-                    </li>
-                    <li>
-                        <a href="./Courses/Courses.html" class="hover:underline">Online Courses</a>
-                    </li>
-                    <li>
-                        <a href="./Instructor/Instructor.html" class="hover:underline">Become an Instructor</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-span-3 flex flex-col gap-8  ">
-                <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Support</h2>
-                <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
-                    <li class="text-white">
-                        <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Help Center</a>
-                    </li>
-                    <li>
-                        <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Terms of Service</a>
-                    </li>
-                    <li>
-                        <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Legal</a>
-                    </li>
-                    <li>
-                        <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Status</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-span-3 flex flex-col  gap-8 lg:h-[15rem] ">
-                <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Address</h2>
-                <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
-                    <li class="text-white">
-                        <a href="https://github.com/themesberg/flowbite" class="hover:underline ">84 Wappenbury Road</a>
-                    </li>
-                    <li>
-                        <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">status</a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-     </div>
-
-
-        <div class=" col-span-12 grid-cols-12">
-            <div class=" col-span-12 lg:col-span-6 sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-white sm:text-center dark:text-gray-400"> Copyright ©  2023  <a
-                        href="https://flowbite.com" class="hover:underline">Barnass LTD</a>. All Rights Reserved.
-                </span>
-          
+<div class=" h-full  grid grid-cols-12 items-center  max-w-screen-2xl font-inter">
+ <div class="col-span-12 grid h-full  grid-cols-12">
+    <div class="md:flex md:justify-between col-span-12 flex flex-col gap-8 lg:col-span-4">
+        <div class="mb-6 md:mb-0">
+            <div class="flex flex-col gap-4">
+                <h1 class="text-4xl uppercase tracking-wide">
+                    Experience Tomorrow Today!
+                </h1>
+                <p class="leading-[2rem]">
+                    Whether you're a tech aficionado, a curious mind, or an
+                    industry professional, BARNASS LTD invites you to be
+                    part of the future. Join us in exploring the endless
+                    possibilities of technology, where innovation knows
+                    no bounds. The experience awaits—step into the
+                    future with us!
+                </p>
             </div>
         </div>
        
     </div>
-    
+
+
+    <div class=" h-full   text-white place-items-end place-content-end  col-span-12 lg:col-span-8 grid grid-cols-12  ">
+        <div class=" bg-blue-500 items-start justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
+            <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Company</h2>
+            <ul class=" text-white flex flex-col gap-4 dark:text-gray-400">
+                <li class="">
+                    <a href="./Gallery/Gallery.html" class="hover:underline">Gallery</a>
+                </li>
+                <li>
+                    <a href="./Blog/Blog.html" class="hover:underline">Blog</a>
+                </li>
+                <li>
+                    <a href="./Contacts/Contact.html" class="hover:underline">Contact us</a>
+                </li>
+                <li>
+                    <a href="./Courses/Courses.html" class="hover:underline">Online Courses</a>
+                </li>
+                <li>
+                    <a href="./Instructor/Instructor.html" class="hover:underline">Become an Instructor</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-span-3 flex flex-col gap-8  ">
+            <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Support</h2>
+            <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
+                <li class="text-white">
+                    <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Help Center</a>
+                </li>
+                <li>
+                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Terms of Service</a>
+                </li>
+                <li>
+                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Legal</a>
+                </li>
+                <li>
+                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Status</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-span-3 flex flex-col  gap-8 lg:h-[15rem] ">
+            <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Address</h2>
+            <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
+                <li class="text-white">
+                    <a href="https://github.com/themesberg/flowbite" class="hover:underline ">84 Wappenbury Road</a>
+                </li>
+                <li>
+                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">status</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+ </div>
+
+
+    <div class=" col-span-12 grid-cols-12">
+        <div class=" col-span-12 lg:col-span-6 sm:flex sm:items-center sm:justify-between">
+            <span class="text-sm text-white sm:text-center dark:text-gray-400"> Copyright ©  2023  <a
+                    href="https://flowbite.com" class="hover:underline">Barnass LTD</a>. All Rights Reserved.
+            </span>
+      
+        </div>
+    </div>
+   
+</div>
+
 </footer>
     
 </body>
