@@ -7,76 +7,60 @@
     <link rel="stylesheet" href="../output.css" />
 </head>
 <body class="flex flex-col items-center justify-center gap-4">
-    <nav
-class="bg-white   font-inter font-normal dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-<div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="../assets/logo.svg" class="h-[6rem] w-[12rem] " alt="Barnass Logo">
-    </a>
-    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <button type="button"
-            class="  h-[3rem] hidden lg:block text-lg uppercase w-[10rem] rounded-sm ring-1 ring-[#0C274C]  text-[#0C274C]  border-red-300">Login</button>
-        <button data-collapse-toggle="navbar-sticky" type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-sticky" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 17 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 1h15M1 7h15M1 13h15" />
-            </svg>
-        </button>
-    </div>
-    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-        <ul
-            class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+    <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+        <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="./assets/logo.svg" class="h-[4rem]" alt="Flowbite Logo">
+        
+        </a>
+        <div class="flex md:order-2 lg:gap-4 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <button type="button" class="font-inter hidden lg:block text-black h-[3rem]  w-[9rem] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-lg px-4 py-2 text-center uppercase ring-2 ring-black">Login</button>
+            <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+              </svg>
+          </button>
+        </div>
+        <div class="items-center font-inter justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+          <ul class=" hidden xl:flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
-                <a href="../Courses/Courses.html"
-                    class="block uppercase py-2 px-3 text-xl text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                    aria-current="page">Online Courses</a>
+              <a href="../Courses/Courses.html" class=" uppercase block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Online Courses</a>
             </li>
             <li>
-                <a href="../Gallery/Gallery.html"
-                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Gallery</a>
+              <a href="../Gallery/Gallery.html" class=" uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Gallery</a>
             </li>
             <li>
-                <a href="../Instructor/Instructor.html"
-                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Become
-                    an Instructor</a>
+              <a href="../Instructor/Instructor.html" class=" uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Become an instructor</a>
             </li>
             <li>
-                <a href="../Blog/Blog.html"
-                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Blog
-                </a>
+              <a href="../Blog/Blog.html" class=" uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">blog</a>
             </li>
             <li>
-                <a href="../About/About.html"
-                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About
-                    Us </a>
-            </li>
-            <li>
-                <a href="../Contacts/Contact.html"
-                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-</nav>
-
+                <a href="../About/About.html" class=" uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">about us</a>
+              </li>
+              <li>
+                <a href="../Contacts/Contact.html" class=" uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">contact</a>
+              </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+      
+    
 
 <section
-class=" w-full flex items-center justify-center font-poppins bg-center h-[60rem] bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-[#0C274C] bg-blend-multiply">
-<div class="flex flex-col h-[45%]  items-center justify-center">
+class=" w-full flex items-center justify-center font-poppins bg-center h-[40rem] lg:h-[60rem] bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-[#0C274C] bg-blend-multiply">
+<div class="flex flex-col h-full lg:h-[45%] bg-red-500 items-center justify-center">
     <div
-        class="  flex items-center justify-center gap-[3rem] h-full  flex-col  max-w-screen-2xl   text-center ">
-        <div class="flex flex-col sm:w-full items-center justify-center gap-[2rem] ">
+        class="  flex items-center justify-center lg:gap-[3rem] h-full  flex-col  max-w-screen-2xl   text-center ">
+        <div class="flex mb-0 flex-col fucked-up h-full bg-blue-500 sm:w-full items-center justify-center lg:gap-[2rem] ">
             <h1
-                class=" uppercase leading-[5rem] mb-4 text-4xl font-extrabold tracking-normal text-white md:text-5xl lg:text-6xl">
+                class=" uppercase lg:leading-[5rem]  text-3xl lg:mb-4 sm:text-4xl font-extrabold tracking-normal text-white md:text-5xl lg:text-6xl">
                Innovative
                 <br /><span class="mt-8">Exhibits</span>
             </h1>
-            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Immerse yourself in a curated collection of technological wonders, from robotics and artificial intelligence 
+            <p class=" text-lg font-normal text-gray-300 lg:text-xl ">Immerse yourself in a curated collection of technological wonders, from robotics and artificial intelligence 
                 to virtual reality and beyond. Our exhibits showcase the forefront of innovation, providing a glimpse 
                 into the technologies that will shape the world of tomorrow.</p>
         </div>
@@ -88,7 +72,7 @@ class=" w-full flex items-center justify-center font-poppins bg-center h-[60rem]
 
 
 
-<section class="w-[90%]  gap-8  flex flex-col-reverse sm:flex sm:flex-row  items-center justify-around">
+<section class="w-[90%]  gap-8  flex flex-col sm:flex sm:flex-row  items-center justify-around">
 <div class="   basis-3/4 flex gap-4 flex-col ">
     <div class="flex flex-col items-center justify-start">
 <div class="h-[40rem] gap-4 flex flex-col items-start justify-center">
@@ -145,7 +129,7 @@ class=" w-full flex items-center justify-center font-poppins bg-center h-[60rem]
    <div class="basis-1/4 flex flex-col gap-5 self-start mt-[6rem]">
  
     <div class="flex gap-6  font-poppins  flex-col items-center justify-start text-center">
-        <img src="../assets/logo.svg" class="h-[6rem] w-[12rem] " alt="Barnass Logo">   
+        <img src=".../assets/logo.svg" class="h-[6rem] w-[12rem] " alt="Barnass Logo">   
         <p> Follow us on our Social Media platforms, for more news & Update.</p>
     </div>
 
@@ -215,100 +199,101 @@ class=" w-full flex items-center justify-center font-poppins bg-center h-[60rem]
    </div>
     </section>
 
-<footer class=" lg:h-[30rem] flex items-center justify-center  bg-[#0C274C] text-white sm:p-6 w-full dark:bg-gray-800">
-<div class=" h-full  grid grid-cols-12 items-center  max-w-screen-2xl font-inter">
- <div class="col-span-12 grid h-full  grid-cols-12">
-    <div class="md:flex md:justify-between col-span-12 flex flex-col gap-8 lg:col-span-4">
-        <div class="mb-6 md:mb-0">
-            <div class="flex flex-col gap-4">
-                <h1 class="text-4xl uppercase tracking-wide">
-                    Experience Tomorrow Today!
-                </h1>
-                <p class="leading-[2rem]">
-                    Whether you're a tech aficionado, a curious mind, or an
-                    industry professional, BARNASS LTD invites you to be
-                    part of the future. Join us in exploring the endless
-                    possibilities of technology, where innovation knows
-                    no bounds. The experience awaits—step into the
-                    future with us!
-                </p>
+    <footer class=" mt-[2rem] lg:h-[27rem] flex items-center justify-center  bg-[#0C274C] text-white sm:p-6 w-full dark:bg-gray-800">
+        <div class=" h-full  grid grid-cols-12 items-center justify-center  max-w-screen-2xl font-inter">
+         <div class="col-span-12 grid h-full place-items-center gap-4  grid-cols-12">
+            <div class=" h-[25rem] sm:h-[15rem] lg:h-full sm:items-center sm:justify-center w-[90%]  items-center justify-center md:flex md:justify-between col-span-12 flex flex-col gap-8 lg:col-span-4">
+                <div class=" h-full flex  sm:mb-0">
+                    <div class="flex items-center  text-center lg:text-start justify-center flex-col gap-4">
+                        <h1 class=" text-center lg:text-start text-2xl lg:text-4xl uppercase tracking-wide ">
+                            Experience Tomorrow Today!
+                        </h1>
+                        <p class=" text-center lg:text-start leading-[2rem]">
+                            Whether you're a tech aficionado, a curious mind, or an
+                            industry professional, BARNASS LTD invites you to be
+                            part of the future. Join us in exploring the endless
+                            possibilities of technology, where innovation knows
+                            no bounds. The experience awaits—step into the
+                            future with us!
+                        </p>
+                    </div>
+                </div>
+               
             </div>
+
+
+            <div class=" h-full w-[90%] gap-4  text-white place-items-center  text-center lg:text-start lg:place-items-end lg:place-content-end  col-span-12 lg:col-span-8 grid grid-cols-12  ">
+                <div class="  lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
+                    <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Company</h2>
+                    <ul class=" text-white flex flex-col gap-4 dark:text-gray-400">
+                        <li class="">
+                            <a href="./Gallery/Gallery.html" class="hover:underline">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="./Blog/Blog.html" class="hover:underline">Blog</a>
+                        </li>
+                        <li>
+                            <a href="./Contacts/Contact.html" class="hover:underline">Contact us</a>
+                        </li>
+                        <li>
+                            <a href="./Courses/Courses.html" class="hover:underline">Online Courses</a>
+                        </li>
+                        <li>
+                            <a href="./Instructor/Instructor.html" class="hover:underline">Become an Instructor</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class=" lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
+                    <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Support</h2>
+                    <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
+                        <li class="text-white">
+                            <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Help Center</a>
+                        </li>
+                        <li>
+                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Terms of Service</a>
+                        </li>
+                        <li>
+                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Legal</a>
+                        </li>
+                        <li>
+                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Status</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="  lg:h-[15rem] lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
+                    <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Address</h2>
+                    <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
+                        <li class="text-white">
+                            <a href="https://github.com/themesberg/flowbite" class="hover:underline ">84 Wappenbury Road</a>
+                        </li>
+                        <li>
+                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">status</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+         </div>
+
+
+            <div class=" h-[5rem] sm:h-[3rem]  flex items-center justify-center col-span-12 grid-cols-12">
+                <div class=" col-span-12 lg:w-[90%]  lg:col-span-6 sm:flex sm:items-center sm:justify-start">
+                    <span class="text-sm text-white sm:text-center dark:text-gray-400"> Copyright ©  2023  <a
+                            href="https://flowbite.com" class="hover:underline">Barnass LTD</a>. All Rights Reserved.
+                    </span>
+              
+                </div>
+            </div>
+           
         </div>
-       
-    </div>
+        
+    </footer>
 
-
-    <div class=" h-full   text-white place-items-end place-content-end  col-span-12 lg:col-span-8 grid grid-cols-12  ">
-        <div class="  items-start justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
-            <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Company</h2>
-            <ul class=" text-white flex flex-col gap-4 dark:text-gray-400">
-                <li class="">
-                    <a href="./Gallery/Gallery.html" class="hover:underline">Gallery</a>
-                </li>
-                <li>
-                    <a href="./Blog/Blog.html" class="hover:underline">Blog</a>
-                </li>
-                <li>
-                    <a href="./Contacts/Contact.html" class="hover:underline">Contact us</a>
-                </li>
-                <li>
-                    <a href="./Courses/Courses.html" class="hover:underline">Online Courses</a>
-                </li>
-                <li>
-                    <a href="./Instructor/Instructor.html" class="hover:underline">Become an Instructor</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="col-span-3 flex flex-col gap-8  ">
-            <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Support</h2>
-            <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
-                <li class="text-white">
-                    <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Help Center</a>
-                </li>
-                <li>
-                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Terms of Service</a>
-                </li>
-                <li>
-                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Legal</a>
-                </li>
-                <li>
-                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Privacy Policy</a>
-                </li>
-                <li>
-                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Status</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="col-span-3 flex flex-col  gap-8 lg:h-[15rem] ">
-            <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Address</h2>
-            <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
-                <li class="text-white">
-                    <a href="https://github.com/themesberg/flowbite" class="hover:underline ">84 Wappenbury Road</a>
-                </li>
-                <li>
-                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">status</a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
- </div>
-
-
-    <div class=" col-span-12 grid-cols-12">
-        <div class=" col-span-12 lg:col-span-6 sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm text-white sm:text-center dark:text-gray-400"> Copyright ©  2023  <a
-                    href="https://flowbite.com" class="hover:underline">Barnass LTD</a>. All Rights Reserved.
-            </span>
-      
-        </div>
-    </div>
-   
-</div>
-
-</footer>
     
 </body>
 </html>
