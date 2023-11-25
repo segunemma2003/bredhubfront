@@ -937,7 +937,7 @@ video {
   max-width: 42rem;
 }
 
-.max-w-screen-2xl{
+.max-w-[1700px]{
   max-width: 1536px;
 }
 
@@ -2191,7 +2191,7 @@ video {
     width: 50%;
   }
 
-  .lg\:max-w-screen-2xl{
+  .lg\:max-w-[1700px]{
     max-width: 1536px;
   }
 

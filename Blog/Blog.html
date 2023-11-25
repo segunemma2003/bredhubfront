@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../output.css" />
+     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="./output.css"> -->
+  
+     <script>
+        tailwind.config = {
+  content: [
+    './**/*.html',        // Include all HTML files
+    './src/**/*.js',      // Include all JavaScript files in the src directory and its subdirectories
+    './styles/**/*.css', 
+  ],
+  theme: {
+      extend: {
+        fontFamily:{
+          inter:['Inter','sans-serif'],
+          poppins:['Poppins', 'sans-serif']
+        },
+        screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        '3xl': '1570px', // Custom size
+      },
+       },
+  },
+  plugins: [],
+};
+      </script>
 </head>
 <body class="flex flex-col items-center justify-center gap-4">
     <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-        <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div class="max-w-[1700px] flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="../assets/logo.svg" class="h-[4rem]" alt="Barnass">
         
@@ -53,7 +81,7 @@
 class=" w-full flex items-center justify-center font-poppins bg-center h-[40rem] lg:h-[60rem] bg-no-repeat bg-[url('https://images.unsplash.com/photo-1535378620166-273708d44e4c?q=80&w=2157&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-[#0C274C] bg-blend-multiply">
 <div class="flex flex-col h-full lg:h-[45%]  items-center justify-center">
     <div
-        class="  flex items-center justify-center lg:gap-[3rem] h-full  flex-col  max-w-screen-2xl   text-center ">
+        class="  flex items-center justify-center lg:gap-[3rem] h-full  flex-col  max-w-[1700px]   text-center ">
         <div class="flex mb-0 flex-col fucked-up h-full sm:w-full items-center justify-center lg:gap-[2rem] ">
             <h1
                 class=" uppercase lg:leading-[5rem]  text-3xl lg:mb-4 sm:text-4xl font-extrabold tracking-normal text-white md:text-5xl lg:text-6xl">
@@ -73,7 +101,7 @@ class=" w-full flex items-center justify-center font-poppins bg-center h-[40rem]
 
 
 <section class="w-full  gap-8 flex items-center justify-center">
-<div class="max-w-screen-2xl grid grid-cols-12 ">
+<div class="max-w-[1700px] grid grid-cols-12 ">
     <div class=" col-span-12 sm:col-span-8   flex items-center justify-center gap-4 flex-col ">
         <div class="flex w-[80%] gap-4  flex-col items-start justify-center">
     <div class="h-[40rem] gap-4 flex flex-col items-start justify-center">
@@ -137,7 +165,7 @@ class=" w-full flex items-center justify-center font-poppins bg-center h-[40rem]
                         </div>
     </div>
     
-       <div class=" col-span-12 sm:col-span-4 flex flex-col gap-5 self-start mt-[6rem]">
+       <div class=" items-center bg-red-500 col-span-12 sm:col-span-4 flex flex-col gap-5 self-start mt-[6rem]">
      
         <div class="flex gap-6  font-poppins  flex-col items-center justify-start text-center">
             <img src=".../assets/logo.svg" class="h-[6rem] w-[12rem] " alt="Barnass Logo">   
@@ -211,14 +239,14 @@ class=" w-full flex items-center justify-center font-poppins bg-center h-[40rem]
 </div>
     </section>
     <section class=" w-full  ">
-        <div class="max-w-screen-2xl m-auto">
+        <div class="max-w-[1700px] m-auto">
             <div class="w-full"><iframe class="w-full h-[25rem] lg:h-[30rem]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/population/">Population Estimator map</a></iframe></div>
         </div>
     </section>
     
     
         <footer class=" mt-[2rem] lg:h-[27rem] flex items-center justify-center  bg-[#0C274C] text-white sm:p-6 w-full dark:bg-gray-800">
-            <div class=" h-full  grid grid-cols-12 items-center justify-center  max-w-screen-2xl font-inter">
+            <div class=" h-full  grid grid-cols-12 items-center justify-center  max-w-[1700px] font-inter">
              <div class="col-span-12 grid h-full place-items-center gap-4  grid-cols-12">
                 <div class=" h-[25rem] sm:h-[15rem] lg:h-full sm:items-center sm:justify-center w-[90%]  items-center justify-center md:flex md:justify-between col-span-12 flex flex-col gap-8 lg:col-span-4">
                     <div class=" h-full flex  sm:mb-0">

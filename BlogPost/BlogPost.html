@@ -4,12 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../output.css" />
+     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="./output.css"> -->
+  
+     <script>
+        tailwind.config = {
+  content: [
+    './**/*.html',        // Include all HTML files
+    './src/**/*.js',      // Include all JavaScript files in the src directory and its subdirectories
+    './styles/**/*.css', 
+  ],
+  theme: {
+      extend: {
+        fontFamily:{
+          inter:['Inter','sans-serif'],
+          poppins:['Poppins', 'sans-serif']
+        },
+        screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        '3xl': '1570px', // Custom size
+      },
+       },
+  },
+  plugins: [],
+};
+      </script>
 </head>
 <body>
     <nav
 class="bg-white   font-inter font-normal dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-<div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+<div class="max-w-[1700px] flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="./assets/logo.svg" class="h-[6rem] w-[12rem] " alt="Barnass Logo">
     </a>
@@ -69,7 +97,7 @@ class="bg-white   font-inter font-normal dark:bg-gray-900 fixed w-full z-20 top-
 class=" w-full flex items-center justify-center font-poppins bg-center h-[60rem] bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
 <div class="flex flex-col h-[45%]  items-center justify-center">
     <div
-        class="  flex items-center justify-center gap-[3rem] h-full  flex-col  max-w-screen-2xl   text-center ">
+        class="  flex items-center justify-center gap-[3rem] h-full  flex-col  max-w-[1700px]   text-center ">
         <div class="flex flex-col sm:w-full items-center justify-center gap-[2rem] ">
             <h1
                 class=" uppercase leading-[5rem] mb-4 text-4xl font-extrabold tracking-normal text-white md:text-5xl lg:text-6xl">
@@ -95,7 +123,7 @@ class=" w-full flex items-center justify-center font-poppins bg-center h-[60rem]
 </section>
 
 <footer class=" lg:h-[30rem] flex items-center justify-center  bg-[#0C274C] text-white sm:p-6 w-full dark:bg-gray-800">
-<div class=" h-full  grid grid-cols-12 items-center  max-w-screen-2xl font-inter">
+<div class=" h-full  grid grid-cols-12 items-center  max-w-[1700px] font-inter">
  <div class="col-span-12 grid h-full  grid-cols-12">
     <div class="md:flex md:justify-between col-span-12 flex flex-col gap-8 lg:col-span-4">
         <div class="mb-6 md:mb-0">
