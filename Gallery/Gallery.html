@@ -1,335 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- <link rel="stylesheet" href="./output.css"> -->
-  
-     <script>
+
+    <script>
         tailwind.config = {
-  content: [
-    './**/*.html',        // Include all HTML files
-    './src/**/*.js',      // Include all JavaScript files in the src directory and its subdirectories
-    './styles/**/*.css', 
-  ],
-  theme: {
-      extend: {
-        fontFamily:{
-          inter:['Inter','sans-serif'],
-          poppins:['Poppins', 'sans-serif']
-        },
-        screens: {
-        'sm': '640px',
-        'md': '768px',
-        'lg': '1024px',
-        'xl': '1280px',
-        '2xl': '1536px',
-        '3xl': '1570px', // Custom size
-      },
-       },
-  },
-  plugins: [],
-};
-      </script>
+            content: [
+                "./**/*.html", // Include all HTML files
+                "./src/**/*.js", // Include all JavaScript files in the src directory and its subdirectories
+                "./styles/**/*.css",
+            ],
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ["Inter", "sans-serif"],
+                        poppins: ["Poppins", "sans-serif"],
+                    },
+                    screens: {
+                        sm: "640px",
+                        md: "768px",
+                        lg: "1024px",
+                        xl: "1280px",
+                        "2xl": "1536px",
+                        "3xl": "1570px", // Custom size
+                    },
+                },
+            },
+            plugins: [],
+        };
+    </script>
 </head>
+
 <body class="flex flex-col items-center justify-center gap-[3rem]">
-<nav
-class="bg-white   font-inter font-normal dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-<div class="max-w-[1700px] flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="../assets/logo.svg" class="h-[6rem] w-[12rem] " alt="Barnass Logo">
-    </a>
-    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <button type="button"
-            class="  h-[3rem] hidden lg:block text-lg uppercase w-[10rem] rounded-sm ring-1 ring-[#0C274C]  text-[#0C274C]  border-red-300">Login</button>
-        <button data-collapse-toggle="navbar-sticky" type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-sticky" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 17 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 1h15M1 7h15M1 13h15" />
-            </svg>
-        </button>
-    </div>
-    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-        <ul
-            class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-                <a href="../Courses/Courses.html"
-                    class="block uppercase py-2 px-3 text-xl text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                    aria-current="page">Online Courses</a>
-            </li>
-            <li>
-                <a href="../Gallery/Gallery.html"
-                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Gallery</a>
-            </li>
-            <li>
-                <a href="../Instructor/Instructor.html"
-                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Become
-                    an Instructor</a>
-            </li>
-            <li>
-                <a href="../Blog/Blog.html"
-                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Blog
-                </a>
-            </li>
-            <li>
-                <a href="../About/About.html"
-                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About
-                    Us </a>
-            </li>
-            <li>
-                <a href="../Contacts/Contact.html"
-                    class=" uppercase block py-2 px-3 text-gray-900  text-xl font-normal rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-</nav>
-
-
-<section
-class=" w-full flex items-center justify-center font-poppins bg-center h-[60rem] bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-[#0C274C] bg-blend-multiply">
-<div class="flex flex-col h-[45%]  items-center justify-center">
-    <div
-        class="  flex items-center justify-center gap-[3rem] h-full  flex-col  max-w-[1700px]   text-center ">
-        <div class="flex flex-col sm:w-full items-center justify-center gap-[2rem] ">
-            <h1
-                class=" uppercase leading-[5rem] mb-4 text-4xl font-extrabold tracking-normal text-white md:text-5xl lg:text-6xl">
-               Welcome To
-                <br /><span class="mt-8">Barnass Gallery</span>
-            </h1>
-            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Immerse yourself in a curated collection of technological wonders, from robotics and artificial intelligence 
-                to virtual reality and beyond. Our exhibits showcase the forefront of innovation, providing a glimpse 
-                into the technologies that will shape the world of tomorrow.</p>
+    <nav
+        class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+        <div class="max-w-[1700px] flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="./assets/logo.svg" class="h-[4rem]" alt="Flowbite Logo" />
+            </a>
+            <div class="flex md:order-2 lg:gap-4 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <button type="button"
+                    class="font-inter hidden lg:block text-black h-[3rem] w-[9rem] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-lg px-4 py-2 text-center uppercase ring-2 ring-black">
+                    Login
+                </button>
+                <button data-collapse-toggle="navbar-sticky" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center font-inter justify-between hidden w-full md:flex md:w-auto md:order-1"
+                id="navbar-sticky">
+                <ul
+                    class="hidden xl:flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="../Courses/Courses.html"
+                            class="uppercase block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                            aria-current="page">Online Courses</a>
+                    </li>
+                    <li>
+                        <a href="../Gallery/Gallery.html"
+                            class="uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="../Instructor/Instructor.html"
+                            class="uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Become
+                            an instructor</a>
+                    </li>
+                    <li>
+                        <a href="../Blog/Blog.html"
+                            class="uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">blog</a>
+                    </li>
+                    <li>
+                        <a href="../About/About.html"
+                            class="uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">about
+                            us</a>
+                    </li>
+                    <li>
+                        <a href="../Contacts/Contact.html"
+                            class="uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
 
-   
-</div>
-</section>
+    <section
+        class="w-full flex items-center justify-center font-poppins bg-center h-[60rem] bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-[#0C274C] bg-blend-multiply">
+        <div class="flex flex-col h-[45%] items-center justify-center">
+            <div class="flex items-center justify-center gap-[3rem] h-full flex-col max-w-[1700px] text-center">
+                <div class="flex flex-col sm:w-full items-center justify-center gap-[2rem]">
+                    <h1
+                        class="uppercase leading-[5rem] mb-4 text-4xl font-extrabold tracking-normal text-white md:text-5xl lg:text-6xl">
+                        Welcome To
+                        <br /><span class="mt-8">Barnass Gallery</span>
+                    </h1>
+                    <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+                        Immerse yourself in a curated collection of technological wonders,
+                        from robotics and artificial intelligence to virtual reality and
+                        beyond. Our exhibits showcase the forefront of innovation,
+                        providing a glimpse into the technologies that will shape the
+                        world of tomorrow.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-<section class=" w-full  flex items-center justify-center flex-col">
-  
+    <section class="w-full flex items-center justify-center flex-col">
         <div class="max-w-screen-xl w-full">
-            <div class="font-poppins flex w-full flex-col h-[20rem] gap-3  max-w-[1700px] items-center justify-center ">
-                <h1 class=" text-4xl font-semibold tracking-wide "> Our Portfolio  </h1>
-                <p> Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id 
-                 orci porta dapibus. Curabitur arcu erat </p>
-             </div>
-             <div class="w-full flex items-center justify-center ">
-         
-         
-                 <div class="text-sm w-full  font-medium flex items-center justify-center text-center text-gray-500  dark:text-gray-400 ">
-                     <ul class="flex font poppins font-normal text-lg w-full items-center justify-around flex-wrap -mb-px">
-                         <li class="me-2">
-                             <a href="#" class="inline-block  font-semibold p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">All</a>
-                         </li>
-                         <li class="me-2">
-                             <a href="#" class="inline-block p-4 font-semibold  text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="Robotics">Dashboard</a>
-                         </li>
-                         <li class="me-2">
-                             <a href="#" class="inline-block p-4  font-semibold border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Artificial Intelligence</a>
-                         </li>
-                         <li class="me-2">
-                             <a href="#" class="inline-block p-4 font-semibold  border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Images</a>
-                         </li>
-                         <li class="me-2">
-                             <a href="#" class="inline-block font-semibold  p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Events</a>
-                         </li>
-                         <li class="me-2">
-                             <a href="#" class="inline-block font-semibold  p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Videos</a>
-                         </li>
-         
-                       
-                     </ul>
-                 </div>
+            <div class="font-poppins flex w-full flex-col h-[20rem] gap-3 max-w-[1700px] items-center justify-center">
+                <h1 class="text-4xl font-semibold tracking-wide">Our Portfolio</h1>
+                <p>
+                    Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci
+                    porta dapibus. Curabitur arcu erat
+                </p>
+            </div>
+            <div class="w-full flex items-center justify-center">
+                <div
+                    class="text-sm w-full font-medium flex items-center justify-center text-center text-gray-500 dark:text-gray-400">
+                    <ul
+                        class="flex font poppins font-normal text-lg w-full items-center justify-around flex-wrap -mb-px">
+                        <li class="me-2">
+                            <a href="#"
+                                class="inline-block font-semibold p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">All</a>
+                        </li>
+                        <li class="me-2">
+                            <a href="#"
+                                class="inline-block p-4 font-semibold text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500"
+                                aria-current="Robotics">Dashboard</a>
+                        </li>
+                        <li class="me-2">
+                            <a href="#"
+                                class="inline-block p-4 font-semibold border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Artificial
+                                Intelligence</a>
+                        </li>
+                        <li class="me-2">
+                            <a href="#"
+                                class="inline-block p-4 font-semibold border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Images</a>
+                        </li>
+                        <li class="me-2">
+                            <a href="#"
+                                class="inline-block font-semibold p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Events</a>
+                        </li>
+                        <li class="me-2">
+                            <a href="#"
+                                class="inline-block font-semibold p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Videos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
 
-    
+        <div class="flex items-center justify-center"></div>
+        <div class=""></div>
+    </section>
 
-<div class="flex items-center justify-center"></div>
-<div class="">
+    <section class="w-full flex items-center justify-center">
+        <div class="max-w-screen-xl w-full gap-[2rem] grid grid-cols-12">
+            <div class="h-[20rem] col-span-12 flex items-center justify-start sm:col-span-6">
+                <div class="w-[90%] flex items-center justify-center bg-[#0C274C] rounded-lg h-full">
+                    <svg width="65" height="50" viewBox="0 0 65 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M51.5032 9H3.50317C2.3986 9 1.50317 9.89543 1.50317 11V47C1.50317 48.1046 2.39861 49 3.50318 49H51.5032C52.6077 49 53.5032 48.1046 53.5032 47V11C53.5032 9.89543 52.6077 9 51.5032 9Z"
+                            stroke="white" stroke-width="2" stroke-miterlimit="10" />
+                        <path d="M10.5032 7V1H63.5032V41H55.5032" stroke="white" stroke-width="2"
+                            stroke-miterlimit="10" />
+                        <path d="M1.50317 39L15.5032 25L29.5032 41L39.5032 35L53.5032 47" stroke="white"
+                            stroke-width="2" stroke-miterlimit="10" />
+                        <path
+                            d="M40.5032 27C43.2646 27 45.5032 24.7614 45.5032 22C45.5032 19.2386 43.2646 17 40.5032 17C37.7418 17 35.5032 19.2386 35.5032 22C35.5032 24.7614 37.7418 27 40.5032 27Z"
+                            stroke="white" stroke-width="2" stroke-miterlimit="10" />
+                    </svg>
+                </div>
+            </div>
+            <div class="h-[20rem] col-span-12 flex items-center justify-start sm:col-span-6">
+                <div class="w-[90%] flex items-center justify-center bg-[#0C274C] rounded-lg h-full">
+                    <svg width="65" height="50" viewBox="0 0 65 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M51.5032 9H3.50317C2.3986 9 1.50317 9.89543 1.50317 11V47C1.50317 48.1046 2.39861 49 3.50318 49H51.5032C52.6077 49 53.5032 48.1046 53.5032 47V11C53.5032 9.89543 52.6077 9 51.5032 9Z"
+                            stroke="white" stroke-width="2" stroke-miterlimit="10" />
+                        <path d="M10.5032 7V1H63.5032V41H55.5032" stroke="white" stroke-width="2"
+                            stroke-miterlimit="10" />
+                        <path d="M1.50317 39L15.5032 25L29.5032 41L39.5032 35L53.5032 47" stroke="white"
+                            stroke-width="2" stroke-miterlimit="10" />
+                        <path
+                            d="M40.5032 27C43.2646 27 45.5032 24.7614 45.5032 22C45.5032 19.2386 43.2646 17 40.5032 17C37.7418 17 35.5032 19.2386 35.5032 22C35.5032 24.7614 37.7418 27 40.5032 27Z"
+                            stroke="white" stroke-width="2" stroke-miterlimit="10" />
+                    </svg>
+                </div>
+            </div>
 
-</div>
-</section>
+            <div class="h-[20rem] col-span-12 flex items-center justify-start sm:col-span-12">
+                <div class="w-[95%] flex items-center justify-center bg-[#0C274C] rounded-lg h-full">
+                    <svg width="65" height="50" viewBox="0 0 65 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M51.5032 9H3.50317C2.3986 9 1.50317 9.89543 1.50317 11V47C1.50317 48.1046 2.39861 49 3.50318 49H51.5032C52.6077 49 53.5032 48.1046 53.5032 47V11C53.5032 9.89543 52.6077 9 51.5032 9Z"
+                            stroke="white" stroke-width="2" stroke-miterlimit="10" />
+                        <path d="M10.5032 7V1H63.5032V41H55.5032" stroke="white" stroke-width="2"
+                            stroke-miterlimit="10" />
+                        <path d="M1.50317 39L15.5032 25L29.5032 41L39.5032 35L53.5032 47" stroke="white"
+                            stroke-width="2" stroke-miterlimit="10" />
+                        <path
+                            d="M40.5032 27C43.2646 27 45.5032 24.7614 45.5032 22C45.5032 19.2386 43.2646 17 40.5032 17C37.7418 17 35.5032 19.2386 35.5032 22C35.5032 24.7614 37.7418 27 40.5032 27Z"
+                            stroke="white" stroke-width="2" stroke-miterlimit="10" />
+                    </svg>
+                </div>
+            </div>
 
+            <div class="h-[20rem] col-span-12 flex items-center justify-start sm:col-span-6">
+                <div class="w-[90%] flex items-center justify-center bg-[#0C274C] rounded-lg h-full">
+                    <svg width="65" height="50" viewBox="0 0 65 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M51.5032 9H3.50317C2.3986 9 1.50317 9.89543 1.50317 11V47C1.50317 48.1046 2.39861 49 3.50318 49H51.5032C52.6077 49 53.5032 48.1046 53.5032 47V11C53.5032 9.89543 52.6077 9 51.5032 9Z"
+                            stroke="white" stroke-width="2" stroke-miterlimit="10" />
+                        <path d="M10.5032 7V1H63.5032V41H55.5032" stroke="white" stroke-width="2"
+                            stroke-miterlimit="10" />
+                        <path d="M1.50317 39L15.5032 25L29.5032 41L39.5032 35L53.5032 47" stroke="white"
+                            stroke-width="2" stroke-miterlimit="10" />
+                        <path
+                            d="M40.5032 27C43.2646 27 45.5032 24.7614 45.5032 22C45.5032 19.2386 43.2646 17 40.5032 17C37.7418 17 35.5032 19.2386 35.5032 22C35.5032 24.7614 37.7418 27 40.5032 27Z"
+                            stroke="white" stroke-width="2" stroke-miterlimit="10" />
+                    </svg>
+                </div>
+            </div>
+            <div class="h-[20rem] col-span-12 flex items-center justify-start sm:col-span-6">
+                <div class="w-[90%] flex items-center justify-center bg-[#0C274C] rounded-lg h-full">
+                    <svg width="65" height="50" viewBox="0 0 65 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M51.5032 9H3.50317C2.3986 9 1.50317 9.89543 1.50317 11V47C1.50317 48.1046 2.39861 49 3.50318 49H51.5032C52.6077 49 53.5032 48.1046 53.5032 47V11C53.5032 9.89543 52.6077 9 51.5032 9Z"
+                            stroke="white" stroke-width="2" stroke-miterlimit="10" />
+                        <path d="M10.5032 7V1H63.5032V41H55.5032" stroke="white" stroke-width="2"
+                            stroke-miterlimit="10" />
+                        <path d="M1.50317 39L15.5032 25L29.5032 41L39.5032 35L53.5032 47" stroke="white"
+                            stroke-width="2" stroke-miterlimit="10" />
+                        <path
+                            d="M40.5032 27C43.2646 27 45.5032 24.7614 45.5032 22C45.5032 19.2386 43.2646 17 40.5032 17C37.7418 17 35.5032 19.2386 35.5032 22C35.5032 24.7614 37.7418 27 40.5032 27Z"
+                            stroke="white" stroke-width="2" stroke-miterlimit="10" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="w-full flex items-center justify-center">
-<div class="max-w-screen-xl w-full gap-[2rem] grid grid-cols-12">
-<div class="h-[20rem] col-span-12 flex items-center justify-start sm:col-span-6 ">
-    <div class="w-[90%] flex items-center justify-center bg-[#0C274C] rounded-lg h-full">
+    <section class="w-full">
+        <div class="max-w-[1700px] m-auto">
+            <div class="w-full">
+                <iframe class="w-full h-[25rem] lg:h-[30rem]" frameborder="0" scrolling="no" marginheight="0"
+                    marginwidth="0"
+                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
+                        href="https://www.maps.ie/population/">Population Estimator map</a></iframe>
+            </div>
+        </div>
+    </section>
 
-        <svg width="65" height="50" viewBox="0 0 65 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M51.5032 9H3.50317C2.3986 9 1.50317 9.89543 1.50317 11V47C1.50317 48.1046 2.39861 49 3.50318 49H51.5032C52.6077 49 53.5032 48.1046 53.5032 47V11C53.5032 9.89543 52.6077 9 51.5032 9Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M10.5032 7V1H63.5032V41H55.5032" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M1.50317 39L15.5032 25L29.5032 41L39.5032 35L53.5032 47" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M40.5032 27C43.2646 27 45.5032 24.7614 45.5032 22C45.5032 19.2386 43.2646 17 40.5032 17C37.7418 17 35.5032 19.2386 35.5032 22C35.5032 24.7614 37.7418 27 40.5032 27Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            </svg>
-    </div>
-        
-</div>
-<div class="h-[20rem] col-span-12 flex items-center justify-start sm:col-span-6 ">
-    <div class="w-[90%] flex items-center justify-center bg-[#0C274C] rounded-lg h-full">
-
-        <svg width="65" height="50" viewBox="0 0 65 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M51.5032 9H3.50317C2.3986 9 1.50317 9.89543 1.50317 11V47C1.50317 48.1046 2.39861 49 3.50318 49H51.5032C52.6077 49 53.5032 48.1046 53.5032 47V11C53.5032 9.89543 52.6077 9 51.5032 9Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M10.5032 7V1H63.5032V41H55.5032" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M1.50317 39L15.5032 25L29.5032 41L39.5032 35L53.5032 47" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M40.5032 27C43.2646 27 45.5032 24.7614 45.5032 22C45.5032 19.2386 43.2646 17 40.5032 17C37.7418 17 35.5032 19.2386 35.5032 22C35.5032 24.7614 37.7418 27 40.5032 27Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            </svg>
-    </div>
-        
-</div>
-
-<div class="h-[20rem] col-span-12 flex items-center justify-start sm:col-span-12 ">
-    <div class="w-[95%] flex items-center justify-center bg-[#0C274C] rounded-lg h-full">
-
-        <svg width="65" height="50" viewBox="0 0 65 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M51.5032 9H3.50317C2.3986 9 1.50317 9.89543 1.50317 11V47C1.50317 48.1046 2.39861 49 3.50318 49H51.5032C52.6077 49 53.5032 48.1046 53.5032 47V11C53.5032 9.89543 52.6077 9 51.5032 9Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M10.5032 7V1H63.5032V41H55.5032" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M1.50317 39L15.5032 25L29.5032 41L39.5032 35L53.5032 47" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M40.5032 27C43.2646 27 45.5032 24.7614 45.5032 22C45.5032 19.2386 43.2646 17 40.5032 17C37.7418 17 35.5032 19.2386 35.5032 22C35.5032 24.7614 37.7418 27 40.5032 27Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            </svg>
-    </div>
-        
-</div>
-
-<div class="h-[20rem] col-span-12 flex items-center justify-start sm:col-span-6 ">
-    <div class="w-[90%] flex items-center justify-center bg-[#0C274C] rounded-lg h-full">
-
-        <svg width="65" height="50" viewBox="0 0 65 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M51.5032 9H3.50317C2.3986 9 1.50317 9.89543 1.50317 11V47C1.50317 48.1046 2.39861 49 3.50318 49H51.5032C52.6077 49 53.5032 48.1046 53.5032 47V11C53.5032 9.89543 52.6077 9 51.5032 9Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M10.5032 7V1H63.5032V41H55.5032" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M1.50317 39L15.5032 25L29.5032 41L39.5032 35L53.5032 47" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M40.5032 27C43.2646 27 45.5032 24.7614 45.5032 22C45.5032 19.2386 43.2646 17 40.5032 17C37.7418 17 35.5032 19.2386 35.5032 22C35.5032 24.7614 37.7418 27 40.5032 27Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            </svg>
-    </div>
-        
-</div>
-<div class="h-[20rem] col-span-12 flex items-center justify-start sm:col-span-6 ">
-    <div class="w-[90%] flex items-center justify-center bg-[#0C274C] rounded-lg h-full">
-
-        <svg width="65" height="50" viewBox="0 0 65 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M51.5032 9H3.50317C2.3986 9 1.50317 9.89543 1.50317 11V47C1.50317 48.1046 2.39861 49 3.50318 49H51.5032C52.6077 49 53.5032 48.1046 53.5032 47V11C53.5032 9.89543 52.6077 9 51.5032 9Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M10.5032 7V1H63.5032V41H55.5032" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M1.50317 39L15.5032 25L29.5032 41L39.5032 35L53.5032 47" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            <path d="M40.5032 27C43.2646 27 45.5032 24.7614 45.5032 22C45.5032 19.2386 43.2646 17 40.5032 17C37.7418 17 35.5032 19.2386 35.5032 22C35.5032 24.7614 37.7418 27 40.5032 27Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
-            </svg>
-    </div>
-        
-</div>
-</div>
-</section>
-
-<section class=" w-full  ">
-    <div class="max-w-[1700px] m-auto">
-        <div class="w-full"><iframe class="w-full h-[25rem] lg:h-[30rem]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/population/">Population Estimator map</a></iframe></div>
-    </div>
-</section>
-
-
-    <footer class=" mt-[2rem] lg:h-[27rem] flex items-center justify-center  bg-[#0C274C] text-white sm:p-6 w-full dark:bg-gray-800">
-        <div class=" h-full  grid grid-cols-12 items-center justify-center  max-w-[1700px] font-inter">
-         <div class="col-span-12 grid h-full place-items-center gap-4  grid-cols-12">
-            <div class=" h-[25rem] sm:h-[15rem] lg:h-full sm:items-center sm:justify-center w-[90%]  items-center justify-center md:flex md:justify-between col-span-12 flex flex-col gap-8 lg:col-span-4">
-                <div class=" h-full flex  sm:mb-0">
-                    <div class="flex items-center  text-center lg:text-start justify-center flex-col gap-4">
-                        <h1 class=" text-center lg:text-start text-2xl lg:text-4xl uppercase tracking-wide ">
-                            Experience Tomorrow Today!
-                        </h1>
-                        <p class=" text-center lg:text-start leading-[2rem]">
-                            Whether you're a tech aficionado, a curious mind, or an
-                            industry professional, BARNASS LTD invites you to be
-                            part of the future. Join us in exploring the endless
-                            possibilities of technology, where innovation knows
-                            no bounds. The experience awaits—step into the
-                            future with us!
-                        </p>
+    <footer
+        class="mt-[2rem] lg:h-[27rem] flex items-center justify-center bg-[#0C274C] text-white sm:p-6 w-full dark:bg-gray-800">
+        <div class="h-full grid grid-cols-12 items-center justify-center max-w-[1700px] font-inter">
+            <div class="col-span-12 grid h-full place-items-center gap-4 grid-cols-12">
+                <div
+                    class="h-[25rem] sm:h-[15rem] lg:h-full sm:items-center sm:justify-center w-[90%] items-center justify-center md:flex md:justify-between col-span-12 flex flex-col gap-8 lg:col-span-4">
+                    <div class="h-full flex sm:mb-0">
+                        <div class="flex items-center text-center lg:text-start justify-center flex-col gap-4">
+                            <h1 class="text-center lg:text-start text-2xl lg:text-4xl uppercase tracking-wide">
+                                Experience Tomorrow Today!
+                            </h1>
+                            <p class="text-center lg:text-start leading-[2rem]">
+                                Whether you're a tech aficionado, a curious mind, or an
+                                industry professional, BARNASS LTD invites you to be part of
+                                the future. Join us in exploring the endless possibilities of
+                                technology, where innovation knows no bounds. The experience
+                                awaits—step into the future with us!
+                            </p>
+                        </div>
                     </div>
                 </div>
-               
+
+                <div
+                    class="h-full w-[90%] gap-4 text-white place-items-center text-center lg:text-start lg:place-items-end lg:place-content-end col-span-12 lg:col-span-8 grid grid-cols-12">
+                    <div class="lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8">
+                        <h2 class="text-xl font-semibold text-white uppercase dark:text-white">
+                            Company
+                        </h2>
+                        <ul class="text-white flex flex-col gap-4 dark:text-gray-400">
+                            <li class="">
+                                <a href="./Gallery/Gallery.html" class="hover:underline">Gallery</a>
+                            </li>
+                            <li>
+                                <a href="./Blog/Blog.html" class="hover:underline">Blog</a>
+                            </li>
+                            <li>
+                                <a href="./Contacts/Contact.html" class="hover:underline">Contact us</a>
+                            </li>
+                            <li>
+                                <a href="./Courses/Courses.html" class="hover:underline">Online Courses</a>
+                            </li>
+                            <li>
+                                <a href="./Instructor/Instructor.html" class="hover:underline">Become an Instructor</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8">
+                        <h2 class="text-xl font-semibold text-white uppercase dark:text-white">
+                            Support
+                        </h2>
+                        <ul class="flex flex-col gap-4 text-white dark:text-gray-400">
+                            <li class="text-white">
+                                <a href="https://github.com/themesberg/flowbite" class="hover:underline">Help Center</a>
+                            </li>
+                            <li>
+                                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Terms of Service</a>
+                            </li>
+                            <li>
+                                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Legal</a>
+                            </li>
+                            <li>
+                                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Status</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="lg:h-[15rem] lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8">
+                        <h2 class="text-xl font-semibold text-white uppercase dark:text-white">
+                            Address
+                        </h2>
+                        <ul class="flex flex-col gap-4 text-white dark:text-gray-400">
+                            <li class="text-white">
+                                <a href="https://github.com/themesberg/flowbite" class="hover:underline">84 Wappenbury
+                                    Road</a>
+                            </li>
+                            <li>
+                                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">status</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-
-            <div class=" h-full w-[90%] gap-4  text-white place-items-center  text-center lg:text-start lg:place-items-end lg:place-content-end  col-span-12 lg:col-span-8 grid grid-cols-12  ">
-                <div class="  lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
-                    <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Company</h2>
-                    <ul class=" text-white flex flex-col gap-4 dark:text-gray-400">
-                        <li class="">
-                            <a href="./Gallery/Gallery.html" class="hover:underline">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="./Blog/Blog.html" class="hover:underline">Blog</a>
-                        </li>
-                        <li>
-                            <a href="./Contacts/Contact.html" class="hover:underline">Contact us</a>
-                        </li>
-                        <li>
-                            <a href="./Courses/Courses.html" class="hover:underline">Online Courses</a>
-                        </li>
-                        <li>
-                            <a href="./Instructor/Instructor.html" class="hover:underline">Become an Instructor</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class=" lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
-                    <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Support</h2>
-                    <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
-                        <li class="text-white">
-                            <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Help Center</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Terms of Service</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Legal</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Status</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="  lg:h-[15rem] lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
-                    <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Address</h2>
-                    <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
-                        <li class="text-white">
-                            <a href="https://github.com/themesberg/flowbite" class="hover:underline ">84 Wappenbury Road</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">status</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>
-         </div>
-
-
-            <div class=" h-[5rem] sm:h-[3rem]  flex items-center justify-center col-span-12 grid-cols-12">
-                <div class=" col-span-12 lg:w-[90%]  lg:col-span-6 sm:flex sm:items-center sm:justify-start">
-                    <span class="text-sm text-white sm:text-center dark:text-gray-400"> Copyright ©  2023  <a
-                            href="https://flowbite.com" class="hover:underline">Barnass LTD</a>. All Rights Reserved.
+            <div class="h-[5rem] sm:h-[3rem] flex items-center justify-center col-span-12 grid-cols-12">
+                <div class="col-span-12 lg:w-[90%] lg:col-span-6 sm:flex sm:items-center sm:justify-start">
+                    <span class="text-sm text-white sm:text-center dark:text-gray-400">
+                        Copyright © 2023
+                        <a href="https://flowbite.com" class="hover:underline">Barnass LTD</a>. All Rights Reserved.
                     </span>
-              
                 </div>
             </div>
-           
         </div>
-        
     </footer>
-    
 </body>
+
 </html>
