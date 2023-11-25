@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
     <style>
         body {
           
@@ -16,19 +17,48 @@
         }
       
     </style>
+
+<script>
+    tailwind.config = {
+content: [
+'./**/*.html',        // Include all HTML files
+'./src/**/*.js',      // Include all JavaScript files in the src directory and its subdirectories
+'./styles/**/*.css', 
+],
+theme: {
+  extend: {
+    fontFamily:{
+      inter:['Inter','sans-serif'],
+      poppins:['Poppins', 'sans-serif']
+    }
+   },
+},
+plugins: [],
+};
+  </script>
 </head>
 <body class="font-sans relative">
         
-            <nav class="bg-white   p-4 px-16 flex items-center justify-between">
+            <nav 
+            x-data="{ open: false }"
+            class="bg-white   p-4 px-16 flex items-center justify-between">
 
                 <!-- Logo on the extreme left -->
                 <div class="flex items-center">
                     <img src="./assets/logo.svg" class="" alt="Logo" class="h-8 w-8 mr-2"> <!-- Adjust the image source and size accordingly -->
                     
                 </div>
-        
+                        <!-- Mobile Menu Icon -->
+                <div class="lg:hidden cursor-pointer" id="mobile-menu-button" @click="open = !open">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </div>
+
                 <!-- Navigation in the center -->
-                <div class="hidden md:flex space-x-6">
+                <div class="hidden lg:flex space-x-6">
                     <a href="#" class="text-gray-800 hover:text-blue-500">Online Courses</a>
                     <a href="#" class="text-gray-800 hover:text-blue-500">Gallery</a>
                     <a href="#" class="text-gray-800 hover:text-blue-500">Become an Instructor</a>
@@ -38,11 +68,35 @@
                 </div>
         
                 <!-- Login button on the extreme right -->
-                <a href="#" class="text-gray-800 hover:text-blue-500 border border-gray-300 px-4 py-2 ">Login</a>
+                <a href="#" class="hidden lg:flex text-gray-800 hover:text-blue-500 border border-gray-300 px-4 py-2 ">Login</a>
+                <!-- Mobile Menu -->
+<div class="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50 hidden" id="mobile-menu" x-show="open" @click.away="open = false">
+    <div class="flex justify-end p-4">
+      <!-- Close Icon for Mobile Menu -->
+      <div class="cursor-pointer" id="close-icon">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="flex flex-col items-center space-y-4">
+        <a href="#" class="text-gray-800 hover:text-blue-500">Online Courses</a>
+        <a href="#" class="text-gray-800 hover:text-blue-500">Gallery</a>
+        <a href="#" class="text-gray-800 hover:text-blue-500">Become an Instructor</a>
+        <a href="#" class="text-gray-800 hover:text-blue-500">Blog</a>
+        <a href="#" class="text-gray-800 hover:text-blue-500">About Us</a>
+        <a href="#" class="text-gray-800 hover:text-blue-500">Contact</a>
+        <!-- Login button in Mobile Menu -->
+        <a href="#" class="text-gray-800 hover:text-blue-500 border border-gray-300 px-4 py-2" id="login-button-mobile">Login</a>
+      </div>
+      </div>
             </nav>
+            
             <!-- Hero Section -->
        <!-- Hero Section -->
-            <div class="hero relative bg-center h-max px-36 py-36 bg-cover flex items-center justify-center" style="background: url('./assets/557b0d7be7df73eaaaa179ca9c15d399.gif') lightgray 0px 0px / 100% 113.966% no-repeat;">
+            <div class="hero relative bg-center h-max px-36 py-36 bg-cover flex items-center justify-center" style="background: url('./assets/home-vid.gif') lightgray 0px 0px / 100% 113.966% no-repeat;">
                 <div class="absolute inset-0" style="background: linear-gradient(to top right, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0));"></div>
                 <div class="flex flex-col items-center justify-center h-full text-white relative z-10 text-center">
                     <h1 class="text-5xl  mb-4 font-extrabold">
