@@ -47,14 +47,67 @@
       
 </head>
 
-<body class="flex text-[#0C274C] flex-col gap-[3rem] lg:gap-[10rem]">
+<body class="flex text-[#0C274C] flex-col">
 
+    <nav 
+           
+    class=" text-[#454545] text-base dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 bg-white   p-4 px-16 flex items-center justify-between">
 
+        <!-- Logo on the extreme left -->
+        <div class="flex items-center">
+            <img src="./assets/logo.svg" class="" alt="Logo" class="h-8 w-8 mr-2"> <!-- Adjust the image source and size accordingly -->
+            
+        </div>
+                <!-- Mobile Menu Icon -->
+        <div class="lg:hidden cursor-pointer" id="mobile-menu-button" @click="open = !open">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </div>
+
+        <!-- Navigation in the center -->
+        <div class="hidden lg:flex space-x-6">
+            <a href="#" class="text-gray-800 hover:text-blue-500">Online Courses</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Gallery</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Become an Instructor</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Blog</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">About Us</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Contact</a>
+        </div>
+
+        <!-- Login button on the extreme right -->
+        <a href="#" class="hidden lg:flex text-gray-800 hover:text-blue-500 border border-gray-300 px-8 py-2 ">Login</a>
+        <!-- Mobile Menu -->
+<div class="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50 hidden" id="mobile-menu" >
+<div class="flex justify-end p-4">
+<!-- Close Icon for Mobile Menu -->
+<div class="cursor-pointer" id="close-icon">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+  xmlns="http://www.w3.org/2000/svg">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+    d="M6 18L18 6M6 6l12 12"></path>
+</svg>
+</div>
+</div>
+<div class="flex flex-col items-center space-y-4">
+<a href="#" class="text-gray-800 hover:text-blue-500">Online Courses</a>
+<a href="#" class="text-gray-800 hover:text-blue-500">Gallery</a>
+<a href="#" class="text-gray-800 hover:text-blue-500">Become an Instructor</a>
+<a href="#" class="text-gray-800 hover:text-blue-500">Blog</a>
+<a href="#" class="text-gray-800 hover:text-blue-500">About Us</a>
+<a href="#" class="text-gray-800 hover:text-blue-500">Contact</a>
+<!-- Login button in Mobile Menu -->
+<a href="#" class="text-gray-800 hover:text-blue-500 border border-gray-300 px-4 py-2" id="login-button-mobile">Login</a>
+</div>
+</div>
+    </nav>
 
     <!-- NAVBAR -->
    
 
-<nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+<!-- <nav class="bg-white justify-between text-[#454545] text-base dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
     <div class=" lg:px-8  max-w-[1700px] flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="./assets/logo.svg" class="h-[4rem]" alt="Flowbite Logo">
@@ -92,7 +145,7 @@
       </ul>
     </div>
     </div>
-  </nav>
+  </nav> -->
   
 
     <!-- HERO -->
@@ -131,7 +184,7 @@
     <!-- ACHIEVEMENTS -->
 
 
-    <section id="courses" class=" font-inter w-full  flex lg:w-full items-center  lg:gap-8 justify-center mt-2 flex-row   lg:h-[5rem] ">
+    <section id="courses" class=" font-inter w-full  flex lg:w-full items-center  lg:gap-8 justify-center mt-2 flex-row   h-full p-24">
    <div class="flex w-[70%]  sm:w-[80%] lg:max-w[30rem] gap-3 items-center justify-center ">
     <div id="counter-1"  class=" counter  lg:w-[10rem] gap-4 flex items-center justify-center flex-col h-full">
         <svg class="w-[2.5rem] h-[2.5rem] sm:w-[3.125rem] sm:h-[3.125rem]" class="w-[2.5rem] h-[2.5rem] sm:w-[3.125rem] sm:h-[3.125rem]" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -193,310 +246,313 @@
 
     <!-- POPULAR COURSES -->
 
-    <section class=" popular-courses flex flex-col items-center justify-center   gap-[2rem] font-poppins w-full">
-     <div class=" flex items-center justify-center flex-col bg-gray-100 max-w-[1700px] gap-4">
-        <div class=" lg:h-[15rem]  w-10/12 flex flex-col items-center lg:items-start justify-center sm:justify-center text-center lg:text-start   gap-[1rem]">
+    <section class=" popular-courses flex flex-col items-center justify-center bg-gray-100  px-12 gap-[2rem] font-poppins w-full">
+     <div class=" flex items-center justify-center flex-col max-w-[1700px] gap-4">
+        <div class=" lg:h-[15rem]   flex flex-col items-center lg:items-start justify-center sm:justify-center text-center lg:text-start   gap-[1rem]">
             <h1 class="uppercase font-bold text-center lg:text-start  text-[2rem] lg:text-[2.25rem]">popular courses</h1>
             <p class="text-[1.125rem] ">Our courses are led by industry experts who bring real-world experience into the
                 virtual classroom.
                 Dive deep into the world of robotics, from the fundamentals to advanced concepts, guided by mentors
                 dedicated to your success.</p>
         </div>
-           <div class="px-4 w-10/12 rounded-1 lg:place-content-stretch    lg:h-[30rem] items-center justify-center flex flex-col xl:gap-x-[2rem] gap-4  lg:bg-white sm:overflow-x-scroll  sm:shadow-sm   justify-items-center  sm:grid  grid-cols-12 sm:gap-3 place-items-center">
+        <div class="flex items-start">
+            <div class="px-8 w-11/12 rounded-1 -start   lg:h-[30rem]   flex flex-col   justify-items-start xl:gap-x-[2rem]  lg:bg-white sm:overflow-x-scroll  sm:shadow-sm     sm:grid  grid-cols-12 sm:gap-3 ">
 
-            <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
-                <img class="aspect-video h-[50%] w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-                <div class="p-6 gap-2 flex flex-col">
-                  
-                  <h1 class="text-2xl font-semibold font-poppins text-gray-700 pb-2">Robotics</h1>
-                
-                  <div class=" flex flex-row items-center justify-start gap-[1rem]">
-                    <img class="rounded-full h-[2.5rem] w-[2.5rem] object-cover"
-                        src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600">
-                    <p class="font-light text-lg">Ada Lovelace</p>
-                </div>
-
-
-                <div class=" flex flex-row gap-4 text-gray-400">
-                    <div class="flex flex-row gap-2 items-center justify-start">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11.25 9C11.25 7.75732 10.2427 6.75 9 6.75C7.75732 6.75 6.75 7.75732 6.75 9C6.75 10.2427 7.75732 11.25 9 11.25C10.2427 11.25 11.25 10.2427 11.25 9Z"
-                                stroke="#BEBEBE" stroke-width="1.5" />
-                            <path
-                                d="M9 3.75C13.1421 3.75 16.5 9 16.5 9C16.5 9 13.1421 14.25 9 14.25C4.85786 14.25 1.5 9 1.5 9C1.5 9 4.85786 3.75 9 3.75Z"
-                                stroke="#BEBEBE" stroke-width="1.5" />
-                        </svg>
-                        <p>11.5k</p>
-                    </div>
-
-                    <div class="flex flex-row gap-2 items-center justify-start">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.5 15.375H16.5V2.625H1.5V15.375Z" stroke="#BEBEBE" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <path
-                                d="M3.75 12C4.95649 10.397 7.76542 10.3095 9 12M7.68675 7.6875C7.68675 8.41237 7.09914 9 6.37426 9C5.6494 9 5.06176 8.41237 5.06176 7.6875C5.06176 6.96263 5.6494 6.375 6.37426 6.375C7.09914 6.375 7.68675 6.96263 7.68675 7.6875Z"
-                                stroke="#BEBEBE" stroke-width="1.5" />
-                            <path d="M10.5 7.12488H14.25M10.5 10.1249H12.75" stroke="#BEBEBE" stroke-width="1.5" />
-                        </svg>
-                        <p>10.5k</p>
-                    </div>
-
-                    <div class="flex flex-row gap-2 items-center justify-start">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_42_9)">
-                                <path
-                                    d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C5.64174 1.5 2.8307 3.70717 1.875 6.75H4.125"
-                                    stroke="#BEBEBE" stroke-width="1.5" stroke-linejoin="round" />
-                                <path d="M9 5.25V9L10.875 10.875" stroke="#BEBEBE" stroke-width="1.5" />
-                                <path
-                                    d="M1.5 9C1.5 9.25297 1.5114 9.50317 1.5337 9.75M6.75 16.5C6.4938 16.4157 6.24353 16.3173 6 16.2058M2.40704 12.75C2.26241 12.4713 2.1334 12.1825 2.02123 11.8846M3.62342 14.4799C3.85268 14.7268 4.09729 14.9581 4.35566 15.1719"
-                                    stroke="#BEBEBE" stroke-width="1.5" stroke-linecap="square"
-                                    stroke-linejoin="round" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_42_9">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <p>1.2hrs</p>
-                    </div>
-                </div>
-
-                 <div class="   h-[3rem] flex items-center justify-start gap-3">
-                    <p class="text-xl font-semibold text-[#0C274C]">$475</p>
-                    <p class="self-start line-through text-sm">$500</p>
+                <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
+                    <img class="aspect-video h-[50%] w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                    <div class="p-6 gap-2 flex flex-col">
+                      
+                      <h1 class="text-2xl font-semibold font-poppins text-gray-700 pb-2">Robotics</h1>
                     
-                </div>
-                </div>
-              </div>
-            
-              
-       
-              <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
-                <img class="aspect-video h-[50%] w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-                <div class="p-6 gap-2 flex flex-col">
-                  
-                  <h1 class="text-2xl font-semibold font-poppins text-gray-700 pb-2">Artificial Intelligence</h1>
-                
-                  <div class=" flex flex-row items-center justify-start gap-[1rem]">
-                    <img class="rounded-full h-[2.5rem] w-[2.5rem] object-cover"
-                        src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600">
-                    <p class="font-light text-lg">Ada Lovelace</p>
-                </div>
-
-
-                <div class=" flex flex-row gap-4 text-gray-400">
-                    <div class="flex flex-row gap-2 items-center justify-start">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11.25 9C11.25 7.75732 10.2427 6.75 9 6.75C7.75732 6.75 6.75 7.75732 6.75 9C6.75 10.2427 7.75732 11.25 9 11.25C10.2427 11.25 11.25 10.2427 11.25 9Z"
-                                stroke="#BEBEBE" stroke-width="1.5" />
-                            <path
-                                d="M9 3.75C13.1421 3.75 16.5 9 16.5 9C16.5 9 13.1421 14.25 9 14.25C4.85786 14.25 1.5 9 1.5 9C1.5 9 4.85786 3.75 9 3.75Z"
-                                stroke="#BEBEBE" stroke-width="1.5" />
-                        </svg>
-                        <p>11.5k</p>
+                      <div class=" flex flex-row items-center justify-start gap-[1rem]">
+                        <img class="rounded-full h-[2.5rem] w-[2.5rem] object-cover"
+                            src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600">
+                        <p class="font-light text-lg">Ada Lovelace</p>
                     </div>
-
-                    <div class="flex flex-row gap-2 items-center justify-start">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.5 15.375H16.5V2.625H1.5V15.375Z" stroke="#BEBEBE" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <path
-                                d="M3.75 12C4.95649 10.397 7.76542 10.3095 9 12M7.68675 7.6875C7.68675 8.41237 7.09914 9 6.37426 9C5.6494 9 5.06176 8.41237 5.06176 7.6875C5.06176 6.96263 5.6494 6.375 6.37426 6.375C7.09914 6.375 7.68675 6.96263 7.68675 7.6875Z"
-                                stroke="#BEBEBE" stroke-width="1.5" />
-                            <path d="M10.5 7.12488H14.25M10.5 10.1249H12.75" stroke="#BEBEBE" stroke-width="1.5" />
-                        </svg>
-                        <p>10.5k</p>
-                    </div>
-
-                    <div class="flex flex-row gap-2 items-center justify-start">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_42_9)">
-                                <path
-                                    d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C5.64174 1.5 2.8307 3.70717 1.875 6.75H4.125"
-                                    stroke="#BEBEBE" stroke-width="1.5" stroke-linejoin="round" />
-                                <path d="M9 5.25V9L10.875 10.875" stroke="#BEBEBE" stroke-width="1.5" />
-                                <path
-                                    d="M1.5 9C1.5 9.25297 1.5114 9.50317 1.5337 9.75M6.75 16.5C6.4938 16.4157 6.24353 16.3173 6 16.2058M2.40704 12.75C2.26241 12.4713 2.1334 12.1825 2.02123 11.8846M3.62342 14.4799C3.85268 14.7268 4.09729 14.9581 4.35566 15.1719"
-                                    stroke="#BEBEBE" stroke-width="1.5" stroke-linecap="square"
-                                    stroke-linejoin="round" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_42_9">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <p>1.2hrs</p>
-                    </div>
-                </div>
-
-                 <div class="   h-[3rem] flex items-center justify-start gap-3">
-                    <p class="text-xl font-semibold text-[#0C274C]">$475</p>
-                    <p class="self-start line-through text-sm">$500</p>
-                    
-                </div>
-                </div>
-              </div>
-            
     
-              <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
-                <img class="aspect-video w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-                <div class="p-6 gap-2 flex flex-col">
-                  
-                  <h1 class="text-2xl font-semibold font-poppins text-gray-700 pb-2">Coding</h1>
+    
+                    <div class=" flex flex-row gap-4 text-gray-400">
+                        <div class="flex flex-row gap-2 items-center justify-start">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.25 9C11.25 7.75732 10.2427 6.75 9 6.75C7.75732 6.75 6.75 7.75732 6.75 9C6.75 10.2427 7.75732 11.25 9 11.25C10.2427 11.25 11.25 10.2427 11.25 9Z"
+                                    stroke="#BEBEBE" stroke-width="1.5" />
+                                <path
+                                    d="M9 3.75C13.1421 3.75 16.5 9 16.5 9C16.5 9 13.1421 14.25 9 14.25C4.85786 14.25 1.5 9 1.5 9C1.5 9 4.85786 3.75 9 3.75Z"
+                                    stroke="#BEBEBE" stroke-width="1.5" />
+                            </svg>
+                            <p>11.5k</p>
+                        </div>
+    
+                        <div class="flex flex-row gap-2 items-center justify-start">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.5 15.375H16.5V2.625H1.5V15.375Z" stroke="#BEBEBE" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M3.75 12C4.95649 10.397 7.76542 10.3095 9 12M7.68675 7.6875C7.68675 8.41237 7.09914 9 6.37426 9C5.6494 9 5.06176 8.41237 5.06176 7.6875C5.06176 6.96263 5.6494 6.375 6.37426 6.375C7.09914 6.375 7.68675 6.96263 7.68675 7.6875Z"
+                                    stroke="#BEBEBE" stroke-width="1.5" />
+                                <path d="M10.5 7.12488H14.25M10.5 10.1249H12.75" stroke="#BEBEBE" stroke-width="1.5" />
+                            </svg>
+                            <p>10.5k</p>
+                        </div>
+    
+                        <div class="flex flex-row gap-2 items-center justify-start">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_42_9)">
+                                    <path
+                                        d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C5.64174 1.5 2.8307 3.70717 1.875 6.75H4.125"
+                                        stroke="#BEBEBE" stroke-width="1.5" stroke-linejoin="round" />
+                                    <path d="M9 5.25V9L10.875 10.875" stroke="#BEBEBE" stroke-width="1.5" />
+                                    <path
+                                        d="M1.5 9C1.5 9.25297 1.5114 9.50317 1.5337 9.75M6.75 16.5C6.4938 16.4157 6.24353 16.3173 6 16.2058M2.40704 12.75C2.26241 12.4713 2.1334 12.1825 2.02123 11.8846M3.62342 14.4799C3.85268 14.7268 4.09729 14.9581 4.35566 15.1719"
+                                        stroke="#BEBEBE" stroke-width="1.5" stroke-linecap="square"
+                                        stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_42_9">
+                                        <rect width="18" height="18" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <p>1.2hrs</p>
+                        </div>
+                    </div>
+    
+                     <div class="   h-[3rem] flex items-center justify-start gap-3">
+                        <p class="text-xl font-semibold text-[#0C274C]">$475</p>
+                        <p class="self-start line-through text-sm">$500</p>
+                        
+                    </div>
+                    </div>
+                  </div>
                 
-                  <div class=" flex flex-row items-center justify-start gap-[1rem]">
-                    <img class="rounded-full h-[2.5rem] w-[2.5rem] object-cover"
-                        src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600">
-                    <p class="font-light text-lg">Ada Lovelace</p>
-                </div>
-
-
-                <div class=" flex flex-row gap-4 text-gray-400">
-                    <div class="flex flex-row gap-2 items-center justify-start">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11.25 9C11.25 7.75732 10.2427 6.75 9 6.75C7.75732 6.75 6.75 7.75732 6.75 9C6.75 10.2427 7.75732 11.25 9 11.25C10.2427 11.25 11.25 10.2427 11.25 9Z"
-                                stroke="#BEBEBE" stroke-width="1.5" />
-                            <path
-                                d="M9 3.75C13.1421 3.75 16.5 9 16.5 9C16.5 9 13.1421 14.25 9 14.25C4.85786 14.25 1.5 9 1.5 9C1.5 9 4.85786 3.75 9 3.75Z"
-                                stroke="#BEBEBE" stroke-width="1.5" />
-                        </svg>
-                        <p>11.5k</p>
-                    </div>
-
-                    <div class="flex flex-row gap-2 items-center justify-start">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.5 15.375H16.5V2.625H1.5V15.375Z" stroke="#BEBEBE" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <path
-                                d="M3.75 12C4.95649 10.397 7.76542 10.3095 9 12M7.68675 7.6875C7.68675 8.41237 7.09914 9 6.37426 9C5.6494 9 5.06176 8.41237 5.06176 7.6875C5.06176 6.96263 5.6494 6.375 6.37426 6.375C7.09914 6.375 7.68675 6.96263 7.68675 7.6875Z"
-                                stroke="#BEBEBE" stroke-width="1.5" />
-                            <path d="M10.5 7.12488H14.25M10.5 10.1249H12.75" stroke="#BEBEBE" stroke-width="1.5" />
-                        </svg>
-                        <p>10.5k</p>
-                    </div>
-
-                    <div class="flex flex-row gap-2 items-center justify-start">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_42_9)">
-                                <path
-                                    d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C5.64174 1.5 2.8307 3.70717 1.875 6.75H4.125"
-                                    stroke="#BEBEBE" stroke-width="1.5" stroke-linejoin="round" />
-                                <path d="M9 5.25V9L10.875 10.875" stroke="#BEBEBE" stroke-width="1.5" />
-                                <path
-                                    d="M1.5 9C1.5 9.25297 1.5114 9.50317 1.5337 9.75M6.75 16.5C6.4938 16.4157 6.24353 16.3173 6 16.2058M2.40704 12.75C2.26241 12.4713 2.1334 12.1825 2.02123 11.8846M3.62342 14.4799C3.85268 14.7268 4.09729 14.9581 4.35566 15.1719"
-                                    stroke="#BEBEBE" stroke-width="1.5" stroke-linecap="square"
-                                    stroke-linejoin="round" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_42_9">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <p>1.2hrs</p>
-                    </div>
-                </div>
-
-                 <div class="   h-[3rem] flex items-center justify-start gap-3">
-                    <p class="text-xl font-semibold text-[#0C274C]">$475</p>
-                    <p class="self-start line-through text-sm">$500</p>
-                    
-                </div>
-                </div>
-              </div>
-
-
-              <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
-                <img class="aspect-video w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-                <div class="p-6 gap-2 flex flex-col">
                   
-                  <h1 class="text-2xl font-semibold font-poppins text-gray-700 pb-2">Steam</h1>
-                
-                  <div class=" flex flex-row items-center justify-start gap-[1rem]">
-                    <img class="rounded-full h-[2.5rem] w-[2.5rem] object-cover"
-                        src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600">
-                    <p class="font-light text-lg">Ada Lovelace</p>
-                </div>
-
-
-                <div class=" flex flex-row gap-4 text-gray-400">
-                    <div class="flex flex-row gap-2 items-center justify-start">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11.25 9C11.25 7.75732 10.2427 6.75 9 6.75C7.75732 6.75 6.75 7.75732 6.75 9C6.75 10.2427 7.75732 11.25 9 11.25C10.2427 11.25 11.25 10.2427 11.25 9Z"
-                                stroke="#BEBEBE" stroke-width="1.5" />
-                            <path
-                                d="M9 3.75C13.1421 3.75 16.5 9 16.5 9C16.5 9 13.1421 14.25 9 14.25C4.85786 14.25 1.5 9 1.5 9C1.5 9 4.85786 3.75 9 3.75Z"
-                                stroke="#BEBEBE" stroke-width="1.5" />
-                        </svg>
-                        <p>11.5k</p>
-                    </div>
-
-                    <div class="flex flex-row gap-2 items-center justify-start">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.5 15.375H16.5V2.625H1.5V15.375Z" stroke="#BEBEBE" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <path
-                                d="M3.75 12C4.95649 10.397 7.76542 10.3095 9 12M7.68675 7.6875C7.68675 8.41237 7.09914 9 6.37426 9C5.6494 9 5.06176 8.41237 5.06176 7.6875C5.06176 6.96263 5.6494 6.375 6.37426 6.375C7.09914 6.375 7.68675 6.96263 7.68675 7.6875Z"
-                                stroke="#BEBEBE" stroke-width="1.5" />
-                            <path d="M10.5 7.12488H14.25M10.5 10.1249H12.75" stroke="#BEBEBE" stroke-width="1.5" />
-                        </svg>
-                        <p>10.5k</p>
-                    </div>
-
-                    <div class="flex flex-row gap-2 items-center justify-start">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_42_9)">
-                                <path
-                                    d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C5.64174 1.5 2.8307 3.70717 1.875 6.75H4.125"
-                                    stroke="#BEBEBE" stroke-width="1.5" stroke-linejoin="round" />
-                                <path d="M9 5.25V9L10.875 10.875" stroke="#BEBEBE" stroke-width="1.5" />
-                                <path
-                                    d="M1.5 9C1.5 9.25297 1.5114 9.50317 1.5337 9.75M6.75 16.5C6.4938 16.4157 6.24353 16.3173 6 16.2058M2.40704 12.75C2.26241 12.4713 2.1334 12.1825 2.02123 11.8846M3.62342 14.4799C3.85268 14.7268 4.09729 14.9581 4.35566 15.1719"
-                                    stroke="#BEBEBE" stroke-width="1.5" stroke-linecap="square"
-                                    stroke-linejoin="round" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_42_9">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <p>1.2hrs</p>
-                    </div>
-                </div>
-
-                <div class="   h-[3rem] flex items-center justify-start gap-3">
-                    <p class="text-xl font-semibold text-[#0C274C]">$475</p>
-                    <p class="self-start line-through text-sm">$500</p>
+           
+                  <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
+                    <img class="aspect-video h-[50%] w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                    <div class="p-6 gap-2 flex flex-col">
+                      
+                      <h1 class="text-2xl font-semibold font-poppins text-gray-700 pb-2">Artificial Intelligence</h1>
                     
-                </div>
-                </div>
-              </div>
-      
+                      <div class=" flex flex-row items-center justify-start gap-[1rem]">
+                        <img class="rounded-full h-[2.5rem] w-[2.5rem] object-cover"
+                            src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600">
+                        <p class="font-light text-lg">Ada Lovelace</p>
+                    </div>
+    
+    
+                    <div class=" flex flex-row gap-4 text-gray-400">
+                        <div class="flex flex-row gap-2 items-center justify-start">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.25 9C11.25 7.75732 10.2427 6.75 9 6.75C7.75732 6.75 6.75 7.75732 6.75 9C6.75 10.2427 7.75732 11.25 9 11.25C10.2427 11.25 11.25 10.2427 11.25 9Z"
+                                    stroke="#BEBEBE" stroke-width="1.5" />
+                                <path
+                                    d="M9 3.75C13.1421 3.75 16.5 9 16.5 9C16.5 9 13.1421 14.25 9 14.25C4.85786 14.25 1.5 9 1.5 9C1.5 9 4.85786 3.75 9 3.75Z"
+                                    stroke="#BEBEBE" stroke-width="1.5" />
+                            </svg>
+                            <p>11.5k</p>
+                        </div>
+    
+                        <div class="flex flex-row gap-2 items-center justify-start">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.5 15.375H16.5V2.625H1.5V15.375Z" stroke="#BEBEBE" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M3.75 12C4.95649 10.397 7.76542 10.3095 9 12M7.68675 7.6875C7.68675 8.41237 7.09914 9 6.37426 9C5.6494 9 5.06176 8.41237 5.06176 7.6875C5.06176 6.96263 5.6494 6.375 6.37426 6.375C7.09914 6.375 7.68675 6.96263 7.68675 7.6875Z"
+                                    stroke="#BEBEBE" stroke-width="1.5" />
+                                <path d="M10.5 7.12488H14.25M10.5 10.1249H12.75" stroke="#BEBEBE" stroke-width="1.5" />
+                            </svg>
+                            <p>10.5k</p>
+                        </div>
+    
+                        <div class="flex flex-row gap-2 items-center justify-start">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_42_9)">
+                                    <path
+                                        d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C5.64174 1.5 2.8307 3.70717 1.875 6.75H4.125"
+                                        stroke="#BEBEBE" stroke-width="1.5" stroke-linejoin="round" />
+                                    <path d="M9 5.25V9L10.875 10.875" stroke="#BEBEBE" stroke-width="1.5" />
+                                    <path
+                                        d="M1.5 9C1.5 9.25297 1.5114 9.50317 1.5337 9.75M6.75 16.5C6.4938 16.4157 6.24353 16.3173 6 16.2058M2.40704 12.75C2.26241 12.4713 2.1334 12.1825 2.02123 11.8846M3.62342 14.4799C3.85268 14.7268 4.09729 14.9581 4.35566 15.1719"
+                                        stroke="#BEBEBE" stroke-width="1.5" stroke-linecap="square"
+                                        stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_42_9">
+                                        <rect width="18" height="18" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <p>1.2hrs</p>
+                        </div>
+                    </div>
+    
+                     <div class="   h-[3rem] flex items-center justify-start gap-3">
+                        <p class="text-xl font-semibold text-[#0C274C]">$475</p>
+                        <p class="self-start line-through text-sm">$500</p>
+                        
+                    </div>
+                    </div>
+                  </div>
+                
+        
+                  <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
+                    <img class="aspect-video w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                    <div class="p-6 gap-2 flex flex-col">
+                      
+                      <h1 class="text-2xl font-semibold font-poppins text-gray-700 pb-2">Coding</h1>
+                    
+                      <div class=" flex flex-row items-center justify-start gap-[1rem]">
+                        <img class="rounded-full h-[2.5rem] w-[2.5rem] object-cover"
+                            src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600">
+                        <p class="font-light text-lg">Ada Lovelace</p>
+                    </div>
+    
+    
+                    <div class=" flex flex-row gap-4 text-gray-400">
+                        <div class="flex flex-row gap-2 items-center justify-start">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.25 9C11.25 7.75732 10.2427 6.75 9 6.75C7.75732 6.75 6.75 7.75732 6.75 9C6.75 10.2427 7.75732 11.25 9 11.25C10.2427 11.25 11.25 10.2427 11.25 9Z"
+                                    stroke="#BEBEBE" stroke-width="1.5" />
+                                <path
+                                    d="M9 3.75C13.1421 3.75 16.5 9 16.5 9C16.5 9 13.1421 14.25 9 14.25C4.85786 14.25 1.5 9 1.5 9C1.5 9 4.85786 3.75 9 3.75Z"
+                                    stroke="#BEBEBE" stroke-width="1.5" />
+                            </svg>
+                            <p>11.5k</p>
+                        </div>
+    
+                        <div class="flex flex-row gap-2 items-center justify-start">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.5 15.375H16.5V2.625H1.5V15.375Z" stroke="#BEBEBE" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M3.75 12C4.95649 10.397 7.76542 10.3095 9 12M7.68675 7.6875C7.68675 8.41237 7.09914 9 6.37426 9C5.6494 9 5.06176 8.41237 5.06176 7.6875C5.06176 6.96263 5.6494 6.375 6.37426 6.375C7.09914 6.375 7.68675 6.96263 7.68675 7.6875Z"
+                                    stroke="#BEBEBE" stroke-width="1.5" />
+                                <path d="M10.5 7.12488H14.25M10.5 10.1249H12.75" stroke="#BEBEBE" stroke-width="1.5" />
+                            </svg>
+                            <p>10.5k</p>
+                        </div>
+    
+                        <div class="flex flex-row gap-2 items-center justify-start">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_42_9)">
+                                    <path
+                                        d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C5.64174 1.5 2.8307 3.70717 1.875 6.75H4.125"
+                                        stroke="#BEBEBE" stroke-width="1.5" stroke-linejoin="round" />
+                                    <path d="M9 5.25V9L10.875 10.875" stroke="#BEBEBE" stroke-width="1.5" />
+                                    <path
+                                        d="M1.5 9C1.5 9.25297 1.5114 9.50317 1.5337 9.75M6.75 16.5C6.4938 16.4157 6.24353 16.3173 6 16.2058M2.40704 12.75C2.26241 12.4713 2.1334 12.1825 2.02123 11.8846M3.62342 14.4799C3.85268 14.7268 4.09729 14.9581 4.35566 15.1719"
+                                        stroke="#BEBEBE" stroke-width="1.5" stroke-linecap="square"
+                                        stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_42_9">
+                                        <rect width="18" height="18" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <p>1.2hrs</p>
+                        </div>
+                    </div>
+    
+                     <div class="   h-[3rem] flex items-center justify-start gap-3">
+                        <p class="text-xl font-semibold text-[#0C274C]">$475</p>
+                        <p class="self-start line-through text-sm">$500</p>
+                        
+                    </div>
+                    </div>
+                  </div>
+    
+    
+                  <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
+                    <img class="aspect-video w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                    <div class="p-6 gap-2 flex flex-col">
+                      
+                      <h1 class="text-2xl font-semibold font-poppins text-gray-700 pb-2">Steam</h1>
+                    
+                      <div class=" flex flex-row items-center justify-start gap-[1rem]">
+                        <img class="rounded-full h-[2.5rem] w-[2.5rem] object-cover"
+                            src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600">
+                        <p class="font-light text-lg">Ada Lovelace</p>
+                    </div>
+    
+    
+                    <div class=" flex flex-row gap-4 text-gray-400">
+                        <div class="flex flex-row gap-2 items-center justify-start">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.25 9C11.25 7.75732 10.2427 6.75 9 6.75C7.75732 6.75 6.75 7.75732 6.75 9C6.75 10.2427 7.75732 11.25 9 11.25C10.2427 11.25 11.25 10.2427 11.25 9Z"
+                                    stroke="#BEBEBE" stroke-width="1.5" />
+                                <path
+                                    d="M9 3.75C13.1421 3.75 16.5 9 16.5 9C16.5 9 13.1421 14.25 9 14.25C4.85786 14.25 1.5 9 1.5 9C1.5 9 4.85786 3.75 9 3.75Z"
+                                    stroke="#BEBEBE" stroke-width="1.5" />
+                            </svg>
+                            <p>11.5k</p>
+                        </div>
+    
+                        <div class="flex flex-row gap-2 items-center justify-start">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.5 15.375H16.5V2.625H1.5V15.375Z" stroke="#BEBEBE" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M3.75 12C4.95649 10.397 7.76542 10.3095 9 12M7.68675 7.6875C7.68675 8.41237 7.09914 9 6.37426 9C5.6494 9 5.06176 8.41237 5.06176 7.6875C5.06176 6.96263 5.6494 6.375 6.37426 6.375C7.09914 6.375 7.68675 6.96263 7.68675 7.6875Z"
+                                    stroke="#BEBEBE" stroke-width="1.5" />
+                                <path d="M10.5 7.12488H14.25M10.5 10.1249H12.75" stroke="#BEBEBE" stroke-width="1.5" />
+                            </svg>
+                            <p>10.5k</p>
+                        </div>
+    
+                        <div class="flex flex-row gap-2 items-center justify-start">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_42_9)">
+                                    <path
+                                        d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C5.64174 1.5 2.8307 3.70717 1.875 6.75H4.125"
+                                        stroke="#BEBEBE" stroke-width="1.5" stroke-linejoin="round" />
+                                    <path d="M9 5.25V9L10.875 10.875" stroke="#BEBEBE" stroke-width="1.5" />
+                                    <path
+                                        d="M1.5 9C1.5 9.25297 1.5114 9.50317 1.5337 9.75M6.75 16.5C6.4938 16.4157 6.24353 16.3173 6 16.2058M2.40704 12.75C2.26241 12.4713 2.1334 12.1825 2.02123 11.8846M3.62342 14.4799C3.85268 14.7268 4.09729 14.9581 4.35566 15.1719"
+                                        stroke="#BEBEBE" stroke-width="1.5" stroke-linecap="square"
+                                        stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_42_9">
+                                        <rect width="18" height="18" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <p>1.2hrs</p>
+                        </div>
+                    </div>
+    
+                    <div class="   h-[3rem] flex items-center justify-start gap-3">
+                        <p class="text-xl font-semibold text-[#0C274C]">$475</p>
+                        <p class="self-start line-through text-sm">$500</p>
+                        
+                    </div>
+                    </div>
+                  </div>
           
-
-
+              
+    
+    
+            </div>
+    
         </div>
-
+           
         <div class="max-w-[1700px] p-8 flex items-center justify-center">
             <button class="bg-[#4CA5E1] h-[4rem] w-[16rem] text-xl  text-white capitalize font-semibold "> Explore All Courses  >>> </button>
         </div>
@@ -508,11 +564,11 @@
 
     <!-- CALL TO ACTION -->
 
-    <section class="w-full flex items-center justify-center ">
-<div class="bg-white gap-[2rem] flex flex-col items-center justify-center max-w-[1700px]">
-<div class=" font-inter w-[90%] lg:w-[50%] text-center flex flex-col items-center justify-center gap-8">
-    <h1 class="font-black uppercase lg:leading-[4rem] text-2xl sm:text-3xl lg:text-5xl">HANDS ON LEARNING</h1>
-        <p class="text-center font-normal text-gray-400 text-md">Theory meets practice at Barnass Ltd. Engage in hands-on projects, simulations, and real-world applications
+    <section class="w-full flex items-center justify-center bg-white  px-20">
+<div class=" gap-[2rem] flex flex-col items-center justify-center max-w-[1700px] py-20">
+<div class=" font-inter w-5/6  text-center flex flex-col items-center justify-center gap-8">
+    <h1 class="text-[#0C274C] font-extrabold uppercase lg:leading-[4rem] text-2xl sm:text-3xl lg:text-3xl">HANDS ON LEARNING</h1>
+        <p class="text-center font-normal text-gray-400 text-md w-10/12">Theory meets practice at Barnass Ltd. Engage in hands-on projects, simulations, and real-world applications
             that reinforce your understanding and allow you to apply your knowledge in meaningful ways. 
            Learning by doing is at the core of our approach.</p>
 </div>
@@ -523,13 +579,13 @@
 </div>
     </section>
 
-    <section class="w-11/12 flex items-center justify-center ">
-        <div class="bg-white  dark:bg-gray-900">
-            <div    class=" grid grid-cols-12     font-inter  items-center justify-between    max-w-[1700px]">
-                <div class="flex items-center justify-center  col-span-6 rounded-lg lg:h-[20rem] xl:h-[30rem] 2xl:h-[40rem]  w-full bg-no-repeat ">
+    <section class=" flex items-center justify-center ">
+        <div class="bg-white  dark:bg-gray-900 py-24 pr-16 items-start">
+            <div    class=" flex flex-row    font-inter  items-center justify-between    max-w-[1700px]">
+                <div class="flex items-center justify-center  col-span-6 rounded-lg lg:h-[20rem] xl:h-[30rem] 2xl:h-[40rem] w-11/12 bg-no-repeat ">
                   <img class="h-full shadow-lg  rounded-lg max-w-[80%] object-cover" src="./assets/showcase.gif" alt="showcase"/>
                 </div>
-                <div class=" p-16 h-full w-full flex flex-col items-start justify-center gap-2  col-span-6   text-center lg:text-start">
+                <div class=" py-12 h-full w-full flex flex-col items-start justify-center gap-2  col-span-6   text-center lg:text-start">
                     <h2 class="mb-4 uppercase text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">The Power of
                         AI & Robotics</h2>
                     <h5 class="mb-6 font-light text-gray-500 md:text-xl dark:text-gray-400">🌐 Empowering Tomorrow: The
@@ -555,10 +611,10 @@
     </section>
 
 
-    <section class="px-8 lg:px:0 w-full mt-[2rem]   flex items-center justify-center">
+    <section class="px-8 lg:px:0 w-full mt-[2rem]   flex items-center justify-center py-24">
 <div class="   max-w-[1700px] flex flex-col items-start justify-center gap-6  w-full">
 <div class=" w-9/12  gap-[2rem] flex flex-col text-center lg:text-start items-center justify-center lg:items-start ">
-    <h1 class="w-full  font-black  text-2xl text-center lg:text-start sm:text-3xl font-inter uppercase lg:text-4xl"> Transforming Learning Beyond Boundaries</h1>
+    <h1 class="w-full  text-base text-center lg:text-start sm:text-3xl font-inter uppercase lg:text-3xl font-extrabold"> Transforming Learning Beyond Boundaries 🚀</h1>
     <p class=" py-4 text-lg text-gray-400 lg:w-full font-inter font-light ">
         Step into the future of education with Metaverse Education – a revolutionary approach that transcends the 
 limitations of traditional learning. In this digital realm, the convergence of virtual and augmented reality 
@@ -577,57 +633,30 @@ creates an immersive and dynamic space where education becomes an extraordinary 
         <div class=" max-w-[1700px] grid  w-full dark:bg-gray-900">
             <div class=" grid grid-cols-12  gap-3    items-center py-8 px-4 mx-auto    sm:py-16 lg:px-6">
 
-                <div class="mt-4 col-span-12     lg:col-span-5 xl:col-span-4  self-start md:mt-0 gap-3 text-center items-center  justify-center  flex flex-col  lg:text-start">
-                    <div class="text-start w-full p-8 flex-col gap-4 flex items-center lg:items-start   justify-center">
-                        <h2 class="mb-4 text-2xl sm:text-[2rem] xl:text-3xl text-center lg:text-start tracking-tight font-extrabold text-gray-900 dark:text-white">
-                            🤖 Unlock Your Potential: </h2>
-                        <h5 class="mb-6 font-light text-gray-500 md:text-xl dark:text-gray-400">The Best Place to Learn
+                <div class="mt-4 col-span-12 overflow-visible   lg:col-span-5 xl:col-span-4  self-start md:mt-0 gap-3 text-center items-center  justify-center  flex flex-col  lg:text-start">
+                    <div class="text-start w-full pl-8 flex-col space-y-3 flex items-center lg:items-start   justify-center">
+                        <h2 class="mb-4  text-[#0C274C] text-base sm:text-[2rem] xl:text-3xl text-center lg:text-start lg:tracking-wider font-extrabold  dark:text-white">
+                             Unlock Your Potential: </h2>
+                        <h5 class="mb-6 font-light text-gray-500 md:text-base dark:text-gray-400">The Best Place to Learn
                             Robotics is Here! 🚀</h5>
-                        <p class="text-gray-400 font-light text-lg">Take control of the future with our Autonomous Systems course. Learn to design and build
+                        <p class="text-gray-400 font-light text-lg w-[500px]">Take control of the future with our Autonomous Systems course. Learn to design and build
                             robots that can navigate and make decisions independently. From self-driving cars to
                             drones, explore the cutting-edge technologies shaping the autonomous world.</p>
     
-                        <ul class="h-[20rem] px-8 xl:px-0 list-disc    flex flex-col gap-[1rem]">
-                            <li class="font-inter uppercase text-xl"> Elementary School</li>
-                            <li class="font-inter uppercase text-xl">Junior high school</li>
-                            <li class="font-inter uppercase text-xl">senior high school</li>
-                            <li class="font-inter uppercase text-xl">univerisity</li>
-                            <li class="font-inter uppercase text-xl">young professional</li>
+                        <ul class="h-[20rem] ml-4 xl:px-0 list-disc  text-base  flex flex-col gap-[1rem]">
+                            <li class="font-inter uppercase"> Elementary School</li>
+                            <li class="font-inter uppercase">Junior high school</li>
+                            <li class="font-inter uppercase">senior high school</li>
+                            <li class="font-inter uppercase">univerisity</li>
+                            <li class="font-inter uppercase">young professional</li>
                         </ul>
                     </div>
                 </div>
                 
               <div class=" col-span-12 lg:col-span-8 flex items-center justify-end lg:h-[50rem] ">
-             
-    
-    <!-- <div class="grid grid-cols-12 h-full w-full grid-rows-11 gap-4">
-
-                <div class=" bg-yellow-300 flex items-center justify-center col-span-2 row-span-4 col-start-1 row-start-4">
-                    <img class="h-[25rem] max-w-full  object-cover rounded-lg" src="./assets/masonry-1.jpg">
-                </div>
-                <div class=" bg-blue-500 col-span-5 row-span-4 flex items-center justify-center col-start-3 row-start-2">
-                    <img class="h-[25rem] max-w-full  object-cover rounded-lg" src="./assets/masonry-2.jpg">
-                </div>
-                <div class=" bg-gray-600 col-span-2 row-span-3 col-start-3 row-start-6">
-                    <img class="h-[20rem] flex items-center w-full bg-contain rounded-lg" src="./assets/masonry-3.jpg">
-                </div>
-                <div class="bg-red-400 col-span-5 row-span-4 flex items-center justify-center col-start-5 row-start-6">
-                    <img class="h-[25rem] max-w-full  object-cover rounded-lg" src="./assets/masonry-4.jpg">
-                </div>
-                <div class=" flex items-center justify-start bg-orange-700 col-span-3 row-span-3 col-start-8 row-start-3">
-                    <img class="h-[20rem] flex items-center justify-center w-[80%] bg-contain rounded-lg" src="./assets/masonry-5.jpg">
-                </div>
-                <div class=" bg-slate-300 col-span-3 row-span-4 col-start-10 row-start-5">
-                    <img class="h-[25rem] max-w-full  object-cover rounded-lg flex items-center justify-center" src="./assets/masonry-6.jpg">
-                </div>
-</div>
-            </div> -->
-              
-            
-            <div class=" self-end lg:col-span-7 xl:col-span-8">
-<img  src="./assets/grid.png">
-            </div>
-
+                <div class="lg:col-span-7 xl:col-span-8">
+                    <img  src="./assets/grid.png" />
+                                
                 </div>
               </div>
             
@@ -639,9 +668,9 @@ creates an immersive and dynamic space where education becomes an extraordinary 
  <!-- LOGO CLOUD -->
     
     <section class="  flex  items-center justify-center flex-col gap-[6rem]   sm:h-[20rem]  dark:bg-gray-900">
-        <div class=" flex items-center justify-center">
+        <div class=" flex items-center justify-center space-y-6  ">
 
-    <button type="button" class="font-inter hidden lg:block text-black h-[6rem] sm:w-[25rem] rounded-sm    focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-lg px-4 py-2 text-center uppercase ring-2 ring-black">
+    <button type="button" class="font-inter px-16 py-4 hidden lg:block text-black   rounded-sm    focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-lg  text-center uppercase ring-2 ring-black">
         
         <h1 class="font-inter text-[#0C274C] font-black text-3xl lg:text-4xl  ">Our Partners</h1>
     </button>
@@ -675,12 +704,12 @@ creates an immersive and dynamic space where education becomes an extraordinary 
         </div>
     </section>
 
-    <section class="p-5 mt-[2rem] relative sm:h-[40rem] w-full flex flex-col items-center justify-center font-inter  dark:bg-gray-900">
-        <div class="grid place-items-center place-content-stretch justify-center items-center   lg:h-full max-w-[1700px] gap-4  mx-auto lg:gap-8 xl:gap-0  lg:grid-cols-12">
+    <section class="p-5 mt-[4rem] relative sm:h-[40rem] w-full flex flex-col items-center justify-center font-inter  dark:bg-gray-900 py-20">
+        <div class="grid place-items-center place-content-stretch justify-center items-center   lg:h-full max-w-[1700px] gap-4  mx-auto lg:gap-2 xl:gap-0  lg:grid-cols-12">
             <div class=" h-full mr-auto flex flex-col gap-[1rem] w-full text-center lg:text-start place-self-center items-center justify-center xl:items-start lg:col-span-8">
              <div class="  p-6 flex h-full gap-3  sm:gap-4 lg:gap-6  flex-col items-center lg:items-start  justify-center">
                 <h1
-                class="max-w-2xl text-[#0C274C] uppercase  mb-4 text-3xl sm:text-4xl  font-black tracking-tight leading-none md:text-5xl dark:text-white">
+                class="max-w-2xl text-[#0C274C] uppercase  mb-4 text-2xl sm:text-4xl  font-black tracking-tight leading-none md:text-3xl dark:text-white">
                 Want to become an instructor?</h1>
             <p class="max-w-2xl mb-6 font-normal text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Join
                 thousand of instructors and earn money hassle free</p>
@@ -703,15 +732,15 @@ creates an immersive and dynamic space where education becomes an extraordinary 
 
 
     <!-- BLOG -->
-    <section class="w-full flex flex-col gap-8 items-center justify-center font-inter  ">
-        <div class=" w-[90%] lg:max-w-[1700px]  flex flex-col items-center justify-center gap-[2rem]">
+    <section class="w-full flex flex-col gap-8 items-center justify-center font-inter  py-24 bg-white">
+        <div class=" w-[90%] lg:max-w-[1700px]  flex flex-col items-center justify-center ">
             <div class=" flex w-full items-center justify-center  sm:justify-between lg:grid place-content-stretch gap-6    mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div class=" w-full col-span-12  flex  items-center justify-center lg:justify-between ">
-                    <h1 class=" text-3xl lg:text-4xl text-center sm:text-start uppercase font-black">
+                    <h1 class=" text-lg lg:text-3xl font-extrabold text-center sm:text-start uppercase ">
                         Latest Blog
                     </h1>
     
-                    <h2 class=" uppercase hidden font-inter lg:flex  items-center justify-center gap-4 text-xl lg:text-2xl font-semibold">
+                    <h2 class=" uppercase hidden font-inter lg:flex  items-center justify-center gap-4 text-xl lg:text-lg font-semibold">
                         Show All
                         <svg class="h-[2rem]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14.4301 5.93018L20.5001 12.0002L14.4301 18.0702" stroke="#0C274C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -721,61 +750,52 @@ creates an immersive and dynamic space where education becomes an extraordinary 
                     </h2>
                 </div>
             </div>
-    
-            <div class="  w-full gap-4 grid place-content-stretch justify-center   mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-                <div class="  w-full  h-[19rem]  flex flex-col items-center lg:items-start justify-center   gap-4 lg:gap-2 col-span-12 lg:col-span-6">
-                    <img class=" h-[13rem]  lg:h-[25rem] rounded-lg w-[90%] lg:w-[40rem] object-cover"
+            <div class="      mx-auto flex flex-row space-x-4  px-12">
+                <div class="  w-4/5 space-y-4   flex flex-col lg:items-start   ">
+                    <img class=" h-[13rem]  lg:h-[25rem] rounded-lg w-[70%] lg:w-[35rem] object-cover"
                    src="./assets/blog-1.jpg"
                         alt="'">
                     <p class="  text-sm lg:text-lg font-light capitalize "> Join thousands of instructors and earn hassle free</p>
+                    <h4 class="text-2xl font-bold">Lorem Ipsum, Lorem Ipsum</h4>
                 </div>
-    
-    
-    
-                <div class=" col-span-12  gap-4  flex-col flex items-center justify-center lg:col-span-6">
-                    <div class=" flex flex-row gap-2 lg:gap-8 w-[90%]  lg:w-full">
-                        <div class="flex basis-7/12 flex-col gap-2 ">
-                            <img class=" h-[9rem] lg:h-[15rem] lg:w-[25rem] rounded-lg object-cover"
-                                src="./assets/blog-2.jpg"
-                                alt="">
-    
-                        </div>
-    
-                        <div class="flex flex-col gap-2 basis-5/12">
-                            <h4 class=" text-xl lg:text-3xl font-semibold"> Our Itinerary </h4>
+                <div class="  flex-col flex space-y-6 ">
+
+                    
+                    <div class=" flex flex-col space-y-4">
+                        <div class="flex flex-row space-x-4">
+                            <img class=" h-44 lg:w-64 rounded-lg object-cover"
+                            src="./assets/blog-2.jpg"
+                            alt="">
+                            <div>
+
+                            <h4 class=" text-xl whitespace-nowrap lg:text-2xl font-semibold"> Our Itinerary </h4>
                             <p class="font-light"> want to be an instructor</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row space-x-4">
+                            <img class=" h-44 lg:w-64 rounded-lg object-cover"
+                            src="./assets/blog-2.jpg"
+                            alt="">
+                            <div>
+
+                            <h4 class=" text-xl whitespace-nowrap lg:text-2xl font-semibold"> Our Itinerary </h4>
+                            <p class="font-light"> want to be an instructor</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-row space-x-4">
+                            <img class=" h-44 lg:w-64 rounded-lg object-cover"
+                            src="./assets/blog-2.jpg"
+                            alt="">
+                            <div>
+
+                            <h4 class=" text-xl whitespace-nowrap lg:text-2xl font-semibold"> Our Itinerary </h4>
+                            <p class="font-light"> want to be an instructor</p>
+                            </div>
                         </div>
                     </div>
-    
-                    <div class=" flex flex-row gap-2 lg:gap-8 w-[90%]  lg:w-full">
-                        <div class="flex basis-7/12 flex-col gap-2 ">
-                            <img class=" h-[9rem] lg:h-[15rem] lg:w-[25rem] rounded-lg object-cover"
-                                src="./assets/blog-3.jpg"
-                                alt="">
-    
-                        </div>
-    
-                        <div class="flex flex-col gap-2 basis-5/12">
-                            <h4 class=" text-xl lg:text-3xl font-semibold"> Our Itinerary </h4>
-                            <p class="font-light"> want to be an instructor</p>
-                        </div>
-                    </div>
-    
-                    <div class=" flex flex-row gap-2 lg:gap-8 w-[90%]  lg:w-full">
-                        <div class="flex basis-7/12 flex-col gap-2 ">
-                            <img class=" h-[9rem] lg:h-[15rem] lg:w-[25rem] rounded-lg object-cover"
-                                src="./assets/blog-4.jpg"
-                                alt="">
-    
-                        </div>
-    
-                        <div class="flex flex-col gap-2 basis-5/12">
-                            <h4 class=" text-xl lg:text-3xl font-semibold"> Our Itinerary </h4>
-                            <p class="font-light"> want to be an instructor</p>
-                        </div>
-                    </div>
+                    
                 </div>
-            </div>
+            
         </div>
     </section>
 
@@ -790,99 +810,95 @@ creates an immersive and dynamic space where education becomes an extraordinary 
 </section>
 
 
-    <footer class=" mt-[2rem] lg:h-[27rem] flex items-center justify-center  bg-[#0C274C] text-white sm:p-6 w-full dark:bg-gray-800">
-        <div class=" h-full  grid grid-cols-12 items-center justify-center  max-w-[1700px] font-inter">
-         <div class="col-span-12 grid h-full place-items-center gap-4  grid-cols-12">
-            <div class=" h-[25rem] sm:h-[15rem] lg:h-full sm:items-center sm:justify-center w-[90%]  items-center justify-center md:flex md:justify-between col-span-12 flex flex-col gap-8 lg:col-span-4">
-                <div class=" h-full flex  sm:mb-0">
-                    <div class="flex items-center  text-center lg:text-start justify-center flex-col gap-4">
-                        <h1 class=" text-center lg:text-start text-2xl lg:text-4xl uppercase tracking-wide ">
-                            Experience Tomorrow Today!
-                        </h1>
-                        <p class=" text-center lg:text-start leading-[2rem]">
-                            Whether you're a tech aficionado, a curious mind, or an
-                            industry professional, BARNASS LTD invites you to be
-                            part of the future. Join us in exploring the endless
-                            possibilities of technology, where innovation knows
-                            no bounds. The experience awaits—step into the
-                            future with us!
-                        </p>
-                    </div>
-                </div>
+    <footer class=" mt-[2rem]   bg-[#0C274C] text-white sm:p-6 w-full px-20 dark:bg-gray-800  ">
+        <h1 class=" w-1/2 mb-12 text-center lg:text-start text-xl lg:text-3xl  font-extrabold uppercase tracking-wide whitespace-nowrap ">
+            Experience Tomorrow Today!
+        </h1>
+        <div class="flex flex-row space-x-40">
+
+            <div class="flex flex-col w-4/12 space-y-8">
+                <div class="flex flex-col space-y-8">
                
-            </div>
-
-
-            <div class=" h-full w-[90%] gap-4  text-white place-items-center  text-center lg:text-start lg:place-items-end lg:place-content-end  col-span-12 lg:col-span-8 grid grid-cols-12  ">
-                <div class="  lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
-                    <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Company</h2>
-                    <ul class=" text-white flex flex-col gap-4 dark:text-gray-400">
-                        <li class="">
-                            <a href="./Gallery/Gallery.html" class="hover:underline">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="./Blog/Blog.html" class="hover:underline">Blog</a>
-                        </li>
-                        <li>
-                            <a href="./Contacts/Contact.html" class="hover:underline">Contact us</a>
-                        </li>
-                        <li>
-                            <a href="./Courses/Courses.html" class="hover:underline">Online Courses</a>
-                        </li>
-                        <li>
-                            <a href="./Instructor/Instructor.html" class="hover:underline">Become an Instructor</a>
-                        </li>
-                    </ul>
+                 <p class="  w-full lg:text-start ">
+                     Whether you're a tech aficionado, a curious mind, or an
+                     industry professional, BARNASS LTD invites you to be
+                     part of the future. Join us in exploring the endless
+                     possibilities of technology, where innovation knows
+                     no bounds. The experience awaits—step into the
+                     future with us!
+                 </p>
                 </div>
-
-                <div class=" lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
-                    <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Support</h2>
-                    <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
-                        <li class="text-white">
-                            <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Help Center</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Terms of Service</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Legal</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Status</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="  lg:h-[15rem] lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
-                    <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Address</h2>
-                    <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
-                        <li class="text-white">
-                            <a href="https://github.com/themesberg/flowbite" class="hover:underline ">84 Wappenbury Road</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">status</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>
-         </div>
-
-
-            <div class=" h-[5rem] sm:h-[3rem]  flex items-center justify-center col-span-12 grid-cols-12">
-                <div class=" col-span-12 lg:w-[90%]  lg:col-span-6 sm:flex sm:items-center sm:justify-start">
-                    <span class="text-sm text-white sm:text-center dark:text-gray-400"> Copyright ©  2023  <a
-                            href="https://flowbite.com" class="hover:underline">Barnass LTD</a>. All Rights Reserved.
-                    </span>
-              
-                </div>
-            </div>
-           
+                <div class=" flex flex-col ">
+                 <div class=" content-end col-span-12 lg:w-[90%]  lg:col-span-6 sm:flex sm:items-center sm:justify-start">
+                     <span class="text-start text-sm text-white sm:text-center dark:text-gray-400"> Copyright ©  2023  <a
+                             href="https://flowbite.com" class="hover:underline">Barnass LTD</a>. 
+                             
+                         <div class="text-start">All Rights Reserved.</div>
+                     </span>
+               
+                 </div>
+             </div>
         </div>
+        <div class="flex flex-row space-x-18">
+            <div class="  lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
+               <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Company</h2>
+               <ul class=" text-white flex flex-col gap-4 dark:text-gray-400">
+                   <li class="">
+                       <a href="./Gallery/Gallery.html" class="hover:underline">Gallery</a>
+                   </li>
+                   <li>
+                       <a href="./Blog/Blog.html" class="hover:underline">Blog</a>
+                   </li>
+                   <li>
+                       <a href="./Contacts/Contact.html" class="hover:underline">Contact us</a>
+                   </li>
+                   <li>
+                       <a href="./Courses/Courses.html" class="hover:underline">Online Courses</a>
+                   </li>
+                   <li>
+                       <a href="./Instructor/Instructor.html" class="hover:underline">Become an Instructor</a>
+                   </li>
+               </ul>
+           </div>
+
+           <div class=" lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
+            <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Support</h2>
+            <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
+                <li class="text-white">
+                    <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Help Center</a>
+                </li>
+                <li>
+                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Terms of Service</a>
+                </li>
+                <li>
+                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Legal</a>
+                </li>
+                <li>
+                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Status</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="  lg:h-[15rem] lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
+            <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Address</h2>
+            <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
+                <li class="text-white">
+                    <a href="https://github.com/themesberg/flowbite" class="hover:underline ">84 Wappenbury Road</a>
+                </li>
+                <li>
+                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">status</a>
+                </li>
+                
+            </ul>
+        </div>
+        </div>
+           
+
         
+       
     </footer>
 
 
