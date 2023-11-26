@@ -36,8 +36,8 @@
     </script>
 </head>
 
-<body class="flex flex-col items-center justify-center gap-[3rem]">
-    <nav
+<body class="flex flex-col items-center justify-center">
+    <!-- <nav
         class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
         <div class="max-w-[1700px] flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -93,17 +93,74 @@
                 </ul>
             </div>
         </div>
+    </nav> -->
+
+
+    <nav 
+           
+    class=" text-[#454545] text-base dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 bg-white   p-4 px-16 flex items-center justify-between">
+
+        <!-- Logo on the extreme left -->
+        <div class="flex items-center">
+            <img src="../assets/logo.svg" class="" alt="Logo" class="h-8 w-8 mr-2"> <!-- Adjust the image source and size accordingly -->
+            
+        </div>
+                <!-- Mobile Menu Icon -->
+        <div class="lg:hidden cursor-pointer" id="mobile-menu-button" @click="open = !open">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </div>
+
+        <!-- Navigation in the center -->
+        <div class="hidden lg:flex space-x-6">
+            <a href="#" class="text-gray-800 hover:text-blue-500">Online Courses</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Gallery</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Become an Instructor</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Blog</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">About Us</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Contact</a>
+        </div>
+
+        <!-- Login button on the extreme right -->
+        <a href="#" class="hidden lg:flex text-gray-800 hover:text-blue-500 border border-gray-300 px-8 py-2 ">Login</a>
+        <!-- Mobile Menu -->
+<div class="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50 hidden" id="mobile-menu" >
+<div class="flex justify-end p-4">
+<!-- Close Icon for Mobile Menu -->
+<div class="cursor-pointer" id="close-icon">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+  xmlns="http://www.w3.org/2000/svg">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+    d="M6 18L18 6M6 6l12 12"></path>
+</svg>
+</div>
+</div>
+<div class="flex flex-col items-center space-y-4">
+<a href="#" class="text-gray-800 hover:text-blue-500">Online Courses</a>
+<a href="#" class="text-gray-800 hover:text-blue-500">Gallery</a>
+<a href="#" class="text-gray-800 hover:text-blue-500">Become an Instructor</a>
+<a href="#" class="text-gray-800 hover:text-blue-500">Blog</a>
+<a href="#" class="text-gray-800 hover:text-blue-500">About Us</a>
+<a href="#" class="text-gray-800 hover:text-blue-500">Contact</a>
+<!-- Login button in Mobile Menu -->
+<a href="#" class="text-gray-800 hover:text-blue-500 border border-gray-300 px-4 py-2" id="login-button-mobile">Login</a>
+</div>
+</div>
     </nav>
+
 
     <section
         class="w-full flex items-center justify-center font-poppins bg-center h-[60rem] bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-[#0C274C] bg-blend-multiply">
         <div class="flex flex-col h-[45%] items-center justify-center">
             <div class="flex items-center justify-center gap-[3rem] h-full flex-col max-w-[1700px] text-center">
-                <div class="flex flex-col sm:w-full items-center justify-center gap-[2rem]">
+                <div class="flex flex-col sm:w-full items-center justify-center gap-[2rem] space-x-3">
                     <h1
-                        class="uppercase leading-[5rem] mb-4 text-4xl font-extrabold tracking-normal text-white md:text-5xl lg:text-6xl">
-                        Welcome To
-                        <br /><span class="mt-8">Barnass Gallery</span>
+                        class="uppercase leading-[5rem] mb-4 text-6xl font-extrabold tracking-normal text-white md:text-6xl lg:text-4xl flex flex-col space-x-4 ">
+                      <div> Welcome To</div> 
+                        <div>Barnass Gallery</div>
                     </h1>
                     <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
                         Immerse yourself in a curated collection of technological wonders,
@@ -118,15 +175,15 @@
     </section>
 
     <section class="w-full flex items-center justify-center flex-col">
-        <div class="max-w-screen-xl w-full">
+        <div class="max-w-screen-xl w-3/4">
             <div class="font-poppins flex w-full flex-col h-[20rem] gap-3 max-w-[1700px] items-center justify-center">
                 <h1 class="text-4xl font-semibold tracking-wide">Our Portfolio</h1>
-                <p>
+                <p class="w-5/12 text-center"> 
                     Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci
                     porta dapibus. Curabitur arcu erat
                 </p>
             </div>
-            <div class="w-full flex items-center justify-center">
+            <div class=" flex items-center justify-center">
                 <div
                     class="text-sm w-full font-medium flex items-center justify-center text-center text-gray-500 dark:text-gray-400">
                     <ul
@@ -162,11 +219,11 @@
             </div>
         </div>
 
-        <div class="flex items-center justify-center"></div>
+        <div class="flex items-center justify-center w-3/4"></div>
         <div class=""></div>
     </section>
 
-    <section class="w-full flex items-center justify-center">
+    <section class="w-4/5 py-12 pb-20 flex items-center justify-center">
         <div class="max-w-screen-xl w-full gap-[2rem] grid grid-cols-12">
             <div class="h-[20rem] col-span-12 flex items-center justify-start sm:col-span-6">
                 <div class="w-[90%] flex items-center justify-center bg-[#0C274C] rounded-lg h-full">
