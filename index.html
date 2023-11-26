@@ -11,6 +11,8 @@
   
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x.x/dist/alpine.min.js" defer></script>
+
      <script>
         tailwind.config = {
   content: [
@@ -49,21 +51,17 @@
 
 <body class="flex items-center justify-center text-[#0C274C] flex-col">
 
-    <nav 
-           
-    class=" text-[#454545] text-base dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 bg-white   p-4 px-16 flex items-center justify-between">
-
+    <nav x-data="{ open: false, animateDropdown: false }" class="text-[#454545] text-base dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 bg-white p-4 px-16 flex items-center justify-between">
+    
         <!-- Logo on the extreme left -->
-        <div class="flex items-center font-inter" >
-            <img src="./assets/logo.svg" class="" alt="Logo" class="h-8 w-8 mr-2"> <!-- Adjust the image source and size accordingly -->
-            
+        <div class="flex items-center font-inter">
+            <img src="./assets/logo.svg" alt="Logo"> <!-- Adjust the image source and size accordingly -->
         </div>
-                <!-- Mobile Menu Icon -->
-        <div class="lg:hidden cursor-pointer" id="mobile-menu-button" @click="open = !open">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"></path>
+        
+        <!-- Mobile Menu Icon -->
+        <div class="lg:hidden cursor-pointer" id="mobile-menu-button"  @click="open = !open">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
         </div>
 
@@ -78,30 +76,29 @@
         </div>
 
         <!-- Login button on the extreme right -->
-        <a href="#" class="hidden lg:flex text-gray-800 hover:text-blue-500 border border-gray-300 px-8 py-2 ">Login</a>
+        <a href="#" class="hidden lg:flex text-gray-800 hover:text-blue-500 border border-gray-300 px-8 py-2">Login</a>
+
         <!-- Mobile Menu -->
-<div class="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50 hidden" id="mobile-menu" >
-<div class="flex justify-end p-4">
-<!-- Close Icon for Mobile Menu -->
-<div class="cursor-pointer" id="close-icon">
-<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-  xmlns="http://www.w3.org/2000/svg">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-    d="M6 18L18 6M6 6l12 12"></path>
-</svg>
-</div>
-</div>
-<div class="flex flex-col items-center space-y-4">
-<a href="#" class="text-gray-800 hover:text-blue-500">Online Courses</a>
-<a href="#" class="text-gray-800 hover:text-blue-500">Gallery</a>
-<a href="#" class="text-gray-800 hover:text-blue-500">Become an Instructor</a>
-<a href="#" class="text-gray-800 hover:text-blue-500">Blog</a>
-<a href="#" class="text-gray-800 hover:text-blue-500">About Us</a>
-<a href="#" class="text-gray-800 hover:text-blue-500">Contact</a>
-<!-- Login button in Mobile Menu -->
-<a href="#" class="text-gray-800 hover:text-blue-500 border border-gray-300 px-4 py-2" id="login-button-mobile">Login</a>
-</div>
-</div>
+        <div class="lg:hidden fixed top-16 left-0 w-full bg-white z-50" x-show="open" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-full" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300 transform" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-full">
+            <div class="flex justify-end p-4">
+                <!-- Close Icon for Mobile Menu -->
+                <div class="cursor-pointer" id="close-icon" @click="open = false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="flex flex-col items-start space-y-4 p-4">
+                <a href="#" class="text-gray-800 hover:text-blue-500 hover:bg-gray-200 py-2 px-4">Online Courses</a>
+                <a href="#" class="text-gray-800 hover:text-blue-500 hover:bg-gray-200 py-2 px-4">Gallery</a>
+                <a href="#" class="text-gray-800 hover:text-blue-500 hover:bg-gray-200 py-2 px-4">Become an Instructor</a>
+                <a href="#" class="text-gray-800 hover:text-blue-500 hover:bg-gray-200 py-2 px-4">Blog</a>
+                <a href="#" class="text-gray-800 hover:text-blue-500 hover:bg-gray-200 py-2 px-4">About Us</a>
+                <a href="#" class="text-gray-800 hover:text-blue-500 hover:bg-gray-200 py-2 px-4">Contact</a>
+                <!-- Login button in Mobile Menu -->
+                <a href="#" class="text-gray-800 hover:text-blue-500 border border-gray-300 px-4 py-2" id="login-button-mobile">Login</a>
+            </div>
+        </div>
     </nav>
 
     <!-- NAVBAR -->
@@ -152,34 +149,58 @@
 
 
 
-    <section
-        class=" w-full flex items-center justify-center font-poppins bg-center h-[40rem] lg:h-[60rem] bg-cover bg-no-repeat bg-[url(./assets/home-vid.gif)] bg-gray-700 bg-blend-multiply">
-        <div class="flex flex-col h-[70%]   lg:h-[45%]  items-center justify-center">
-            <div
-                class="  flex items-center justify-center lg:gap-[3rem] h-full  flex-col  max-w-[1700px]   text-center ">
-                <div class="flex h-full  flex-col sm:w-full items-center justify-center lg:gap-[2rem] ">
-                    <h1
-                        class=" drop-shadow-lg uppercase leading-[2.6rem] sm:leading-[3rem] md:leading-[4rem] xl:leading-[6rem] mb-4 text-[1.5rem] sm:text-[2rem] lg:text-4xl xl:text-[4rem]  font-extrabold tracking-normal text-white md:text-5xl ">
+    <section class="w-full flex items-center justify-center font-poppins bg-center h-[40rem] lg:h-[60rem] bg-cover bg-no-repeat bg-[url(./assets/home-vid.gif)] bg-gray-700 bg-blend-multiply lg:mt-0 mt-20">
+
+        <div class="flex flex-col h-[70%] lg:h-[45%] items-center justify-center px-4 sm:px-8 lg:px-16">
+    
+            <div class="flex items-center justify-center lg:gap-[3rem] h-full flex-col max-w-[1700px] text-center">
+    
+                <div class="flex h-full flex-col sm:w-full items-center justify-center lg:gap-[2rem]">
+    
+                    <h1 class="drop-shadow-lg uppercase leading-[2.6rem] sm:leading-[3rem] md:leading-[4rem] xl:leading-[6rem] mb-4 text-lg sm:text-[2rem] lg:text-4xl xl:text-[4rem] font-extrabold tracking-normal text-white md:text-5xl">
+    
                         Elevate 🚀 Your Skills
-                        <br /><span class="mt-8"> <span class="border-4 border-[#FC7C05]  ellipse-border p-2">Ignite</span> Your Passion  <span class="underline underline-offset-4  decoration-[#46C01A] underline-solid" style="text-decoration-thickness: .2rem;">in the uk</span></span>
+    
+                        <br class="sm:hidden" />
+    
+                        <span class="mt-4 block sm:inline-block sm:w-full ">
+    
+                            <span class="border-4 border-[#FC7C05] ellipse-border p-2">Ignite</span>
+                            Your Passion <br class="lg:hidden">
+                            <span class="block sm:inline underline underline-offset-4 decoration-[#46C01A] underline-solid" style="text-decoration-thickness: .2rem;">in the UK</span>
+    
+                        </span>
+    
                     </h1>
-                    <p class="lg:mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Embark on a
-                        transformative learning journey at Barnass Ltd, where cutting-edge
-                        technology meets limitless possibilities.</p>
+    
+                    <p class="lg:mb-8 text-white text-base sm:text-lg lg:text-xl sm:px-4 lg:px-12 sm:w-full sm:py-2">
+    
+                        Embark on a transformative learning journey at Barnass Ltd,
+                        <br class="lg:hidden">
+                        where cutting-edge <br class="hidden lg:inline" /> technology meets limitless possibilities.
+    
+                    </p>
+    
                 </div>
+    
             </div>
-
-            <div
-                class=" rounded-sm  w-full flex flex-col items-center justify-center  space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+    
+            <div class="rounded-sm w-full flex flex-col items-center justify-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+    
                 <a href="#"
-                    class=" uppercase rounded-sm inline-flex w-[20rem]  h-[5rem] xs:w-[18.75rem] lg:h-[5rem] justify-center items-center py-3 px-5 text-2xl lg:text-xl font-medium text-center text-white bg-blue-400 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+    
+                    class="uppercase rounded-sm inline-flex w-[20rem] h-[5rem] xs:w-[18.75rem] lg:h-[5rem] justify-center items-center py-3 px-5 text-base sm:text-lg lg:text-xl font-medium text-center text-white bg-blue-400 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+    
                     Get started
-
+    
                 </a>
-
+    
             </div>
-        </div>
+    
+        </div> 
+    
     </section>
+    
 
     <!-- ACHIEVEMENTS -->
 

@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barnass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x.x/dist/alpine.min.js" defer></script>
+
+    
+    <script>
+        tailwind.config = {
+  content: [
+    './**/*.html',        // Include all HTML files
+    './src/**/*.js',      // Include all JavaScript files in the src directory and its subdirectories
+    './styles/**/*.css', 
+  ],
+  theme: {
+      extend: {
+        fontFamily:{
+          inter:['Inter','sans-serif'],
+          poppins:['Poppins', 'sans-serif']
+        },
+        screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        '3xl': '1570px', // Custom size
+      },
+       },
+  },
+  plugins: [],
+};
+      </script>
+
+      <style>
+        .ellipse-border {
+  border-radius: 50% / 75%;
+}
+
+      </style>
+      
+</head>
+
+<body class="text-lg">
+    <nav x-data="{ open: false, animateDropdown: false }" class="text-[#454545] text-base dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 bg-white p-4 lg:px-16 flex items-center justify-between">
+    
+        <!-- Logo on the extreme left -->
+        <div class="flex items-center font-inter">
+            <img src="./assets/logo.svg" alt="Logo"> <!-- Adjust the image source and size accordingly -->
+        </div>
+        
+        <!-- Mobile Menu Icon -->
+        <div class="lg:hidden cursor-pointer" id="mobile-menu-button"  @click="open = !open">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </div>
+
+        <!-- Navigation in the center -->
+        <div class="hidden lg:flex space-x-6">
+            <a href="#" class="text-gray-800 hover:text-blue-500">Online Courses</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Gallery</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Become an Instructor</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Blog</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">About Us</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Contact</a>
+        </div>
+
+        <!-- Login button on the extreme right -->
+        <a href="#" class="hidden lg:flex text-gray-800 hover:text-blue-500 border border-gray-300 px-8 py-2">Login</a>
+
+        <!-- Mobile Menu -->
+        <div class="lg:hidden fixed top-16 left-0 w-full bg-white z-50" x-show="open" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-full" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300 transform" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-full">
+            <div class="flex justify-end p-4">
+                <!-- Close Icon for Mobile Menu -->
+                <div class="cursor-pointer" id="close-icon" @click="open = false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="flex flex-col items-start p-4">
+              <a href="#" class="text-gray-800 hover:text-blue-500 py-4 border-b border-t px-4 w-full">Online Courses</a>
+              <a href="#" class="text-gray-800 hover:text-blue-500 py-4 border-b  px-4 w-full">Gallery</a>
+              <a href="#" class="text-gray-800 hover:text-blue-500 py-4 border-b  px-4 w-full">Become an Instructor</a>
+              <a href="#" class="text-gray-800 hover:text-blue-500 py-4 border-b  px-4 w-full">Blog</a>
+              <a href="#" class="text-gray-800 hover:text-blue-500 py-4 border-b  px-4 w-full">About Us</a>
+              <a href="#" class="text-gray-800 hover:text-blue-500 py-4 border-b  px-4 w-full">Contact</a>
+              <!-- Login button in Mobile Menu -->
+              <a href="#" class="text-gray-800 hover:text-blue-500 border border-gray-300 w-full py-4 text-center" id="login-button-mobile">Login</a>
+          </div>
+          
+        </div>
+    </nav>
+
+
+    <section class="w-full flex items-center justify-center font-poppins bg-center h-[40rem] lg:h-[60rem] bg-cover bg-no-repeat bg-[url(./assets/home-vid.gif)] bg-gray-700 bg-blend-multiply lg:mt-0 ">
+
+        <div class="flex flex-col h-[70%] lg:h-[45%] items-center justify-center px-4 sm:px-8 lg:px-16">
+    
+            <div class="flex items-center justify-center lg:gap-[3rem] h-full flex-col max-w-[1700px] text-center">
+    
+                <div class="flex h-full flex-col sm:w-full items-center justify-center lg:gap-[2rem]">
+    
+                    <h1 class="drop-shadow-lg uppercase leading-[2.6rem] sm:leading-[3rem] md:leading-[4rem] xl:leading-[6rem] mb-4  text-3xl lg:text-4xl xl:text-[4rem] font-extrabold tracking-normal text-white md:text-5xl">
+    
+                        Elevate 🚀 Your Skills
+    
+                        <br class="sm:hidden" />
+    
+                        <span class="mt-4 block sm:inline-block sm:w-full ">
+    
+                            <span class="border-4 border-[#FC7C05] ellipse-border p-2">Ignite</span>
+                            Your Passion <br class="lg:hidden">
+                            <span class="block sm:inline underline underline-offset-4 decoration-[#46C01A] underline-solid" style="text-decoration-thickness: .2rem;">in the UK</span>
+    
+                        </span>
+    
+                    </h1>
+    
+                    <p class="lg:mb-8 text-white text-xs sm:text-sm lg:text-xl sm:px-4 lg:px-12 sm:w-full sm:py-2 whitespace-nowrap">
+    
+                        Embark on a transformative learning journey at Barnass Ltd,
+                        <br class="lg:hidden">
+                        where cutting-edge <br class="hidden lg:inline" /> technology meets limitless possibilities.
+    
+                    </p>
+    
+                </div>
+    
+            </div>
+    
+            <div class="rounded-sm w-full flex flex-col items-center justify-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+    
+                <a href="#"
+    
+                    class="uppercase rounded-sm inline-flex w-[20rem] h-[5rem] xs:w-[18.75rem] lg:h-[5rem] justify-center items-center py-3 px-5 text-base sm:text-lg lg:text-xl font-medium text-center text-white bg-blue-400 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+    
+                    Get started
+    
+                </a>
+    
+            </div>
+    
+        </div> 
+    
+    </section>
+    <section id="courses" class=" font-inter w-full  flex lg:w-full items-center  lg:gap-8 justify-center mt-2 flex-row   h-full p-24">
+        <div class="flex w-[70%]  sm:w-[80%] lg:max-w[30rem] gap-3 items-center justify-center ">
+         <div id="counter-1"  class=" counter  lg:w-[10rem] gap-4 flex items-center justify-center flex-col h-full">
+             <svg class="w-[2.5rem] h-[3rem] sm:w-[3.125rem] sm:h-[3.125rem]" class="w-[2.5rem] h-[3rem] sm:w-[3.125rem] sm:h-[3.125rem]" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path
+                     d="M13.7135 15.0789C19.9783 16.1833 23.7121 18.4936 25 19.8199C26.2879 18.4936 30.0217 16.1833 36.2865 15.0789C39.4602 14.5193 41.0471 14.2396 42.3985 15.3119C43.75 16.3842 43.75 18.1254 43.75 21.6079V34.1231C43.75 37.3075 43.75 38.8996 42.8827 39.8935C42.0152 40.8875 40.1056 41.2242 36.2865 41.8975C32.8819 42.4977 30.2248 43.4539 28.3015 44.415C26.4094 45.3606 25.4631 45.8333 25 45.8333C24.5369 45.8333 23.5906 45.3606 21.6985 44.415C19.7752 43.4539 17.1181 42.4977 13.7135 41.8975C9.89435 41.2242 7.98475 40.8875 7.11738 39.8935C6.25 38.8996 6.25 37.3075 6.25 34.1231V21.6079C6.25 18.1254 6.25 16.3842 7.60146 15.3119C8.95294 14.2396 10.5398 14.5193 13.7135 15.0789Z"
+                     stroke="#4CA5E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                 <path d="M25 18.75V45.8333" stroke="#4CA5E1" stroke-width="1.5" stroke-linejoin="round" />
+                 <path
+                     d="M17.7083 6.37204C19.8153 4.97496 22.3102 4.16669 24.9846 4.16669C27.6719 4.16669 30.1781 4.98287 32.2917 6.39254M28.3796 11.4584C27.3794 10.8547 26.2202 10.5096 24.9846 10.5096C23.7621 10.5096 22.6146 10.8474 21.6217 11.4391"
+                     stroke="#4CA5E1" stroke-width="1.5" stroke-linecap="round" />
+             </svg>
+     
+             <h4 akhi="1000"  class="  value text-2xl  sm:text-[2.5rem] font-semibold">0</h4>
+             <p class="font-light uppercase text-[0.75rem] sm:text-base  lg:text-[1.2rem]">Learners</p>
+         </div>
+     
+         <div id="counter-2"  class=" counter w-[10rem] gap-4 flex items-center justify-center flex-col h-full">
+             <svg class="w-[2.5rem] h-[3rem] sm:w-[3.125rem] sm:h-[3.125rem]" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M8.33334 29.1667V43.75" stroke="#4CA5E1" stroke-width="1.5" stroke-linejoin="round" />
+                 <path
+                     d="M8.33334 9.20263L7.36699 7.9748C6.99057 8.27107 6.77084 8.72361 6.77084 9.20263H8.33334ZM8.33334 30.8344H6.77084C6.77084 31.4859 7.17499 32.069 7.78497 32.2975C8.39495 32.5263 9.08278 32.3523 9.51093 31.8615L8.33334 30.8344ZM41.6667 29.3044L42.4235 30.6713L43.2292 30.2252V29.3044H41.6667ZM41.6667 8.34588H43.2292V5.92094L41.021 6.92303L41.6667 8.34588ZM9.2997 10.4304C11.6691 8.56559 17.5866 6.18767 23.7786 9.38265L25.2115 6.60555C17.6316 2.6944 10.4017 5.58634 7.36699 7.9748L9.2997 10.4304ZM23.7786 9.38265C29.5471 12.3592 34.745 12.2214 38.3813 11.2001L37.5363 8.19155C34.5883 9.0195 30.2127 9.18617 25.2115 6.60555L23.7786 9.38265ZM9.51093 31.8615C11.1419 29.9913 16.4435 26.7009 23.7786 30.4856L25.2115 27.7086C16.3848 23.154 9.56516 27.0448 7.15576 29.8075L9.51093 31.8615ZM23.7786 30.4856C31.5744 34.5084 39.18 32.4673 42.4235 30.6713L40.9098 27.9373C38.3383 29.3613 31.8588 31.1386 25.2115 27.7086L23.7786 30.4856ZM40.1042 8.34588V29.3044H43.2292V8.34588H40.1042ZM6.77084 9.20263V30.8344H9.89584V9.20263H6.77084ZM38.3813 11.2001C39.4113 10.9108 40.3913 10.5534 41.1058 10.2724C41.4654 10.131 41.7629 10.007 41.9719 9.91757C42.0767 9.87282 42.1596 9.83663 42.2173 9.81115C42.246 9.79838 42.2688 9.7883 42.2848 9.78115C42.2927 9.77757 42.2992 9.77471 42.3038 9.77263C42.306 9.77159 42.3079 9.77075 42.3094 9.77009C42.3088 9.77032 42.31 9.76978 42.3094 9.77009C42.3096 9.76998 42.3117 9.76905 42.3119 9.76894C42.3119 9.7689 42.3119 9.76898 42.3119 9.76894C42.3121 9.7689 42.3123 9.76871 41.6667 8.34588C41.021 6.92303 41.0208 6.92307 41.021 6.92303C41.0188 6.92405 41.0131 6.92657 41.0075 6.92905C40.9965 6.934 40.979 6.94186 40.9552 6.9523C40.9079 6.97319 40.8363 7.00446 40.7438 7.04407C40.5581 7.12336 40.2894 7.23555 39.9623 7.36411C39.304 7.62296 38.43 7.94055 37.5363 8.19155L38.3813 11.2001Z"
+                     fill="#4CA5E1" />
+             </svg>
+             <h4 akhi="70"  class=" value text-2xl  sm:text-[2.5rem] font-semibold">0</h4>
+             <p class="font-light uppercase text-[0.75rem] sm:text-base  lg:text-[1.2rem]">Countries</p>
+         </div>
+     
+         <div id="counter-3"  class=" counter lg:w-[10rem] gap-4 flex items-center justify-center flex-col h-full">
+             <svg class="w-[2.5rem] h-[3rem] sm:w-[3.125rem] sm:h-[3.125rem]" viewBox="0 0 51 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path
+                     d="M44.5852 20.6843C46.735 19.8782 46.9288 16.0269 45.0177 12.0821C43.1067 8.13737 39.8148 5.59295 37.6648 6.39904M44.5852 20.6843C42.4352 21.4904 39.1434 18.946 37.2323 15.0012C35.3213 11.0564 35.515 7.2051 37.6648 6.39904M44.5852 20.6843L13.3352 39.4344C11.1853 40.2404 7.89331 37.696 5.98231 33.7512C4.07129 29.8065 4.26494 25.955 6.41483 25.149L37.6648 6.39904"
+                     stroke="#4CA5E1" stroke-width="1.5" stroke-linejoin="round" />
+                 <path
+                     d="M31.75 28.3473C28.9131 27.1535 23.2569 22.8133 23.3279 15.0014M24.4583 32.7098C22.0277 31.55 16.9583 27.2462 16.125 19.3108"
+                     stroke="#4CA5E1" stroke-width="1.5" stroke-linejoin="round" />
+                 <path
+                     d="M30.8121 43.75L29.53 44.6432C29.8194 45.0586 30.2919 45.3079 30.7981 45.3125C31.3042 45.3169 31.7813 45.0761 32.0779 44.6659L30.8121 43.75ZM23.4167 43.3548L22.2831 42.2794C21.7646 42.8259 21.71 43.6648 22.1531 44.274C22.5965 44.8834 23.4115 45.0894 24.091 44.7642L23.4167 43.3548ZM28.7567 40.8L30.0388 39.9067L29.2798 38.8175L28.0823 39.3904L28.7567 40.8ZM31.2646 29.8971C32.2825 31.8221 33.4902 37.3829 29.546 42.8342L32.0779 44.6659C36.839 38.0854 35.4992 31.2202 34.0273 28.4363L31.2646 29.8971ZM23.9058 33.7852C24.6898 36.38 24.2617 38.5113 23.646 40.0036C23.3356 40.7561 22.9771 41.345 22.7013 41.74C22.564 41.9367 22.4488 42.0829 22.3727 42.1746C22.3348 42.2204 22.3069 42.2523 22.2913 42.27C22.2833 42.279 22.2785 42.2842 22.2771 42.2857C22.276 42.2867 22.2765 42.2865 22.2771 42.2857C22.2777 42.2852 22.2788 42.284 22.2796 42.2829C22.2802 42.2825 22.2806 42.2819 22.2813 42.2815C22.2815 42.2811 22.2831 42.2796 22.2831 42.2794C22.2838 42.2788 22.2831 42.2794 23.4167 43.3548C24.5502 44.4302 24.5506 44.4296 24.5513 44.429C24.5508 44.4296 24.5515 44.4288 24.5513 44.429C24.5521 44.4282 24.5542 44.4261 24.555 44.425C24.5569 44.4232 24.559 44.4209 24.5613 44.4184C24.5658 44.4134 24.5715 44.4075 24.5779 44.4004C24.5906 44.3865 24.6071 44.3686 24.6267 44.3465C24.6656 44.3025 24.7177 44.2425 24.7802 44.1671C24.905 44.0163 25.0727 43.8023 25.2633 43.5294C25.6435 42.985 26.1219 42.1965 26.5348 41.1952C27.366 39.1804 27.9302 36.3009 26.8973 32.8815L23.9058 33.7852ZM24.091 44.7642L29.431 42.2094L28.0823 39.3904L22.7423 41.9452L24.091 44.7642ZM27.4746 41.6932L29.53 44.6432L32.094 42.8569L30.0388 39.9067L27.4746 41.6932Z"
+                     fill="#4CA5E1" />
+             </svg>
+     
+             <h4 akhi="800"  class=" value text-2xl  sm:text-[2.5rem] font-semibold">0</h4>
+             <p class="font-light uppercase text-[0.75rem] sm:text-base  lg:text-[1.2rem]">Graduates</p>
+         </div>
+     
+         <div id="counter-4"  class=" counter w-[10rem] gap-4 flex items-center justify-center flex-col h-full">
+             <svg class="w-[2.5rem] h-[3rem] sm:w-[3.125rem] sm:h-[3.125rem]" viewBox="0 0 51 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M17.1669 4.16669H6.75035L6.75 45.8334H44.25V29.1667" stroke="#4CA5E1" stroke-width="1.5"
+                     stroke-linejoin="round" />
+                 <path
+                     d="M46.3333 10.4166L46.9881 11.8353C47.5415 11.5799 47.8958 11.0261 47.8958 10.4166C47.8958 9.80718 47.5415 9.25334 46.9881 8.99795L46.3333 10.4166ZM32.7917 16.6666L32.1369 18.0853L32.7917 18.3875L33.4465 18.0853L32.7917 16.6666ZM32.7917 4.1667L33.4465 2.74801L32.7917 2.4458L32.1369 2.74801L32.7917 4.1667ZM19.25 10.4166L18.5952 8.99795C18.0419 9.25334 17.6875 9.80718 17.6875 10.4166C17.6875 11.0261 18.0419 11.5799 18.5952 11.8353L19.25 10.4166ZM26.5417 22.6852L24.9892 22.8625L25.0662 23.5367L25.6117 23.9409L26.5417 22.6852ZM39.0417 22.6852L39.9717 23.9409L40.5171 23.5367L40.5942 22.8625L39.0417 22.6852ZM19.9048 11.8353L33.4465 5.58538L32.1369 2.74801L18.5952 8.99795L19.9048 11.8353ZM46.9881 8.99795L33.4465 2.74801L32.1369 5.58538L45.6785 11.8353L46.9881 8.99795ZM45.6785 8.99795L32.1369 15.2479L33.4465 18.0853L46.9881 11.8353L45.6785 8.99795ZM18.5952 11.8353L32.1369 18.0853L33.4465 15.2479L19.9048 8.99795L18.5952 11.8353ZM23.9475 13.7418L24.9892 22.8625L28.0942 22.5079L27.0525 13.3872L23.9475 13.7418ZM38.5308 13.3872L37.4892 22.5079L40.5942 22.8625L41.6358 13.7418L38.5308 13.3872ZM25.6117 23.9409C27.8973 25.6338 30.299 26.5625 32.7917 26.5625C35.2844 26.5625 37.686 25.6338 39.9717 23.9409L38.1117 21.4296C36.2306 22.8229 34.4656 23.4375 32.7917 23.4375C31.1177 23.4375 29.3527 22.8229 27.4717 21.4296L25.6117 23.9409ZM43.6423 11.9037V21.5279H46.7673V11.9037H43.6423Z"
+                     fill="#4CA5E1" />
+             </svg>
+     
+             <h4 akhi="115"  class="  value text-2xl  sm:text-[2.5rem] font-semibold">0</h4>
+             <p class="font-light uppercase text-[0.75rem] sm:text-base  lg:text-[1.2rem]">Courses</p>
+         </div>
+        </div>
+    </section>
+    
+    <section class=" popular-courses flex flex-col items-center justify-center bg-gray-100  px-4 gap-[2rem] font-poppins w-full">
+      <div class=" flex items-center justify-center flex-col max-w-[1700px] lg:w-11/12 gap-4">
+         <div class="py-12 lg:p-0 lg:h-[15rem]  flex flex-col items-center lg:items-start justify-center sm:justify-center text-center lg:text-start   gap-[1rem]">
+             <h1 class="uppercase font-bold text-center lg:text-start  text-[2rem] lg:text-[2.25rem]">popular courses</h1>
+             <p class="lg:text-[1.125rem] w-full">Our courses are led by industry experts who bring real-world experience into the
+                 virtual classroom.
+                 Dive deep into the world of robotics, from the fundamentals to advanced concepts, guided by mentors
+                 dedicated to your success.</p>
+         </div>
+ 
+ 
+         <div class=" h-full w-full  items-center justify-center  gap-6 flex flex-row">
+          <div class="lg:self-start   lg:overflow-x-hidden w-[85%]  flex lg:flex-row lg:items-start">
+                 <div  id="croll"  class="  lg:overflow-scroll w-fit rounded-lg  space-y-6 lg:space-y-0  lg:h-[30rem]   flex  flex-col lg:flex-row items-center justify-center lg:justify-start  xl:gap-x-[2rem]  lg:bg-white sm:overflow-x-scroll  sm:shadow-sm        ">
+                     <div class="spacer"></div>
+                     <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-full lg:w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
+                         <img class="aspect-video h-[50%] w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                         <div class="p-6 gap-2 flex flex-col">
+                           
+                           <h1 class="text-2xl font-semibold font-poppins text-gray-700 pb-2">Robotics</h1>
+                         
+                           <div class=" flex flex-row items-center justify-start gap-[1rem]">
+                             <img class="rounded-full h-[3rem] w-[2.5rem] object-cover"
+                                 src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600">
+                             <p class="font-light text-lg">Ada Lovelace</p>
+                         </div>
+         
+         
+                         <div class=" flex flex-row gap-4 text-gray-400">
+                             <div class="flex flex-row gap-2 items-center justify-start">
+                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                     <path
+                                         d="M11.25 9C11.25 7.75732 10.2427 6.75 9 6.75C7.75732 6.75 6.75 7.75732 6.75 9C6.75 10.2427 7.75732 11.25 9 11.25C10.2427 11.25 11.25 10.2427 11.25 9Z"
+                                         stroke="#BEBEBE" stroke-width="1.5" />
+                                     <path
+                                         d="M9 3.75C13.1421 3.75 16.5 9 16.5 9C16.5 9 13.1421 14.25 9 14.25C4.85786 14.25 1.5 9 1.5 9C1.5 9 4.85786 3.75 9 3.75Z"
+                                         stroke="#BEBEBE" stroke-width="1.5" />
+                                 </svg>
+                                 <p>11.5k</p>
+                             </div>
+         
+                             <div class="flex flex-row gap-2 items-center justify-start">
+                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                     <path d="M1.5 15.375H16.5V2.625H1.5V15.375Z" stroke="#BEBEBE" stroke-width="1.5"
+                                         stroke-linecap="round" stroke-linejoin="round" />
+                                     <path
+                                         d="M3.75 12C4.95649 10.397 7.76542 10.3095 9 12M7.68675 7.6875C7.68675 8.41237 7.09914 9 6.37426 9C5.6494 9 5.06176 8.41237 5.06176 7.6875C5.06176 6.96263 5.6494 6.375 6.37426 6.375C7.09914 6.375 7.68675 6.96263 7.68675 7.6875Z"
+                                         stroke="#BEBEBE" stroke-width="1.5" />
+                                     <path d="M10.5 7.12488H14.25M10.5 10.1249H12.75" stroke="#BEBEBE" stroke-width="1.5" />
+                                 </svg>
+                                 <p>10.5k</p>
+                             </div>
+         
+                             <div class="flex flex-row gap-2 items-center justify-start">
+                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                     <g clip-path="url(#clip0_42_9)">
+                                         <path
+                                             d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C5.64174 1.5 2.8307 3.70717 1.875 6.75H4.125"
+                                             stroke="#BEBEBE" stroke-width="1.5" stroke-linejoin="round" />
+                                         <path d="M9 5.25V9L10.875 10.875" stroke="#BEBEBE" stroke-width="1.5" />
+                                         <path
+                                             d="M1.5 9C1.5 9.25297 1.5114 9.50317 1.5337 9.75M6.75 16.5C6.4938 16.4157 6.24353 16.3173 6 16.2058M2.40704 12.75C2.26241 12.4713 2.1334 12.1825 2.02123 11.8846M3.62342 14.4799C3.85268 14.7268 4.09729 14.9581 4.35566 15.1719"
+                                             stroke="#BEBEBE" stroke-width="1.5" stroke-linecap="square"
+                                             stroke-linejoin="round" />
+                                     </g>
+                                     <defs>
+                                         <clipPath id="clip0_42_9">
+                                             <rect width="18" height="18" fill="white" />
+                                         </clipPath>
+                                     </defs>
+                                 </svg>
+                                 <p>1.2hrs</p>
+                             </div>
+                         </div>
+         
+                          <div class="   h-[3rem] flex items-center justify-start gap-3">
+                             <p class="text-xl font-semibold text-[#0C274C]">$475</p>
+                             <p class="self-start line-through text-sm">$500</p>
+                             
+                         </div>
+                         </div>
+                       </div>
+                     
+                       
+                
+                       <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
+                         <img class="aspect-video h-[50%] w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                         <div class="p-6 gap-2 flex flex-col">
+                           
+                           <h1 class="text-2xl font-semibold font-poppins text-gray-700 pb-2">Artificial Intelligence</h1>
+                         
+                           <div class=" flex flex-row items-center justify-start gap-[1rem]">
+                             <img class="rounded-full h-[3rem] w-[2.5rem] object-cover"
+                                 src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600">
+                             <p class="font-light text-lg">Ada Lovelace</p>
+                         </div>
+         
+         
+                         <div class=" flex flex-row gap-4 text-gray-400">
+                             <div class="flex flex-row gap-2 items-center justify-start">
+                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                     <path
+                                         d="M11.25 9C11.25 7.75732 10.2427 6.75 9 6.75C7.75732 6.75 6.75 7.75732 6.75 9C6.75 10.2427 7.75732 11.25 9 11.25C10.2427 11.25 11.25 10.2427 11.25 9Z"
+                                         stroke="#BEBEBE" stroke-width="1.5" />
+                                     <path
+                                         d="M9 3.75C13.1421 3.75 16.5 9 16.5 9C16.5 9 13.1421 14.25 9 14.25C4.85786 14.25 1.5 9 1.5 9C1.5 9 4.85786 3.75 9 3.75Z"
+                                         stroke="#BEBEBE" stroke-width="1.5" />
+                                 </svg>
+                                 <p>11.5k</p>
+                             </div>
+         
+                             <div class="flex flex-row gap-2 items-center justify-start">
+                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                     <path d="M1.5 15.375H16.5V2.625H1.5V15.375Z" stroke="#BEBEBE" stroke-width="1.5"
+                                         stroke-linecap="round" stroke-linejoin="round" />
+                                     <path
+                                         d="M3.75 12C4.95649 10.397 7.76542 10.3095 9 12M7.68675 7.6875C7.68675 8.41237 7.09914 9 6.37426 9C5.6494 9 5.06176 8.41237 5.06176 7.6875C5.06176 6.96263 5.6494 6.375 6.37426 6.375C7.09914 6.375 7.68675 6.96263 7.68675 7.6875Z"
+                                         stroke="#BEBEBE" stroke-width="1.5" />
+                                     <path d="M10.5 7.12488H14.25M10.5 10.1249H12.75" stroke="#BEBEBE" stroke-width="1.5" />
+                                 </svg>
+                                 <p>10.5k</p>
+                             </div>
+         
+                             <div class="flex flex-row gap-2 items-center justify-start">
+                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                     <g clip-path="url(#clip0_42_9)">
+                                         <path
+                                             d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C5.64174 1.5 2.8307 3.70717 1.875 6.75H4.125"
+                                             stroke="#BEBEBE" stroke-width="1.5" stroke-linejoin="round" />
+                                         <path d="M9 5.25V9L10.875 10.875" stroke="#BEBEBE" stroke-width="1.5" />
+                                         <path
+                                             d="M1.5 9C1.5 9.25297 1.5114 9.50317 1.5337 9.75M6.75 16.5C6.4938 16.4157 6.24353 16.3173 6 16.2058M2.40704 12.75C2.26241 12.4713 2.1334 12.1825 2.02123 11.8846M3.62342 14.4799C3.85268 14.7268 4.09729 14.9581 4.35566 15.1719"
+                                             stroke="#BEBEBE" stroke-width="1.5" stroke-linecap="square"
+                                             stroke-linejoin="round" />
+                                     </g>
+                                     <defs>
+                                         <clipPath id="clip0_42_9">
+                                             <rect width="18" height="18" fill="white" />
+                                         </clipPath>
+                                     </defs>
+                                 </svg>
+                                 <p>1.2hrs</p>
+                             </div>
+                         </div>
+         
+                          <div class="   h-[3rem] flex items-center justify-start gap-3">
+                             <p class="text-xl font-semibold text-[#0C274C]">$475</p>
+                             <p class="self-start line-through text-sm">$500</p>
+                             
+                         </div>
+                         </div>
+                       </div>
+                     
+             
+                       <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
+                         <img class="aspect-video w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                         <div class="p-6 gap-2 flex flex-col">
+                           
+                           <h1 class="text-2xl font-semibold font-poppins text-gray-700 pb-2">Coding</h1>
+                         
+                           <div class=" flex flex-row items-center justify-start gap-[1rem]">
+                             <img class="rounded-full h-[3rem] w-[2.5rem] object-cover"
+                                 src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600">
+                             <p class="font-light text-lg">Ada Lovelace</p>
+                         </div>
+         
+         
+                         <div class=" flex flex-row gap-4 text-gray-400">
+                             <div class="flex flex-row gap-2 items-center justify-start">
+                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                     <path
+                                         d="M11.25 9C11.25 7.75732 10.2427 6.75 9 6.75C7.75732 6.75 6.75 7.75732 6.75 9C6.75 10.2427 7.75732 11.25 9 11.25C10.2427 11.25 11.25 10.2427 11.25 9Z"
+                                         stroke="#BEBEBE" stroke-width="1.5" />
+                                     <path
+                                         d="M9 3.75C13.1421 3.75 16.5 9 16.5 9C16.5 9 13.1421 14.25 9 14.25C4.85786 14.25 1.5 9 1.5 9C1.5 9 4.85786 3.75 9 3.75Z"
+                                         stroke="#BEBEBE" stroke-width="1.5" />
+                                 </svg>
+                                 <p>11.5k</p>
+                             </div>
+         
+                             <div class="flex flex-row gap-2 items-center justify-start">
+                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                     <path d="M1.5 15.375H16.5V2.625H1.5V15.375Z" stroke="#BEBEBE" stroke-width="1.5"
+                                         stroke-linecap="round" stroke-linejoin="round" />
+                                     <path
+                                         d="M3.75 12C4.95649 10.397 7.76542 10.3095 9 12M7.68675 7.6875C7.68675 8.41237 7.09914 9 6.37426 9C5.6494 9 5.06176 8.41237 5.06176 7.6875C5.06176 6.96263 5.6494 6.375 6.37426 6.375C7.09914 6.375 7.68675 6.96263 7.68675 7.6875Z"
+                                         stroke="#BEBEBE" stroke-width="1.5" />
+                                     <path d="M10.5 7.12488H14.25M10.5 10.1249H12.75" stroke="#BEBEBE" stroke-width="1.5" />
+                                 </svg>
+                                 <p>10.5k</p>
+                             </div>
+         
+                             <div class="flex flex-row gap-2 items-center justify-start">
+                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                     <g clip-path="url(#clip0_42_9)">
+                                         <path
+                                             d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C5.64174 1.5 2.8307 3.70717 1.875 6.75H4.125"
+                                             stroke="#BEBEBE" stroke-width="1.5" stroke-linejoin="round" />
+                                         <path d="M9 5.25V9L10.875 10.875" stroke="#BEBEBE" stroke-width="1.5" />
+                                         <path
+                                             d="M1.5 9C1.5 9.25297 1.5114 9.50317 1.5337 9.75M6.75 16.5C6.4938 16.4157 6.24353 16.3173 6 16.2058M2.40704 12.75C2.26241 12.4713 2.1334 12.1825 2.02123 11.8846M3.62342 14.4799C3.85268 14.7268 4.09729 14.9581 4.35566 15.1719"
+                                             stroke="#BEBEBE" stroke-width="1.5" stroke-linecap="square"
+                                             stroke-linejoin="round" />
+                                     </g>
+                                     <defs>
+                                         <clipPath id="clip0_42_9">
+                                             <rect width="18" height="18" fill="white" />
+                                         </clipPath>
+                                     </defs>
+                                 </svg>
+                                 <p>1.2hrs</p>
+                             </div>
+                         </div>
+         
+                          <div class="   h-[3rem] flex items-center justify-start gap-3">
+                             <p class="text-xl font-semibold text-[#0C274C]">$475</p>
+                             <p class="self-start line-through text-sm">$500</p>
+                             
+                         </div>
+                         </div>
+                       </div>
+         
+         
+                       <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
+                         <img class="aspect-video w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                         <div class="p-6 gap-2 flex flex-col">
+                           
+                           <h1 class="text-2xl font-semibold font-poppins text-gray-700 pb-2">Steam</h1>
+                         
+                           <div class=" flex flex-row items-center justify-start gap-[1rem]">
+                             <img class="rounded-full h-[3rem] w-[2.5rem] object-cover"
+                                 src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1600">
+                             <p class="font-light text-lg">Ada Lovelace</p>
+                         </div>
+         
+         
+                         <div class=" flex flex-row gap-4 text-gray-400">
+                             <div class="flex flex-row gap-2 items-center justify-start">
+                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                     <path
+                                         d="M11.25 9C11.25 7.75732 10.2427 6.75 9 6.75C7.75732 6.75 6.75 7.75732 6.75 9C6.75 10.2427 7.75732 11.25 9 11.25C10.2427 11.25 11.25 10.2427 11.25 9Z"
+                                         stroke="#BEBEBE" stroke-width="1.5" />
+                                     <path
+                                         d="M9 3.75C13.1421 3.75 16.5 9 16.5 9C16.5 9 13.1421 14.25 9 14.25C4.85786 14.25 1.5 9 1.5 9C1.5 9 4.85786 3.75 9 3.75Z"
+                                         stroke="#BEBEBE" stroke-width="1.5" />
+                                 </svg>
+                                 <p>11.5k</p>
+                             </div>
+         
+                             <div class="flex flex-row gap-2 items-center justify-start">
+                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                     <path d="M1.5 15.375H16.5V2.625H1.5V15.375Z" stroke="#BEBEBE" stroke-width="1.5"
+                                         stroke-linecap="round" stroke-linejoin="round" />
+                                     <path
+                                         d="M3.75 12C4.95649 10.397 7.76542 10.3095 9 12M7.68675 7.6875C7.68675 8.41237 7.09914 9 6.37426 9C5.6494 9 5.06176 8.41237 5.06176 7.6875C5.06176 6.96263 5.6494 6.375 6.37426 6.375C7.09914 6.375 7.68675 6.96263 7.68675 7.6875Z"
+                                         stroke="#BEBEBE" stroke-width="1.5" />
+                                     <path d="M10.5 7.12488H14.25M10.5 10.1249H12.75" stroke="#BEBEBE" stroke-width="1.5" />
+                                 </svg>
+                                 <p>10.5k</p>
+                             </div>
+         
+                             <div class="flex flex-row gap-2 items-center justify-start">
+                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                     <g clip-path="url(#clip0_42_9)">
+                                         <path
+                                             d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C5.64174 1.5 2.8307 3.70717 1.875 6.75H4.125"
+                                             stroke="#BEBEBE" stroke-width="1.5" stroke-linejoin="round" />
+                                         <path d="M9 5.25V9L10.875 10.875" stroke="#BEBEBE" stroke-width="1.5" />
+                                         <path
+                                             d="M1.5 9C1.5 9.25297 1.5114 9.50317 1.5337 9.75M6.75 16.5C6.4938 16.4157 6.24353 16.3173 6 16.2058M2.40704 12.75C2.26241 12.4713 2.1334 12.1825 2.02123 11.8846M3.62342 14.4799C3.85268 14.7268 4.09729 14.9581 4.35566 15.1719"
+                                             stroke="#BEBEBE" stroke-width="1.5" stroke-linecap="square"
+                                             stroke-linejoin="round" />
+                                     </g>
+                                     <defs>
+                                         <clipPath id="clip0_42_9">
+                                             <rect width="18" height="18" fill="white" />
+                                         </clipPath>
+                                     </defs>
+                                 </svg>
+                                 <p>1.2hrs</p>
+                             </div>
+                         </div>
+         
+                         <div class="   h-[3rem] flex items-center justify-start gap-3">
+                             <p class="text-xl font-semibold text-[#0C274C]">$475</p>
+                             <p class="self-start line-through text-sm">$500</p>
+                             
+                         </div>
+                         </div>
+                       </div>
+               
+                       
+               
+                   
+         
+         
+                 </div>
+                
+           
+                
+         </div>
+         <div class="hidden w-[15%] lg:flex items-center justify-center cursor-pointer h-full" onclick="scrollSideways()">
+             <div class="h-[16rem] flex items-center justify-center">
+                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M32.875 26.4999C33.1682 26.2072 33.333 25.81 33.3334 25.3957V24.6041C33.3286 24.1907 33.1644 23.7951 32.875 23.4999L22.1667 12.8124C21.9711 12.6152 21.7049 12.5043 21.4271 12.5043C21.1494 12.5043 20.8831 12.6152 20.6875 12.8124L19.2084 14.2916C19.0124 14.4836 18.902 14.7464 18.902 15.0207C18.902 15.2951 19.0124 15.5579 19.2084 15.7499L28.4792 24.9999L19.2084 34.2499C19.0112 34.4455 18.9003 34.7117 18.9003 34.9895C18.9003 35.2672 19.0112 35.5335 19.2084 35.7291L20.6875 37.1874C20.8831 37.3846 21.1494 37.4955 21.4271 37.4955C21.7049 37.4955 21.9711 37.3846 22.1667 37.1874L32.875 26.4999Z" fill="#0C274C"/>
+                   </svg>
+             </div>
+         </div>
+       
+         
+            </div>
+            
+            
+         <div class="max-w-[1700px] p-8 flex items-center justify-center">
+             <button class="bg-[#4CA5E1] h-[4rem] w-[16rem] text-xl  text-white capitalize font-semibold "> Explore All Courses  >>> </button>
+         </div>
+      </div>
+    </section>
+
+    
+     <section class="  w-full flex items-center justify-center px-10  xl:px-20">
+        <div class=" gap-[2rem] flex flex-col items-center justify-center max-w-[1700px] py-20">
+        <div class=" font-inter w-full  xl:w-5/6  text-center flex flex-col items-center justify-center gap-8">
+            <h1 class="text-[#0C274C] font-extrabold uppercase lg:leading-[4rem] text-2xl sm:text-3xl lg:text-3xl">HANDS ON LEARNING</h1>
+                <p class="text-center font-normal text-gray-400 text-md w-10/12">Theory meets practice at Barnass Ltd. Engage in hands-on projects, simulations, and real-world applications
+                    that reinforce your understanding and allow you to apply your knowledge in meaningful ways. 
+                Learning by doing is at the core of our approach.</p>
+        </div>
+
+        <div class=" max-w-[1700px] relative   h-[15rem] flex items-center justify-center w-full  sm:h-[35rem] lg:h-[50rem] dark:bg-gray-900">
+            <video  id="autoplayVideo" class="h-full zenith-video object-cover w-full" muted loop autoplay >
+                <source src="https://res.cloudinary.com/iamdevmaniac/video/upload//fl_attachment:a98d75f3-9756-46f9-8ec2-4e1f6fe598e1_qnaw90//v1700954445/samples/a98d75f3-9756-46f9-8ec2-4e1f6fe598e1_qnaw90.mov?_s=public-apps" type="video/mp4">
+            
+            Your browser does not support the video tag.
+            </video> 
+            <div id="scrollObserver" class="absolute inset-0 opacity-0"></div>
+        <button id="toggleMuteButton" class="absolute bottom-4 right-4 bg-blue-500 text-white px-2 py-1 rounded">
+            <span id="muteIcon" class="text-2xl">🔊</span>
+        </button>
+        <div id="playPauseButton" class="  hidden absolute inset-0 items-center flex justify-center hover:bg-black hover:bg-opacity-50 transition">
+            <span class="text-white text-3xl" onclick="togglePlayPause()">▶️</span>
+        </div>
+        </div>
+        </div>
+    </section>
+
+
+    <section class="  flex items-center justify-center ">
+      <div class="bg-white  dark:bg-gray-900 py-24 p-8  xl:pr-16 items-start">
+          <div   class=" w-full  flex flex-col lg:flex-row    font-inter  items-center justify-center xl:justify-between    max-w-[1700px]">
+              <div class="flex order-2 lg:order-1 items-center justify-center col-span-12  lg:col-span-6 rounded-lg 15rem  h-[20rem] lg:h-[30rem] 2xl:h-[40rem] xl:w-11/12 bg-no-repeat ">
+                <img class="h-full shadow-lg  rounded-lg [95%] lg:max-w-[80%] object-cover" src="./assets/showcase.gif" alt="showcase"/>
+              </div>
+              <div class=" order-1 lg:order-2 py-12 h-full w-full flex flex-col xl:items-start items-center justify-center gap-2  col-span-6   text-center lg:text-start">
+                  <h2 class="mb-4 uppercase text-2xl sm:text-3xl xl:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">The Power of
+                      AI & Robotics</h2>
+                  <h5 class="mb-6 font-light text-[#454545] lg:text-gray-500 md:text-xl dark:text-gray-400">🌐 Empowering Tomorrow: The
+                      Unparalleled Power of
+                      AI & Robotics 🤖</h5>
+                  <p class="text-gray-400 font-light text-lg">In the dynamic intersection of artificial intelligence (AI) and robotics, a profound
+                      transformation is underway—a revolution that transcends industries and reshapes the
+                      way we live, work, and innovate. Welcome to the forefront of technological prowess,
+                      where the synergy of AI and robotics unlocks unprecedented potential.</p>
+                  <a href="#"
+                      class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
+                      Continue Reading
+                      <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd"
+                              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                              clip-rule="evenodd"></path>
+                      </svg>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="px-8 lg:px:0 w-full mt-[2rem]   flex items-center justify-center py-24">
+    <div class="  max-w-[1700px] flex flex-col items-start justify-center gap-6  w-full">
+        <div class=" xl:w-9/12  gap-[2rem] flex flex-col text-center text-start items-center justify-center lg:items-start ">
+            <h1 class="w-full  text-2xl  text-start sm:text-3xl font-inter uppercase lg:text-3xl font-extrabold"> Transforming Learning Beyond Boundaries 🚀</h1>
+            <p class=" py-4 text-lg text-gray-400 lg:w-full font-inter font-light ">
+                Step into the future of education with Metaverse Education – a revolutionary approach that transcends the 
+        limitations of traditional learning. In this digital realm, the convergence of virtual and augmented reality 
+        creates an immersive and dynamic space where education becomes an extraordinary journey.
+            </p>
+        </div>
+    
+        <div class=" max-w-[1700px] relative   h-[15rem] flex items-center justify-center w-full  sm:h-[35rem] lg:h-[50rem]">
+            <video  id="autoplayVideos" class="h-full zenith-video object-cover w-full" autoplay  muted loop autoplay>
+                <source src="https://res.cloudinary.com/iamdevmaniac/video/upload/v1700956009/3213bace-bdc1-4d54-a85e-91f209630687_pkeehx.mov" type="video/mp4">
+            
+              Your browser does not support the video tag.
+              </video> 
+              <div class="absolute flex items-center justify-center   w-full h-[10rem  top-0 left-0 bottom-0 right-0">
+                <div id="scrollObservers" class="absolute inset-0 opacity-0"></div>
+              </div>
+        </div>
+        </div>
+    </section>
+    <section class="  font-inter w-full flex items-center justify-center">
+      <div class=" max-w-[1700px] grid  w-full dark:bg-gray-900">
+          <div class=" grid grid-cols-12  lg:gap-3    items-center py-8 px-4 mx-auto    sm:py-16 lg:px-6">
+
+              <div class="mt-4overflow-visible col-span-12  lg:col-span-5 xl:col-span-4  self-start md:mt-0 gap-3 text-center items-center  justify-center  flex flex-col  lg:text-start">
+                  <div class="   text-start w-full xl:pl-8 flex-col space-y-3 flex items-start   justify-center">
+                      <h2 class="mb-4 uppercase whitespace-nowrap  text-[#0C274C] text-[1.5rem]  sm:text-[2rem] xl:text-3xl text-center lg:text-start lg:tracking-wider font-extrabold  dark:text-white">
+                           Unlock Your Potential: </h2>
+                      <h5 class="mb-6 font-light text-gray-500 md:text-base dark:text-gray-400">The Best Place to Learn
+                          Robotics is Here! 🚀</h5>
+                      <p class="text-gray-400 font-light text-lg xl:w-[500px]">Take control of the future with our Autonomous Systems course. Learn to design and build
+                          robots that can navigate and make decisions independently. From self-driving cars to
+                          drones, explore the cutting-edge technologies shaping the autonomous world.</p>
+  
+                      <ul class="h-[20rem] ml-4 xl:px-0 text-start list-disc  text-base  flex flex-col gap-[1rem]">
+                          <li class="font-inter uppercase"> Elementary School</li>
+                          <li class="font-inter uppercase">Junior high school</li>
+                          <li class="font-inter uppercase">senior high school</li>
+                          <li class="font-inter uppercase">univerisity</li>
+                          <li class="font-inter uppercase">young professional</li>
+                      </ul>
+                  </div>
+              </div>
+              
+            <div class="  col-span-12 lg:col-span-7 xl:col-span-8 flex items-center justify-end lg:h-[50rem] ">
+              <div class=" col=span-12 lg:col-span-7 xl:col-span-8">
+                  <img  src="./assets/grid.png" />
+                              
+              </div>
+            </div>
+          
+
+          </div>
+      </div>
+  </section>
+    
+  <section class="  flex  items-center justify-center flex-col gap-[6rem]   sm:h-[20rem]  dark:bg-gray-900">
+    <div class=" flex items-center justify-center space-y-6  ">
+
+      <button type="button" class="font-inter px-16 py-4 hidden lg:block text-black   rounded-sm    focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-lg  text-center uppercase ring-2 ring-black">
+          
+          <h1 class="font-inter text-[#0C274C] font-black text-3xl lg:text-4xl  ">Our Partners</h1>
+      </button>
+            </div>
+
+          </div>
+          <div class="   flex items-center justify-center gap-2 sm:gap-[3rem]">
+              <svg class=" h-[3rem] sm:h-[4rem] lg::h-[6rem]"  viewBox="0 0 181 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <rect x="0.289551" width="180" height="100" fill="url(#pattern0)"/>
+                  <defs>
+                  <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                  <use xlink:href="#image0_240_692" transform="scale(0.00111111 0.002)"/>
+                  </pattern>
+                  <image id="image0_240_692" width="900" height="500" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA4QAAAH0CAIAAADqkXSEAAAgAElEQVR4Ae3dMbLcOLK24X8j2oQ2MqaWcnche6LlagNtaAdtStYx5Mk8EbLPAuqPHs6weVhFFgAmCRJ4bijmskiASLyZyPwIVp3+fzf/hwACCCCAAAIIIIBAJQL/r9K4hkUAAQQQQAABBBBA4EaMCgIEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBAAIFqBIjRaugNjAACCCCAAAIIIECMigEEEEAAAQQQQACBagSI0WroDYwAAggggAACCCBAjIoBBBBAAAEEEEAAgWoEiNFq6A2MAAIIIIAAAgggQIyKAQQQQAABBBBA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"/>
+                  </defs>
+                  </svg>
+
+                  
+                <img class="h-[3rem] sm:h-[4rem] lg:h-[6rem] object-cover" src="./assets/bredhub.png">                  
+                  
+                      
+                      <svg class=" h-[3rem] sm:h-[4rem] lg::h-[6rem]"  viewBox="0 0 96 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.1082 28.626C10.0202 28.8288 10.226 28.1961 10.2858 27.9828L10.5166 27.1327C12.9196 18.4275 15.3145 9.71656 17.711 1L94.8825 1.15757L9.59644 70.604L48.5709 23.5902L19.2979 23.6685C18.7522 23.6702 18.2146 23.6613 17.669 23.7081C14.2014 24.0031 11.1898 26.1137 10.1082 28.626Z" fill="#636463"/>
+                          <path d="M10.1082 28.626C10.0202 28.8288 10.226 28.1961 10.2858 27.9828L10.5166 27.1327C12.9196 18.4275 15.3145 9.71656 17.711 1L94.8825 1.15757L9.59644 70.604L48.5709 23.5902L19.2979 23.6685C18.7522 23.6702 18.2146 23.6613 17.669 23.7081C14.2014 24.0031 11.1898 26.1137 10.1082 28.626Z" stroke="#FFFCFC" stroke-width="0.48" stroke-miterlimit="22.926"/>
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M90.6965 48.6126C90.7829 48.4098 88.3654 63.413 84.0962 78.9213L3.55634 79.3714L90.5407 8.8479L51.5566 56.3029L80.8352 56.2181C81.3769 56.2181 81.9169 56.231 82.4601 56.1809C85.9301 55.8843 89.6165 51.1265 90.6965 48.6126Z" fill="#D22F14"/>
+                          <path d="M90.6965 48.6126C90.7829 48.4098 88.3654 63.413 84.0962 78.9214L3.55634 79.3714L90.5407 8.8479L51.5566 56.3029L80.8352 56.2181C81.3769 56.2181 81.9169 56.231 82.4601 56.1809C85.9301 55.8843 89.6165 51.1265 90.6965 48.6126Z" stroke="#FFFCFC" stroke-width="0.48" stroke-miterlimit="22.926"/>
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2813 100.999H0.577881L10.0493 88.1179H3.76541L4.2247 84.5608H17.2775L7.82469 97.4162H14.7381L14.2813 100.999ZM16.8691 100.999H26.3687L26.8369 97.3144H21.4587L21.8146 94.5436H26.8877L27.3389 91.0148H22.2667L22.6299 88.1631H28.0081L28.469 84.5608H18.9702L16.8691 100.999ZM29.1632 100.999L31.2659 84.5608H35.3437L40.1189 93.0147C40.211 93.1852 40.3474 93.5311 40.5443 94.0523C40.7356 94.5759 40.9358 95.1908 41.1554 95.9116C41.157 95.2329 41.1739 94.6284 41.2022 94.0919C41.2304 93.561 41.2716 93.0899 41.3281 92.6794L42.3645 84.5616H46.4222L44.3195 101H40.2602L35.4922 92.5089C35.3929 92.336 35.2485 91.9909 35.0572 91.4729C34.8675 90.9493 34.6657 90.336 34.4534 89.6362C34.4461 90.3247 34.4292 90.9348 34.405 91.4673C34.3751 91.9966 34.3315 92.4677 34.2758 92.8822L33.241 101L29.1632 100.999ZM47.75 100.999L49.851 84.5608H54.1218L52.0207 100.999H47.75ZM57.6637 100.999L59.2675 88.4427H55.7894L56.2899 84.5608H67.4652L66.9664 88.4427H63.4939L61.886 100.999H57.6637ZM67.4273 100.999H71.6528L72.5076 94.3068H78.1409L77.2861 100.999H81.523L83.624 84.5608H79.3872L78.5703 90.9485H72.9387L73.7539 84.5608H69.5259L67.4273 100.999Z" fill="#B2B3B2"/>
+                          </svg>
+                          
+                  
+          </div>
+      </section>
+      <section class="p-5 mt-[4rem] relative sm:h-[40rem] w-full flex flex-col items-center justify-center font-inter  dark:bg-gray-900 py-20">
+        <div class="grid  place-items-center place-content-stretch justify-center items-center   lg:h-full max-w-[1700px] gap-4  mx-auto lg:gap-2 xl:gap-0  lg:grid-cols-12">
+            <div class=" h-full mr-auto flex flex-col gap-[1rem] w-full text-center lg:text-start place-self-center items-center justify-center xl:items-start lg:col-span-8">
+             <div class="  p-6 flex h-full gap-3  sm:gap-4 lg:gap-6  flex-col items-center lg:items-start  justify-center">
+                <h1
+                class="max-w-2xl text-[#0C274C] uppercase  mb-4 text-2xl sm:text-4xl  font-black tracking-tight leading-none md:text-3xl dark:text-white">
+                Want to become an instructor?</h1>
+            <p class="max-w-2xl mb-6 font-normal text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Join
+                thousand of instructors and earn money hassle free</p>
+
+            <a href="#"
+                class=" h-[5rem] uppercase sm:text-xl w-[20rem] rounded-lg inline-flex bg-blue-400  text-white items-center justify-center px-5 py-3 text-2xl font-semibold text-center ">
+                Apply now
+            </a>
+             </div>
+            </div>
+            <div class="relative h-[20rem] sm:h-[15rem] lg:h-full -z-20  lg:mt-0 lg:col-span-4 lg:flex">
+                <img class=" -z-20  opacity-90 object-cover w-full  h-full relative" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="mockup">
+                     <div class="absolute w-[80%] bg-gradient-to-b   lg:bg-gradient-to-l from-neutral-200/40 blur-2xl to-slate-50/20 top-0 right-0 bottom-0 left-8"></div>
+            </div> 
+
+            <div class= " -z-10 h-[74%] lg:h-[97%] w-full lg:w-[74%] blur-2xl    absolute top-0  bottom-0  right-0 lg:right-5 left-0  bg-gradient-to-b  lg:bg-gradient-to-r from-violet-200/60 to-violet-50/30 lg:to-violet-50/70">
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section class="w-full flex flex-col gap-8 items-center justify-center font-inter  py-24 bg-white">
+      <div class=" w-[90%] lg:max-w-[1700px]  flex flex-col items-center justify-center ">
+          <div class=" flex w-full items-center justify-center  sm:justify-between lg:grid place-content-stretch gap-6    mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+              <div class=" w-full col-span-12  flex  items-center justify-center lg:justify-between ">
+                  <h1 class=" py-6 lg:py-0 text-2xl lg:text-3xl font-extrabold text-center sm:text-start uppercase ">
+                      Latest Blog
+                  </h1>
+  
+                  <h2 class=" uppercase hidden font-inter lg:flex  items-center justify-center gap-4 text-xl lg:text-lg font-semibold">
+                      Show All
+                      <svg class="h-[2rem]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14.4301 5.93018L20.5001 12.0002L14.4301 18.0702" stroke="#0C274C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M3.5 12H20.33" stroke="#0C274C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          
+                  </h2>
+              </div>
+          </div>
+          <div class="  w-full gap-y-8 lg:gap-y-0   mx-auto flex flex-col lg:flex-row space-x-4  sm:px-12">
+              <div class="lg:w-4/5 space-y-4   lg:flex flex-col lg:items-start    ">
+                  <img class=" h-[13rem]  lg:h-[25rem] rounded-lg w-full lg:w-[35rem] object-cover shadow-lg"
+                 src="./assets/blog-1.jpg"
+                      alt="'">
+                  <p class="  text-sm lg:text-lg font-light capitalize "> Join thousands of instructors and earn hassle free</p>
+                  <h4 class="text-2xl font-bold">Lorem Ipsum, Lorem Ipsum</h4>
+              </div>
+              <div class="  mt-4 lg:mt-0 w-full flex-col flex space-y-6 ">
+
+                  
+                  <div class=" flex flex-col space-y-4">
+                      <div class=" flex items-center justify-start sm:justify-center w-full flex-row space-x-4">
+                          <img class=" shadow-lg sm:h-44  w-[11rem] sm:w-64 rounded-lg object-cover"
+                          src="./assets/blog-2.jpg"
+                          alt="">
+                          <div>
+
+                          <h4 class=" text-xl whitespace-wrap lg:text-2xl font-semibold"> Our Itinerary </h4>
+                          <p class="font-light"> want to be an instructor</p>
+                          </div>
+                      </div>
+                      <div class=" flex items-center justify-start sm:justify-center w-full flex-row space-x-4">
+                          <img class=" shadow-lg sm:h-44 w-[11rem] sm:w-64 rounded-lg object-cover"
+                          src="./assets/blog-2.jpg"
+                          alt="">
+                          <div>
+
+                          <h4 class=" text-xl whitespace-wrap lg:text-2xl font-semibold"> Our Itinerary </h4>
+                          <p class="font-light"> want to be an instructor</p>
+                          </div>
+                      </div>
+                      <div class=" flex items-center justify-start sm:justify-center w-full flex-row space-x-4">
+                          <img class="shadow-lg sm:h-44 w-[11rem] sm:w-64 rounded-lg object-cover"
+                          src="./assets/blog-2.jpg"
+                          alt="">
+                          <div>
+
+                          <h4 class=" text-xl whitespace-wrap lg:text-2xl font-semibold"> Our Itinerary </h4>
+                          <p class="font-light"> want to be an instructor</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+              </div>
+          
+      </div>
+  </section>
+
+  <section class=" w-full  ">
+    <div class="max-w-[1700px] m-auto">
+        <div class="w-full"><iframe class="w-full h-[25rem] lg:h-[30rem]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/population/">Population Estimator map</a></iframe></div>
+    </div>
+</section>
+
+<footer class=" mt-[2rem]   bg-[#0C274C] text-white sm:p-6 w-full px-12 lg:px-20 dark:bg-gray-800 py-12 ">
+  <h1 class="w-full lg:w-1/2 mb-12 text-center lg:text-start text-xl lg:text-3xl font-extrabold uppercase tracking-wide whitespace-nowrap">
+    <span class="font-extrabold text-4xl lg:font-bold lg:text-3xl">Experience</span>
+    <br class="lg:hidden"/>Tomorrow Today!
+</h1>
+  <div class="flex flex-col space-y-24 lg:space-y-0 lg:flex-row lg:space-x-40">
+
+      <div class="flex flex-col w-full lg:w-4/12 lg:space-y-8">
+          <div class="flex flex-col space-y-8">
+         
+           <p class="  w-full text-center lg:text-start ">
+               Whether you're a tech aficionado, a curious mind, or an
+               industry professional, BARNASS LTD invites you to be
+               part of the future. Join us in exploring the endless
+               possibilities of technology, where innovation knows
+               no bounds. The experience awaits—step into the
+               future with us!
+           </p>
+          </div>
+          <div class=" hidden lg:flex flex-col ">
+           <div class=" content-end col-span-12 lg:w-[90%]  lg:col-span-6 sm:flex sm:items-center sm:justify-start">
+               <span class="text-start text-sm text-white sm:text-center dark:text-gray-400"> Copyright ©  2023  <a
+                       href="https://flowbite.com" class="hover:underline">Barnass LTD</a>. 
+                       
+                   <div class="text-start">All Rights Reserved.</div>
+               </span>
+         
+           </div>
+       </div>
+  </div>
+  <div class="flex flex-col text-center lg:text-start space-y-8 lg:space-y-0 lg:flex-row lg:space-x-18">
+      <div class="  lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
+         <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Company</h2>
+         <ul class=" text-white flex flex-col gap-4 dark:text-gray-400">
+             <li class="">
+                 <a href="./Gallery/Gallery.html" class="hover:underline">Gallery</a>
+             </li>
+             <li>
+                 <a href="./Blog/Blog.html" class="hover:underline">Blog</a>
+             </li>
+             <li>
+                 <a href="./Contacts/Contact.html" class="hover:underline">Contact us</a>
+             </li>
+             <li>
+                 <a href="./Courses/Courses.html" class="hover:underline">Online Courses</a>
+             </li>
+             <li>
+                 <a href="./Instructor/Instructor.html" class="hover:underline">Become an Instructor</a>
+             </li>
+         </ul>
+     </div>
+
+     <div class=" lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
+      <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Support</h2>
+      <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
+          <li class="text-white">
+              <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Help Center</a>
+          </li>
+          <li>
+              <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Terms of Service</a>
+          </li>
+          <li>
+              <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Legal</a>
+          </li>
+          <li>
+              <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Privacy Policy</a>
+          </li>
+          <li>
+              <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Status</a>
+          </li>
+      </ul>
+  </div>
+
+  <div class="  lg:h-[15rem] lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
+      <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Address</h2>
+      <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
+          <li class="text-white">
+              <a href="https://github.com/themesberg/flowbite" class="hover:underline ">84 Wappenbury Road</a>
+          </li>
+          <li>
+              <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">status</a>
+          </li>
+          
+      </ul>
+  </div>
+  </div>
+  
+  <div class="lg:hidden text-center col-span-12 lg:w-[90%] lg:col-span-6 sm:flex sm:items-center sm:justify-start">
+    <span class="text-start text-sm text-white sm:text-center dark:text-gray-400"> Copyright © 2023 <a
+            href="https://flowbite.com" class="hover:underline">Barnass LTD</a>.
+
+        <div class="text-center">All Rights Reserved.</div>
+    </span>
+</div>
+
+
+  
+ 
+</footer>
+    
+    
+         <script>
+
+            const zenithVideo = document.querySelector('.zenith-video')
+        
+            function scrollSideways() {
+                // Adjust the container ID accordingly
+              
+                const container = document.getElementById('croll');
+                container.scrollBy({
+                    top: 0,
+                    left: 50, // Adjust the scroll increment as needed
+                    behavior: 'smooth' // Use smooth scrolling
+                });
+                animate(); // Adjust the scroll distance as needed
+            }
+         const playPause = ()=>{
+            if(zenithVideo.paused){
+                zenithVideo.play()
+            }
+            else zenithVideo.play
+         }
+            const loadCounters = (()=>{
+            const counters = document.querySelectorAll('.value');
+        const speed = 400;
+        counters.forEach( counter => {
+           const animate = () => {
+              const value = +counter.getAttribute('akhi');
+              const data = +counter.innerText;
+             
+              const time = value / speed;
+             if(data < value) {
+                  counter.innerText = Math.ceil(data + time);
+                  setTimeout(animate, 1);
+                }else{
+                  counter.innerText = value;
+                }
+             
+           }
+           
+           animate();
+        
+           
+        });
+        
+        
+         })
+            
+         window.onload = ()=>{
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  // Call the function when the element is in view
+                  loadCounters();
+                  // Stop observing once the function is loaded (optional)
+                  observer.unobserve(entry.target);
+                }
+              });
+            });
+            const targetElement = document.getElementById('courses')
+        console.log(targetElement)
+        observer.observe(targetElement);  
+        
+        function animateVideoIn(video) {
+            anime({
+              targets: video,
+              volume: [0, 1], // Fade in the volume
+              duration: 1000, // Animation duration in milliseconds
+              easing: 'linear' // Animation easing function
+            });
+          }
+        
+        
+        
+        const video = document.getElementById('autoplayVideo');
+          const scrollObserver = document.getElementById('scrollObserver');
+          const toggleMuteButton = document.getElementById('toggleMuteButton');
+          const muteIcon = document.getElementById('muteIcon');
+          const playPauseButton = document.getElementById('playPauseButton');
+        
+          const observers = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  // Video is in view, play it
+                  video.play();
+                  animateVideoIn(video);
+                } else {
+                  // Video is out of view, pause it
+                  video.pause();
+                }
+              });
+            },
+            { threshold: 0.5 } // Adjust the threshold as needed
+          );
+        
+          toggleMuteButton.addEventListener('click', () => {
+            video.muted = !video.muted; // Toggle mute/unmute
+            const muteText = video.muted ? '🔇' : '🔊';
+            muteIcon.innerText = muteText;
+          });
+        
+          // Show play/pause button on mouseover
+          video.addEventListener('mouseover', () => {
+            playPauseButton.classList.remove('hidden');
+          });
+        
+          // Hide play/pause button on mouseout
+          video.addEventListener('mouseout', () => {
+            playPauseButton.classList.add('hidden');
+          });
+        
+        
+          function togglePlayPause() {
+            if (video.paused) {
+              video.play();
+              playPauseButton.innerHTML = '<span class="text-white text-3xl">⏸</span>';
+            } else {
+              video.pause();
+              playPauseButton.innerHTML = '<span class="text-white text-3xl">▶️</span>';
+            }
+          }
+        
+          observers.observe(scrollObserver);
+        
+        
+          const videos = document.getElementById('autoplayVideo');
+          const scrollObservers = document.getElementById('scrollObserver');
+        
+        
+          const observerss = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  // Video is in view, play it
+                  videos.play();
+                  animateVideoIn(videos);
+                } else {
+                  // Video is out of view, pause it
+                  videos.pause();
+                }
+              });
+            },
+            { threshold: 0.5 } // Adjust the threshold as needed
+          );
+        
+        
+        
+          observerss.observe(scrollObservers);
+         }
+        
+        
+            
+            </script>
+</body>
+</html>
