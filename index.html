@@ -259,8 +259,8 @@
 
         <div class=" h-full w-full  items-center justify-center  gap-6 flex flex-row">
          <div class="self-start   overflow-x-hidden w-[85%]  flex items-start">
-                <div class="px-8  overflow-scroll w-[300rem] rounded-1g    lg:h-[30rem]   flex flex-row items-center justify-center  xl:gap-x-[2rem]  lg:bg-white sm:overflow-x-scroll  sm:shadow-sm        ">
-
+                <div  id="croll"  class="  overflow-scroll w-full rounded-1g    lg:h-[30rem]   flex flex-row items-center justify-start  xl:gap-x-[2rem]  lg:bg-white sm:overflow-x-scroll  sm:shadow-sm        ">
+                    <div class="spacer"></div>
                     <div class=" col-span-12 sm:col-span-6 xl:col-span-3 mx-auto flex w-80 flex-col justify-center bg-white  shadow-xl shadow-gray-400/20">
                         <img class="aspect-video h-[50%] w-80 rounded-tl-2xl object-cover object-center" src="https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
                         <div class="p-6 gap-2 flex flex-col">
@@ -845,7 +845,7 @@
           
                
         </div>
-        <div class=" w-[15%] flex items-center justify-center cursor-pointer h-full">
+        <div class=" w-[15%] flex items-center justify-center cursor-pointer h-full" onclick="scrollSideways()">
             <div class="h-[16rem] flex items-center justify-center">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M32.875 26.4999C33.1682 26.2072 33.333 25.81 33.3334 25.3957V24.6041C33.3286 24.1907 33.1644 23.7951 32.875 23.4999L22.1667 12.8124C21.9711 12.6152 21.7049 12.5043 21.4271 12.5043C21.1494 12.5043 20.8831 12.6152 20.6875 12.8124L19.2084 14.2916C19.0124 14.4836 18.902 14.7464 18.902 15.0207C18.902 15.2951 19.0124 15.5579 19.2084 15.7499L28.4792 24.9999L19.2084 34.2499C19.0112 34.4455 18.9003 34.7117 18.9003 34.9895C18.9003 35.2672 19.0112 35.5335 19.2084 35.7291L20.6875 37.1874C20.8831 37.3846 21.1494 37.4955 21.4271 37.4955C21.7049 37.4955 21.9711 37.3846 22.1667 37.1874L32.875 26.4999Z" fill="#0C274C"/>
@@ -1230,6 +1230,18 @@ creates an immersive and dynamic space where education becomes an extraordinary 
 <script>
 
     const zenithVideo = document.querySelector('.zenith-video')
+
+    function scrollSideways() {
+        // Adjust the container ID accordingly
+      
+        const container = document.getElementById('croll');
+        container.scrollBy({
+            top: 0,
+            left: 50, // Adjust the scroll increment as needed
+            behavior: 'smooth' // Use smooth scrolling
+        });
+        animate(); // Adjust the scroll distance as needed
+    }
  const playPause = ()=>{
     if(zenithVideo.paused){
         zenithVideo.play()
@@ -1255,6 +1267,8 @@ counters.forEach( counter => {
    }
    
    animate();
+
+   
 });
 
 

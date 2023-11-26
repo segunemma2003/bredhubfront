@@ -40,7 +40,7 @@ plugins: [],
 <body class="font-sans relative">
         
             <nav 
-            x-data="{ open: false }"
+           
             class="bg-white   p-4 px-16 flex items-center justify-between">
 
                 <!-- Logo on the extreme left -->
@@ -70,7 +70,7 @@ plugins: [],
                 <!-- Login button on the extreme right -->
                 <a href="#" class="hidden lg:flex text-gray-800 hover:text-blue-500 border border-gray-300 px-4 py-2 ">Login</a>
                 <!-- Mobile Menu -->
-<div class="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50 hidden" id="mobile-menu" x-show="open" @click.away="open = false">
+<div class="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50 hidden" id="mobile-menu" >
     <div class="flex justify-end p-4">
       <!-- Close Icon for Mobile Menu -->
       <div class="cursor-pointer" id="close-icon">
