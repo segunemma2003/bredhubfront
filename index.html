@@ -247,8 +247,8 @@
     <!-- POPULAR COURSES -->
 
     <section class=" popular-courses flex flex-col items-center justify-center bg-gray-100  px-12 gap-[2rem] font-poppins w-full">
-     <div class=" flex items-center justify-center flex-col max-w-[1700px] gap-4">
-        <div class="py-12 lg:p-0 lg:h-[15rem]   flex flex-col items-center lg:items-start justify-center sm:justify-center text-center lg:text-start   gap-[1rem]">
+     <div class=" flex items-center justify-center flex-col max-w-[1700px] lg:w-11/12 gap-4">
+        <div class="py-12 lg:p-0 lg:h-[15rem]  flex flex-col items-center lg:items-start justify-center sm:justify-center text-center lg:text-start   gap-[1rem]">
             <h1 class="uppercase font-bold text-center lg:text-start  text-[2rem] lg:text-[2.25rem]">popular courses</h1>
             <p class="text-[1.125rem] ">Our courses are led by industry experts who bring real-world experience into the
                 virtual classroom.
@@ -877,17 +877,19 @@
            Learning by doing is at the core of our approach.</p>
 </div>
 
-<div class=" max-w-[1700px] relative   h-[15rem] flex items-center justify-center w-full  sm:h-[35rem] lg:h-[50rem]">
-    <video class="h-full zenith-video object-cover w-full" >
+<div class=" max-w-[1700px] relative   h-[15rem] flex items-center justify-center w-full  sm:h-[35rem] lg:h-[50rem] dark:bg-gray-900">
+    <video  id="autoplayVideo" class="h-full zenith-video object-cover w-full" muted loop autoplay >
         <source src="https://res.cloudinary.com/iamdevmaniac/video/upload//fl_attachment:a98d75f3-9756-46f9-8ec2-4e1f6fe598e1_qnaw90//v1700954445/samples/a98d75f3-9756-46f9-8ec2-4e1f6fe598e1_qnaw90.mov?_s=public-apps" type="video/mp4">
      
       Your browser does not support the video tag.
       </video> 
-      <div class="absolute flex items-center justify-center   w-full h-[10rem  top-0 left-0 bottom-0 right-0">
-         <button onclick="playPause()">
-            play
-         </button>
-      </div>
+      <div id="scrollObserver" class="absolute inset-0 opacity-0"></div>
+  <button id="toggleMuteButton" class="absolute bottom-4 right-4 bg-blue-500 text-white px-2 py-1 rounded">
+    <span id="muteIcon" class="text-2xl">🔊</span>
+  </button>
+  <div id="playPauseButton" class="  hidden absolute inset-0 items-center flex justify-center hover:bg-black hover:bg-opacity-50 transition">
+    <span class="text-white text-3xl" onclick="togglePlayPause()">▶️</span>
+  </div>
 </div>
 </div>
     </section>
@@ -925,7 +927,7 @@
 
 
     <section class="px-8 lg:px:0 w-full mt-[2rem]   flex items-center justify-center py-24">
-<div class=" bg-green-50  max-w-[1700px] flex flex-col items-start justify-center gap-6  w-full">
+<div class="  max-w-[1700px] flex flex-col items-start justify-center gap-6  w-full">
 <div class=" xl:w-9/12  gap-[2rem] flex flex-col text-center lg:text-start items-center justify-center lg:items-start ">
     <h1 class="w-full  text-2xl text-center lg:text-start sm:text-3xl font-inter uppercase lg:text-3xl font-extrabold"> Transforming Learning Beyond Boundaries 🚀</h1>
     <p class=" py-4 text-lg text-gray-400 lg:w-full font-inter font-light ">
@@ -936,15 +938,13 @@ creates an immersive and dynamic space where education becomes an extraordinary 
 </div>
 
 <div class=" max-w-[1700px] relative   h-[15rem] flex items-center justify-center w-full  sm:h-[35rem] lg:h-[50rem]">
-    <video class="h-full zenith-video object-cover w-full" >
-        <source src="https://res.cloudinary.com/iamdevmaniac/video/upload//fl_attachment:a98d75f3-9756-46f9-8ec2-4e1f6fe598e1_qnaw90//v1700954445/samples/a98d75f3-9756-46f9-8ec2-4e1f6fe598e1_qnaw90.mov?_s=public-apps" type="video/mp4">
+    <video  id="autoplayVideos" class="h-full zenith-video object-cover w-full" autoplay  muted loop autoplay>
+        <source src="https://res.cloudinary.com/iamdevmaniac/video/upload/v1700956009/3213bace-bdc1-4d54-a85e-91f209630687_pkeehx.mov" type="video/mp4">
      
       Your browser does not support the video tag.
       </video> 
       <div class="absolute flex items-center justify-center   w-full h-[10rem  top-0 left-0 bottom-0 right-0">
-         <button onclick="playPause()">
-            play
-         </button>
+        <div id="scrollObservers" class="absolute inset-0 opacity-0"></div>
       </div>
 </div>
 </div>
@@ -1274,6 +1274,93 @@ counters.forEach( counter => {
     const targetElement = document.getElementById('courses')
 console.log(targetElement)
 observer.observe(targetElement);  
+
+function animateVideoIn(video) {
+    anime({
+      targets: video,
+      volume: [0, 1], // Fade in the volume
+      duration: 1000, // Animation duration in milliseconds
+      easing: 'linear' // Animation easing function
+    });
+  }
+
+
+
+const video = document.getElementById('autoplayVideo');
+  const scrollObserver = document.getElementById('scrollObserver');
+  const toggleMuteButton = document.getElementById('toggleMuteButton');
+  const muteIcon = document.getElementById('muteIcon');
+  const playPauseButton = document.getElementById('playPauseButton');
+
+  const observers = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Video is in view, play it
+          video.play();
+          animateVideoIn(video);
+        } else {
+          // Video is out of view, pause it
+          video.pause();
+        }
+      });
+    },
+    { threshold: 0.5 } // Adjust the threshold as needed
+  );
+
+  toggleMuteButton.addEventListener('click', () => {
+    video.muted = !video.muted; // Toggle mute/unmute
+    const muteText = video.muted ? '🔇' : '🔊';
+    muteIcon.innerText = muteText;
+  });
+
+  // Show play/pause button on mouseover
+  video.addEventListener('mouseover', () => {
+    playPauseButton.classList.remove('hidden');
+  });
+
+  // Hide play/pause button on mouseout
+  video.addEventListener('mouseout', () => {
+    playPauseButton.classList.add('hidden');
+  });
+
+
+  function togglePlayPause() {
+    if (video.paused) {
+      video.play();
+      playPauseButton.innerHTML = '<span class="text-white text-3xl">⏸</span>';
+    } else {
+      video.pause();
+      playPauseButton.innerHTML = '<span class="text-white text-3xl">▶️</span>';
+    }
+  }
+
+  observers.observe(scrollObserver);
+
+
+  const videos = document.getElementById('autoplayVideo');
+  const scrollObservers = document.getElementById('scrollObserver');
+
+
+  const observerss = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Video is in view, play it
+          videos.play();
+          animateVideoIn(videos);
+        } else {
+          // Video is out of view, pause it
+          videos.pause();
+        }
+      });
+    },
+    { threshold: 0.5 } // Adjust the threshold as needed
+  );
+
+
+
+  observerss.observe(scrollObservers);
  }
 
 
