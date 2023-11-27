@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link rel="stylesheet" href="./output.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x.x/dist/alpine.min.js" defer></script>
   
      <script>
         tailwind.config = {
@@ -39,49 +44,61 @@
 </head>
 
 <body class="flex text-[#0C274C] flex-col gap-[5rem] items-center justify-center ">
-    <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-        <div class="max-w-[1700px] flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="../assets/logo.svg" class="h-[4rem]" alt="Flowbite Logo">
+    <nav x-data="{ open: false, animateDropdown: false }" class="text-[#454545] text-base  fixed w-full z-20 top-0 start-0 border-b border-gray-200  bg-white p-4 lg:px-16 flex items-center justify-between">
+    
+        <!-- Logo on the extreme left -->
+        <div class="flex items-center font-inter">
+            <img src="../assets/logo.svg" alt="Logo"> <!-- Adjust the image source and size accordingly -->
+        </div>
         
-        </a>
-        <div class="flex md:order-2 lg:gap-4 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button type="button" class="font-inter hidden lg:block text-black h-[3rem]  w-[9rem] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-lg px-4 py-2 text-center uppercase ring-2 ring-black">Login</button>
-            <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
-              <span class="sr-only">Open main menu</span>
-              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-              </svg>
-          </button>
+        <!-- Mobile Menu Icon -->
+        <div class="lg:hidden cursor-pointer" id="mobile-menu-button"  @click="open = !open">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
         </div>
-        <div class="items-center font-inter justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-          <ul class=" hidden xl:flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-              <a href="../Courses/Courses.html" class=" uppercase block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Online Courses</a>
-            </li>
-            <li>
-              <a href="../Gallery/Gallery.html" class=" uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Gallery</a>
-            </li>
-            <li>
-              <a href="../Instructor/Instructor.html" class=" uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Become an instructor</a>
-            </li>
-            <li>
-              <a href="../Blog/Blog.html" class=" uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">blog</a>
-            </li>
-            <li>
-                <a href="../About/About.html" class=" uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">about us</a>
-              </li>
-              <li>
-                <a href="../Contacts/Contact.html" class=" uppercase block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">contact</a>
-              </li>
-          </ul>
+
+        <!-- Navigation in the center -->
+        <div class="hidden lg:flex space-x-6">
+            <a href="#" class="text-gray-800 hover:text-blue-500">Online Courses</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Gallery</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Become an Instructor</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Blog</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">About Us</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500">Contact</a>
         </div>
+
+        <!-- Login button on the extreme right -->
+        <a href="#" class="hidden lg:flex text-gray-800 hover:text-blue-500 border border-gray-300 px-8 py-2">Login</a>
+
+        <!-- Mobile Menu -->
+        <div class="lg:hidden fixed top-16 left-0 w-full bg-white z-50" x-show="open" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-full" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300 transform" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-full">
+            <div class="flex justify-end p-4">
+                <!-- Close Icon for Mobile Menu -->
+                <div class="cursor-pointer" id="close-icon" @click="open = false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="flex flex-col items-start p-4">
+              <a href="#" class="text-gray-800 hover:text-blue-500 py-4 border-b border-t px-4 w-full">Online Courses</a>
+              <a href="#" class="text-gray-800 hover:text-blue-500 py-4 border-b  px-4 w-full">Gallery</a>
+              <a href="#" class="text-gray-800 hover:text-blue-500 py-4 border-b  px-4 w-full">Become an Instructor</a>
+              <a href="#" class="text-gray-800 hover:text-blue-500 py-4 border-b  px-4 w-full">Blog</a>
+              <a href="#" class="text-gray-800 hover:text-blue-500 py-4 border-b  px-4 w-full">About Us</a>
+              <a href="#" class="text-gray-800 hover:text-blue-500 py-4 border-b  px-4 w-full">Contact</a>
+              <!-- Login button in Mobile Menu -->
+              <a href="#" class="text-gray-800 hover:text-blue-500 border border-gray-300 w-full py-4 text-center" id="login-button-mobile">Login</a>
+          </div>
+          
         </div>
-      </nav>
+    </nav>
+
 
       <!-- HERO -->
     <section
-        class=" w-full flex items-center justify-center font-poppins bg-cover bg-top h-[30rem] sm:h-[40rem] lg:h-[60rem] bg-no-repeat bg-[url(../assets/course.jpg)] bg-[#4277c07e] bg-blend-multiply">
+        class=" w-full flex items-center justify-center font-poppins bg-cover bg-top h-[30rem] sm:h-[40rem] lg:h-[60rem] bg-no-repeat bg-[url(../assets/course.png)] bg-[#4277c07e] bg-blend-multiply">
         <div class="flex flex-col h-[45%]  items-center justify-center">
             <div
                 class="  flex items-center justify-center gap-[3rem] h-full  flex-col  max-w-[1700px]   text-center ">
@@ -312,23 +329,28 @@ don't miss out on the latest news
 
     </section>
     <!-- GOOGLE MAPS -->
-    <section class=" w-full  ">
+    <section class="w-full">
         <div class="max-w-[1700px] m-auto">
-            <div class="w-full"><iframe class="w-full h-[25rem] lg:h-[30rem]" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/population/">Population Estimator map</a></iframe></div>
+            <div class="w-full">
+                <iframe class="w-full h-[25rem] lg:h-[30rem]" frameborder="0" scrolling="no" marginheight="0"
+                    marginwidth="0"
+                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
+                        href="https://www.maps.ie/population/">Population Estimator map</a></iframe>
+            </div>
         </div>
     </section>
-    
-    <!-- FOOTER -->
-    <footer class=" mt-[2rem]   bg-[#0C274C] text-white sm:p-6 w-full px-20 dark:bg-gray-800  ">
-        <h1 class=" w-1/2 mb-12 text-center lg:text-start text-xl lg:text-3xl  font-extrabold uppercase tracking-wide whitespace-wrap ">
-            Experience Tomorrow Today!
-        </h1>
-        <div class="flex flex-row space-x-40">
 
-            <div class="flex flex-col w-4/12 space-y-8">
+    <footer class=" mt-[2rem]   bg-[#0C274C] text-white sm:p-6 w-full px-12 lg:px-20  py-12 ">
+        <h1 class="w-full lg:w-1/2 mb-12 text-center lg:text-start text-xl lg:text-3xl font-extrabold uppercase tracking-wide whitespace-nowrap">
+          <span class="font-extrabold text-4xl lg:font-bold lg:text-3xl">Experience</span>
+          <br class="lg:hidden"/>Tomorrow Today!
+      </h1>
+        <div class="flex flex-col space-y-24 lg:space-y-0 lg:flex-row lg:space-x-40">
+      
+            <div class="flex flex-col w-full lg:w-4/12 lg:space-y-8">
                 <div class="flex flex-col space-y-8">
                
-                 <p class="  w-full lg:text-start ">
+                 <p class="  w-full text-center lg:text-start ">
                      Whether you're a tech aficionado, a curious mind, or an
                      industry professional, BARNASS LTD invites you to be
                      part of the future. Join us in exploring the endless
@@ -337,9 +359,9 @@ don't miss out on the latest news
                      future with us!
                  </p>
                 </div>
-                <div class=" flex flex-col ">
+                <div class=" hidden lg:flex flex-col ">
                  <div class=" content-end col-span-12 lg:w-[90%]  lg:col-span-6 sm:flex sm:items-center sm:justify-start">
-                     <span class="text-start text-sm text-white sm:text-center dark:text-gray-400"> Copyright ©  2023  <a
+                     <span class="text-start text-sm text-white sm:text-center "> Copyright ©  2023  <a
                              href="https://flowbite.com" class="hover:underline">Barnass LTD</a>. 
                              
                          <div class="text-start">All Rights Reserved.</div>
@@ -348,10 +370,10 @@ don't miss out on the latest news
                  </div>
              </div>
         </div>
-        <div class="flex flex-row space-x-18">
+        <div class="flex flex-col text-center lg:text-start space-y-8 lg:space-y-0 lg:flex-row lg:space-x-18">
             <div class="  lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
-               <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Company</h2>
-               <ul class=" text-white flex flex-col gap-4 dark:text-gray-400">
+               <h2 class=" text-xl font-semibold text-white uppercase ">Company</h2>
+               <ul class=" text-white flex flex-col gap-4 ">
                    <li class="">
                        <a href="./Gallery/Gallery.html" class="hover:underline">Gallery</a>
                    </li>
@@ -369,10 +391,10 @@ don't miss out on the latest news
                    </li>
                </ul>
            </div>
-
+      
            <div class=" lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
-            <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Support</h2>
-            <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
+            <h2 class=" text-xl font-semibold text-white uppercase ">Support</h2>
+            <ul class=" flex flex-col gap-4 text-white ">
                 <li class="text-white">
                     <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Help Center</a>
                 </li>
@@ -390,10 +412,10 @@ don't miss out on the latest news
                 </li>
             </ul>
         </div>
-
+      
         <div class="  lg:h-[15rem] lg:items-start w-[90%] lg:justify-start col-span-12 lg:col-span-3 flex flex-col gap-8 ">
-            <h2 class=" text-xl font-semibold text-white uppercase dark:text-white">Address</h2>
-            <ul class=" flex flex-col gap-4 text-white dark:text-gray-400">
+            <h2 class=" text-xl font-semibold text-white uppercase ">Address</h2>
+            <ul class=" flex flex-col gap-4 text-white ">
                 <li class="text-white">
                     <a href="https://github.com/themesberg/flowbite" class="hover:underline ">84 Wappenbury Road</a>
                 </li>
@@ -404,13 +426,173 @@ don't miss out on the latest news
             </ul>
         </div>
         </div>
-           
-
+        
+        <div class="lg:hidden text-center col-span-12 lg:w-[90%] lg:col-span-6 sm:flex sm:items-center sm:justify-start">
+          <span class="text-start text-sm text-white sm:text-center "> Copyright © 2023 <a
+                  href="https://flowbite.com" class="hover:underline">Barnass LTD</a>.
+      
+              <div class="text-center">All Rights Reserved.</div>
+          </span>
+      </div>
+      
+      
         
        
-    </footer>
+      </footer>
 
+    <script>
 
+        const zenithVideo = document.querySelector('.zenith-video')
+    
+        function scrollSideways() {
+            // Adjust the container ID accordingly
+          
+            const container = document.getElementById('croll');
+            container.scrollBy({
+                top: 0,
+                left: 50, // Adjust the scroll increment as needed
+                behavior: 'smooth' // Use smooth scrolling
+            });
+            animate(); // Adjust the scroll distance as needed
+        }
+     const playPause = ()=>{
+        if(zenithVideo.paused){
+            zenithVideo.play()
+        }
+        else zenithVideo.play
+     }
+        const loadCounters = (()=>{
+        const counters = document.querySelectorAll('.value');
+    const speed = 400;
+    counters.forEach( counter => {
+       const animate = () => {
+          const value = +counter.getAttribute('akhi');
+          const data = +counter.innerText;
+         
+          const time = value / speed;
+         if(data < value) {
+              counter.innerText = Math.ceil(data + time);
+              setTimeout(animate, 1);
+            }else{
+              counter.innerText = value;
+            }
+         
+       }
+       
+       animate();
+    
+       
+    });
+    
+    
+     })
+        
+     window.onload = ()=>{
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Call the function when the element is in view
+              loadCounters();
+              // Stop observing once the function is loaded (optional)
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        const targetElement = document.getElementById('courses')
+    console.log(targetElement)
+    observer.observe(targetElement);  
+    
+    function animateVideoIn(video) {
+        anime({
+          targets: video,
+          volume: [0, 1], // Fade in the volume
+          duration: 1000, // Animation duration in milliseconds
+          easing: 'linear' // Animation easing function
+        });
+      }
+    
+    
+    
+    const video = document.getElementById('autoplayVideo');
+      const scrollObserver = document.getElementById('scrollObserver');
+      const toggleMuteButton = document.getElementById('toggleMuteButton');
+      const muteIcon = document.getElementById('muteIcon');
+      const playPauseButton = document.getElementById('playPauseButton');
+    
+      const observers = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Video is in view, play it
+              video.play();
+              animateVideoIn(video);
+            } else {
+              // Video is out of view, pause it
+              video.pause();
+            }
+          });
+        },
+        { threshold: 0.5 } // Adjust the threshold as needed
+      );
+    
+      toggleMuteButton.addEventListener('click', () => {
+        video.muted = !video.muted; // Toggle mute/unmute
+        const muteText = video.muted ? '🔇' : '🔊';
+        muteIcon.innerText = muteText;
+      });
+    
+      // Show play/pause button on mouseover
+      video.addEventListener('mouseover', () => {
+        playPauseButton.classList.remove('hidden');
+      });
+    
+      // Hide play/pause button on mouseout
+      video.addEventListener('mouseout', () => {
+        playPauseButton.classList.add('hidden');
+      });
+    
+    
+      function togglePlayPause() {
+        if (video.paused) {
+          video.play();
+          playPauseButton.innerHTML = '<span class="text-white text-3xl">⏸</span>';
+        } else {
+          video.pause();
+          playPauseButton.innerHTML = '<span class="text-white text-3xl">▶️</span>';
+        }
+      }
+    
+      observers.observe(scrollObserver);
+    
+    
+      const videos = document.getElementById('autoplayVideo');
+      const scrollObservers = document.getElementById('scrollObserver');
+    
+    
+      const observerss = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Video is in view, play it
+              videos.play();
+              animateVideoIn(videos);
+            } else {
+              // Video is out of view, pause it
+              videos.pause();
+            }
+          });
+        },
+        { threshold: 0.5 } // Adjust the threshold as needed
+      );
+    
+    
+    
+      observerss.observe(scrollObservers);
+     }
+    
+    
+        
+        </script>
 </body>
 
 </html>
